@@ -31,49 +31,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3021978" vertical-offset="1552" max-vertical-offset="6596">
+            <state vertical-scroll-proportion="-6.3461537" vertical-offset="1552" max-vertical-offset="6596">
               <caret line="110" column="23" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="password.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/auth/password.blade.php">
+      <file leaf-file-name="400.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/errors/400.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="493">
-              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="36" />
+            <state vertical-scroll-proportion="-5.3076925" vertical-offset="202" max-vertical-offset="748">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="passwords.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/passwords.blade.php">
+      <file leaf-file-name="500.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/errors/500.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1360">
-              <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-              <folding>
-                <marker date="1433447395626" expanded="true" signature="1446:1864" placeholder="{...}" />
-                <marker date="1433447395626" expanded="true" signature="1525:1680" placeholder="{...}" />
-                <marker date="1433447395626" expanded="true" signature="1697:1854" placeholder="{...}" />
-                <marker date="1433447395626" expanded="true" signature="1891:2257" placeholder="..." />
-                <marker date="1433447395626" expanded="true" signature="1915:2247" placeholder="..." />
-                <marker date="1433447395626" expanded="true" signature="1953:2233" placeholder="..." />
-                <marker date="1433447395626" expanded="true" signature="1963:2233" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/inspina/layouts/main.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2509" max-vertical-offset="4182">
-              <caret line="180" column="0" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.48300537" vertical-offset="189" max-vertical-offset="748">
+              <caret line="27" column="113" selection-start-line="27" selection-start-column="113" selection-end-line="27" selection-end-column="113" />
               <folding />
             </state>
           </provider>
@@ -89,8 +71,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/inspina/profile/school.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/inspina/partials/general_pagination.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/inspina/partials/previous_pins.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/inspina/timeline/partials/timeline.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/inspina/partials/previous_events.blade.php" />
@@ -140,6 +120,8 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/reset.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SchoolController.php" />
+        <option value="$PROJECT_DIR$/resources/views/errors/500.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/errors/400.blade.php" />
       </list>
     </option>
   </component>
@@ -239,7 +221,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="emails" />
+              <option name="myItemId" value="errors" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -344,7 +326,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="pas&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/Auth/PasswordController.php&#10;ma&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/config/mail.php&#10;user&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/layouts/user.blade.php&#10;main&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/layouts/main.blade.php&#10;mail&#9;FILE&#9;file://C:/wamp/www/skoolspace/config/mail.php&#10;userr&#9;null&#9;null&#10;notice&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/NoticeController.php&#10;st&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/partials/status.blade.php&#10;fe&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/home/feed.blade.php&#10;group&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Group.php&#10;sch&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/SchoolController.php&#10;file&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/File/FileRepository.php&#10;home&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/HomeController.php&#10;h&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/routes.php&#10;create_use&#9;FILE&#9;file://C:/wamp/www/skoolspace/database/migrations/2014_10_12_000000_create_users_table.php&#10;confirm&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/email/confirm.blade.php&#10;ind&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/timeline/index.blade.php&#10;eve&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/timeline/partials/event-modal.blade.php&#10;man&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/file/manager.blade.php&#10;notic&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/NoticeController.php&#10;filec&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/FileController.php&#10;gr&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Group.php&#10;Postable&#9;null&#9;null&#10;timeline&#9;null&#9;null&#10;tim&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/TimelineController.php&#10;noti&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Notice/NoticeRepository.php&#10;noticerepo&#9;null&#9;null&#10;Notice&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/NoticeController.php&#10;GR&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Group.php&#10;fo&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/File/FolderRepository.php&#10;Fi&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/File/FileRepository.php&#10;hom&#9;null&#9;null&#10;cl&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Client/ClientRepository.php&#10;cli&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/ClientController.php&#10;clien&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Client/ClientRepository.php&#10;fi&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/FileController.php&#10;noticec&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/NoticeController.php&#10;c&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Requests/CreateNoticeRequest.php&#10;clie&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Client/ClientRepository.php&#10;lo&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/school/auth/loginAndRegistration.blade.php&#10;schoo&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/SchoolController.php&#10;grou&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/GroupController.php&#10;Group&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/index/allGroups.blade.php&#10;groupP&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/partials/groupProfile.blade.php&#10;schoolc&#9;null&#9;null&#10;m&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/layouts/main.blade.php&#10;fil&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/FileController.php&#10;client&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/ClientController.php&#10; CLIEN&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/ClientController.php&#10;fol&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Folder.php" />
+    <property name="SearchEverywhereHistoryKey" value="sc&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/SchoolController.php&#10;pas&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/Auth/PasswordController.php&#10;ma&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/config/mail.php&#10;user&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/layouts/user.blade.php&#10;main&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/layouts/main.blade.php&#10;mail&#9;FILE&#9;file://C:/wamp/www/skoolspace/config/mail.php&#10;userr&#9;null&#9;null&#10;notice&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/NoticeController.php&#10;st&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/partials/status.blade.php&#10;fe&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/home/feed.blade.php&#10;group&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Group.php&#10;sch&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/SchoolController.php&#10;file&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/File/FileRepository.php&#10;home&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/HomeController.php&#10;h&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/routes.php&#10;create_use&#9;FILE&#9;file://C:/wamp/www/skoolspace/database/migrations/2014_10_12_000000_create_users_table.php&#10;confirm&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/email/confirm.blade.php&#10;ind&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/timeline/index.blade.php&#10;eve&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/timeline/partials/event-modal.blade.php&#10;man&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/file/manager.blade.php&#10;notic&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/NoticeController.php&#10;filec&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/FileController.php&#10;gr&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Group.php&#10;Postable&#9;null&#9;null&#10;timeline&#9;null&#9;null&#10;tim&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/TimelineController.php&#10;noti&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Notice/NoticeRepository.php&#10;noticerepo&#9;null&#9;null&#10;Notice&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/NoticeController.php&#10;GR&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Group.php&#10;fo&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/File/FolderRepository.php&#10;Fi&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/File/FileRepository.php&#10;hom&#9;null&#9;null&#10;cl&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Client/ClientRepository.php&#10;cli&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/ClientController.php&#10;clien&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Client/ClientRepository.php&#10;fi&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/FileController.php&#10;noticec&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/NoticeController.php&#10;c&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Requests/CreateNoticeRequest.php&#10;clie&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Client/ClientRepository.php&#10;lo&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/school/auth/loginAndRegistration.blade.php&#10;schoo&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/SchoolController.php&#10;grou&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/GroupController.php&#10;Group&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/index/allGroups.blade.php&#10;groupP&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/partials/groupProfile.blade.php&#10;schoolc&#9;null&#9;null&#10;m&#9;FILE&#9;file://C:/wamp/www/skoolspace/resources/views/inspina/layouts/main.blade.php&#10;fil&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/FileController.php&#10;client&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/ClientController.php&#10; CLIEN&#9;FILE&#9;file://C:/wamp/www/skoolspace/app/Http/Controllers/ClientController.php" />
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="Configurable.PHP.Blade" />
@@ -504,27 +486,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://F:/Projects/webapplayers.com/inspinia_admin-v1.9.2/form_advanced.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7174312" vertical-offset="0" max-vertical-offset="28322">
-          <caret line="23" column="76" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/inspina/timeline/partials/event-modal.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6862385" vertical-offset="0" max-vertical-offset="884">
-          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/inspina/timeline/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.6538463" vertical-offset="6" max-vertical-offset="578">
-          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Timeline/TimelineRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.66845876" vertical-offset="171" max-vertical-offset="799">
@@ -800,13 +761,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1360">
           <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
           <folding>
-            <marker date="1433447395626" expanded="true" signature="1446:1864" placeholder="{...}" />
-            <marker date="1433447395626" expanded="true" signature="1525:1680" placeholder="{...}" />
-            <marker date="1433447395626" expanded="true" signature="1697:1854" placeholder="{...}" />
-            <marker date="1433447395626" expanded="true" signature="1891:2257" placeholder="..." />
-            <marker date="1433447395626" expanded="true" signature="1915:2247" placeholder="..." />
-            <marker date="1433447395626" expanded="true" signature="1953:2233" placeholder="..." />
-            <marker date="1433447395626" expanded="true" signature="1963:2233" placeholder="{...}" />
+            <marker date="1433447395626" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433447395626" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433447395626" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433447395626" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433447395626" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433447395626" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433447395626" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -842,14 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SchoolController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58508605" vertical-offset="4573" max-vertical-offset="5338">
-          <caret line="295" column="26" selection-start-line="295" selection-start-column="26" selection-end-line="295" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27549195" vertical-offset="135" max-vertical-offset="697">
@@ -868,10 +821,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SchoolController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46703297" vertical-offset="4624" max-vertical-offset="5338">
+          <caret line="295" column="29" selection-start-line="294" selection-start-column="8" selection-end-line="295" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3021978" vertical-offset="1552" max-vertical-offset="6596">
+        <state vertical-scroll-proportion="-6.3461537" vertical-offset="1552" max-vertical-offset="6596">
           <caret line="110" column="23" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Projects/webapplayers.com/inspinia_admin-v1.9.2/500.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.384615" vertical-offset="189" max-vertical-offset="748">
+          <caret line="27" column="109" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Projects/webapplayers.com/inspinia_admin-v1.9.2/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31135532" vertical-offset="102" max-vertical-offset="833">
+          <caret line="16" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/errors/400.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3076925" vertical-offset="202" max-vertical-offset="748">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/errors/500.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48300537" vertical-offset="189" max-vertical-offset="748">
+          <caret line="27" column="113" selection-start-line="27" selection-start-column="113" selection-end-line="27" selection-end-column="113" />
           <folding />
         </state>
       </provider>
