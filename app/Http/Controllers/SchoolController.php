@@ -292,8 +292,8 @@ class SchoolController extends Controller {
         $user->active = 1;
         $user->code = '';
         $user->save();
-
-        return redirect('/login');
+        $this->auth->login($user);
+        return redirect('/');
     }
 /*_________________________________________________________________________________________________________*/
 /* School Messenger Routes */
