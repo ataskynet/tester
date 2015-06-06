@@ -28,7 +28,7 @@
                                 <div class="hr-line-dashed"></div>
                                 <div class="search-result">
                                 <h3><?php echo e($group->name); ?></h3>
-                                    <span class="search-link"><?php echo e($group->email); ?></span>
+                                    <span class="search-link"><?php echo e($group->school_affiliation); ?></span>
                                     <p>
                                         <?php echo e($group->description); ?>
 

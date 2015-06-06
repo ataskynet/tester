@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Post;
 class Group extends Model {
 
-	protected $fillable = [ 'user_id',  'group_id', 'username', 'name', 'description', 'email'];
+	protected $fillable = [ 'user_id',  'group_id', 'username', 'name', 'description', 'email', 'school_affiliation'];
 
 
     public function user()

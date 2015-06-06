@@ -29,7 +29,7 @@
                                 <div class="hr-line-dashed"></div>
                                 <div class="search-result">
                                 <h3>{{ $group->name }}</h3>
-                                    <span class="search-link">{{ $group->email }}</span>
+                                    <span class="search-link">{{ $group->school_affiliation }}</span>
                                     <p>
                                         {{ $group->description }}
                                          <br>
