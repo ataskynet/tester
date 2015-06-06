@@ -1,0 +1,49 @@
+<?php $__env->startSection('content'); ?>
+        <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row">
+         <?php echo $__env->make('inspina.partials.to_group_feed_nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php foreach($members as $member): ?>
+            <div class="col-lg-4">
+                <div class="contact-box">
+
+                    <div class="col-sm-4">
+                        <div class="text-center">
+                            <img alt="image" class="img-circle m-t-xs img-responsive" src="<?php echo e(asset($member->profileSource())); ?>">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <h3><strong><?php echo e($member->fullName()); ?></strong></h3>
+                        <p><i class="glyphicon glyphicon-pushpin"></i> <?php echo e($member->notices()->get()->count()); ?> &nbsp; &nbsp;  <i class="fa fa-folder-open"></i> <?php echo e($member->files()->get()->count()); ?></p>
+                        <address>
+                            <strong>Contact Info.</strong><br>
+                           <?php echo e($member->email); ?><br>
+                            <abbr title="Phone">P:</abbr> <?php echo e($member->telNumber); ?>
+
+                        </address>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <br>
+        <div class=" row col-md-12 text-center">
+            <?php echo $members->render() ?>
+        </div>
+
+        </div>
+        </div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+    <script>
+        $(document).ready(function(){
+            $('.contact-box').each(function() {
+                animationHover(this, 'pulse');
+            });
+        });
+    </script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('inspina.layouts.user', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

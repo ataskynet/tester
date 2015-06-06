@@ -15,11 +15,21 @@ class ClientController extends Controller
      * @var FileRepository
      */
     private $fileRepository;
+    /**
+     * @var Guard
+     */
+    private $auth;
 
-    function __construct(ClientRepository $repo, FileRepository $fileRepository)
+    /**
+     * @param ClientRepository $repo
+     * @param FileRepository $fileRepository
+     * @param Guard $auth
+     */
+    function __construct(ClientRepository $repo, FileRepository $fileRepository, Guard $auth)
     {
         $this->repo = $repo;
         $this->fileRepository = $fileRepository;
+        $this->auth = $auth;
     }
 
     public function index()
@@ -94,6 +104,14 @@ class ClientController extends Controller
 
         return redirect('/');
 
+    }
+
+    public function destroyUser()
+    {
+        $user = $this->user();
+        $this->auth->logout();
+        $user->delete();
+        return redirect('/login');
     }
     /*
     protected function getFailedLoginMessage()

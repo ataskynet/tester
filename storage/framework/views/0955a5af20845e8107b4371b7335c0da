@@ -1,10 +1,8 @@
-@extends('inspina.layouts.user')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="wrapper wrapper-content">
     <div class="row animated fadeInRight">
                     <div class="col-md-4">
-                       @include('inspina.partials.userProfile')
+                       <?php echo $__env->make('inspina.partials.userProfile', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                     </div>
                     <div class="col-md-8">
                         <div class="ibox float-e-margins">
@@ -30,8 +28,8 @@
                             </div>
                             <div class="ibox-content">
 
-                               <form action="{{ url( '/profile/update/') }}" method="post" enctype="multipart/form-data" >
-                                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                               <form action="<?php echo e(url( '/profile/update/')); ?>" method="post" enctype="multipart/form-data" >
+                                           <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
                                            <div>
 
                                                <div class=" row form-group ">
@@ -43,20 +41,20 @@
 
                                                <div class="row form-group">
                                                    <div class="col-md-12">
-                                                       <input name="email" type="email" class="form-control" placeholder="Group Name" disabled="true" value="{{$user->email}}" required = "required">
+                                                       <input name="email" type="email" class="form-control" placeholder="Group Name" disabled="true" value="<?php echo e($user->email); ?>" required = "required">
                                                    </div>
                                                </div>
                                                <div class="row form-group">
                                                    <div class="col-md-6">
-                                                       <input name="firstName" type="text" class="form-control" placeholder="Group's Email" value="{{$user->firstName}}" required = "required">
+                                                       <input name="firstName" type="text" class="form-control" placeholder="Group's Email" value="<?php echo e($user->firstName); ?>" required = "required">
                                                    </div>
                                                    <div class="col-md-6">
-                                                       <input name="lastName" type="text" class="form-control"  placeholder="Unique Username" value="{{$user->lastName}}" required = "required">
+                                                       <input name="lastName" type="text" class="form-control"  placeholder="Unique Username" value="<?php echo e($user->lastName); ?>" required = "required">
                                                    </div>
                                                </div>
                                                <div class="row form-group">
                                                    <div class="col-md-12">
-                                                       <input name="telNumber" type="text" class="form-control" placeholder="Group Name" value="{{$user->telNumber}}" required = "required">
+                                                       <input name="telNumber" type="text" class="form-control" placeholder="Group Name" value="<?php echo e($user->telNumber); ?>" required = "required">
                                                    </div>
                                                </div>
 
@@ -68,7 +66,7 @@
 
                                            </div>
                                            <div class="modal-footer">
-                                               <a href="{{url('/')}}" class="btn btn-default">Close</a>
+                                               <a href="<?php echo e(url('/')); ?>" class="btn btn-default">Close</a>
                                                <button type="submit" class="btn btn-info">Update</button>
                                            </div>
                                        </form>
@@ -76,9 +74,10 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <a href="{{url( '/profile/destroy')}}" class="btn btn-danger btn-sm btn-block"><i class="fa fa-"></i> Delete skoolspace profile</a>
+                            <a href="<?php echo e(url( '/profile/destroy')); ?>" class="btn btn-danger btn-sm btn-block"><i class="fa fa-"></i> Delete skoolspace profile</a>
                         </div>
                     </div>
                 </div>
             </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('inspina.layouts.user', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

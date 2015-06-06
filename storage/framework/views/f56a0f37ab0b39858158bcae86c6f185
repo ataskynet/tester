@@ -1,9 +1,7 @@
-@extends('inspina.layouts.main')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="wrapper wrapper-content">
-        <form action="{{ url('create/group') }}" method="post"  id="createschoolform">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <form action="<?php echo e(url('create/group')); ?>" method="post"  id="createschoolform">
+            <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
             <div>
                 <div class="row form-group">
                     <div class="col-md-6">
@@ -32,14 +30,14 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="{{url('/')}}" class="btn btn-default">Close</a>
+                <a href="<?php echo e(url('/')); ?>" class="btn btn-default">Close</a>
                 <button type="button" id="createschoolbtn" class="btn btn-info">Create</button>
             </div>
         </form>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('validation')
+<?php $__env->startSection('validation'); ?>
 $("#createschoolbtn").click(function()
                     {
                         if(!validateText("email"))
@@ -55,4 +53,5 @@ $("#createschoolbtn").click(function()
                         $('form#createschoolform').submit();
 
                     })
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('inspina.layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,6 +1,8 @@
 <div class="ibox float-e-margins">
     <div class="ibox-title">
+    <b>
         {{ $group->name }} Features:
+    </b>
     </div>
                             <div class="ibox-content">
                                 <div class="file-manager">
@@ -8,6 +10,7 @@
                                     <ul class="folder-list" style="padding: 0">
                                         <li><a href="{{$group->username .'/events'}}"><i class="fa fa-calendar-o"></i> Events <i class="badge badge-default pull-right">{{ $group->events()->get()->count() }}</i></a></li>
                                         <li><a href="{{$group->username.'/notice'}}"><i class="glyphicon glyphicon-pushpin"></i> Notices <i class="badge badge-default pull-right">{{ $group->notices()->get()->count() }}</i></a></li>
+                                        <li><a href="{{$group->username.'/contacts'}}"><i class="fa fa-group"></i> Members <i class="badge badge-default pull-right">{{ $group->followersCount() }}</i></a></li>
 
                                     </ul>
                                 </div>
@@ -16,7 +19,9 @@
 
 <div class="ibox float-e-margins">
     <div class="ibox-title">
-        File Manager
+        <b>
+            File Manager
+        </b>
     </div>
                             <div class="ibox-content">
                                 <div class="file-manager">

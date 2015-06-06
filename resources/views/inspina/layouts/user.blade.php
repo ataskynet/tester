@@ -87,8 +87,8 @@
 
                                 <li>
                                     <div class="dropdown-messages-box">
-                                        <a href="{{ $group->username }}" class="pull-left">
-                                            <img alt="image" class="img-circle img-responsive" src="{{ $group->profileSource() }}">
+                                        <a href="{{url($group->username) }}" class="pull-left">
+                                            <img alt="image" class="img-circle img-responsive" src="{{ asset($group->profileSource()) }}">
                                         </a>
                                         <div class="media-body">
 
@@ -212,7 +212,7 @@
 <script>
     $('#flash-overlay-modal').modal();
 </script>
-
+@yield('script')
 
 </body>
 

@@ -21,7 +21,9 @@
                                     @include('inspina.partials.status', ['statuses' => $group->paginatedPosts()])
                                 </div>
 
-                                @include('inspina.partials.previous_feed_button', ['statuses' => $group->paginatedPosts()])
+                                <div class="text-center">
+                                    <?php echo $group->paginatedPosts()->render() ?>
+                                </div>
 
                             </div>
 

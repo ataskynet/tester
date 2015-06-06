@@ -18,7 +18,9 @@
                                     <?php echo $__env->make('inspina.partials.status', ['statuses' => $group->paginatedPosts()], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                 </div>
 
-                                <?php echo $__env->make('inspina.partials.previous_feed_button', ['statuses' => $group->paginatedPosts()], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                <div class="text-center">
+                                    <?php echo $group->paginatedPosts()->render() ?>
+                                </div>
 
                             </div>
 

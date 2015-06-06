@@ -66,15 +66,20 @@ class FollowController extends Controller {
         return redirect($group->username);
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
+    /**
+     * Display the specified resource.
+     *
+     * @param $group
+     * @internal param int $id
+     * @return Response
+     */
+	public function show($group)
 	{
-		//
+        $title = $group->name .' Members';
+        $members = $this->clientRepository->paginatedMembersOfGroup($group);
+
+        return view('inspina.followers.index', compact('members','title', 'group'));
+
 	}
 
 	/**

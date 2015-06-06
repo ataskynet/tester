@@ -18,6 +18,11 @@ class ClientRepository
 		
 	}
 
+    public function paginatedMembersOfGroup($group, $howMany = 9)
+    {
+        return $group->followers()->paginate($howMany);
+    }
+
 	Public function retrieveClient($school, $user)
 	{
 		return Client::where('username', $school->username)->where('user_id', $user->id)->first();

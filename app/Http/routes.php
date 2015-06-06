@@ -225,7 +225,10 @@ Route::get('/test/reset',function()
     /* End Client Routes */
 /* End Notice Routes */
 
+/* Group Followers */
+    Route::get('/{username}/contacts',  ['middleware' => 'school', 'uses' => 'FollowController@show']);
 
+/* End Group Followers */
 /* Group Routes */ 
     /* School Routes */
 
@@ -252,6 +255,7 @@ Route::get('/test/reset',function()
     Route::post('/login', 'SchoolController@postLogin');
     Route::get('/logout', 'SchoolController@getLogout');
     Route::get('/profile/update', 'ClientController@edit');
+    Route::get('/profile/destroy', 'ClientController@destroyUser');
     Route::post('/profile/update', 'ClientController@update');
     Route::get('/patch/', 'ClientController@getPatchClient');
     Route::post('/patch/', 'ClientController@postPatchClient');

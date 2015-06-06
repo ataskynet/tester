@@ -86,8 +86,8 @@
 
                                 <li>
                                     <div class="dropdown-messages-box">
-                                        <a href="<?php echo e($group->username); ?>" class="pull-left">
-                                            <img alt="image" class="img-circle img-responsive" src="<?php echo e($group->profileSource()); ?>">
+                                        <a href="<?php echo e(url($group->username)); ?>" class="pull-left">
+                                            <img alt="image" class="img-circle img-responsive" src="<?php echo e(asset($group->profileSource())); ?>">
                                         </a>
                                         <div class="media-body">
 
@@ -210,7 +210,7 @@
 <script>
     $('#flash-overlay-modal').modal();
 </script>
-
+<?php echo $__env->yieldContent('script'); ?>
 <script>
             function validateText(id)
             {

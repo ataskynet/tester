@@ -1,7 +1,7 @@
-<div class="ibox float-e-margins">
-    <div class="ibox-title">
-        Followed Groups
-    </div>
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                Followed Groups
+                            </div>
                             <div class="ibox-content">
                                 <div class="file-manager">
 
