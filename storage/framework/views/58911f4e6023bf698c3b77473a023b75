@@ -42,7 +42,11 @@
                                     <br>
                                     <p align="center">
                                     <?php if(!$group->isFollowedBy(\Auth::user())): ?>
+                                        <?php if($group->isPublic()): ?>
                                         <a href="<?php echo e(url($group->username . '/join/group')); ?>" class="btn btn-rounded btn-primary btn-outline">Join Group</a>
+                                        <?php else: ?>
+                                        <a href="<?php echo e(url($group->username . '/send/request')); ?>" class="btn btn-rounded btn-primary btn-outline">Request Admission</a>
+                                        <?php endif; ?>
                                     <?php else: ?>
                                     <?php if(!$group->isOwner(\Auth::user())): ?>
                                         <a href="<?php echo e(url($group->username . '/leave/group')); ?>" class="btn btn-rounded btn-danger btn-outline">Leave Group</a>

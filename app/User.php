@@ -79,7 +79,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         if($profile != null)
             return $profile->source;
 
-        return 'uploads/images/default/prof5.png';
+        return 'uploads/images/default/avatar.png';
     }
 
     public function attend()

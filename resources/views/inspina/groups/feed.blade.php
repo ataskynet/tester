@@ -31,7 +31,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-3 pull-right">
+                <div class="col-md-3 col-xs-12 pull-right">
                     @include('inspina.partials.group_features')
                 </div>
             </div>

@@ -78,4 +78,12 @@ class ClientRepository
             'telNumber' => $request->telNumber,
         ])->save();
     }
+
+    public function deactivateUser($user)
+    {
+        $user->active = 0;
+        $user->code = str_random(90);
+        $user->save();
+        return $user;
+    }
 }

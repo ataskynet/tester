@@ -110,7 +110,7 @@ class ClientController extends Controller
     {
         $user = $this->user();
         $this->auth->logout();
-        $user->delete();
+        $this->repo->deactivateUser($user);
         return redirect('/login');
     }
     /*

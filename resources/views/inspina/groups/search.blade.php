@@ -42,7 +42,11 @@
                                     <br>
                                     <p align="center">
                                     @if(!$group->isFollowedBy(\Auth::user()))
+                                        @if($group->isPublic())
                                         <a href="{{ url($group->username . '/join/group') }}" class="btn btn-rounded btn-primary btn-outline">Join Group</a>
+                                        @else
+                                        <a href="{{ url($group->username . '/send/request') }}" class="btn btn-rounded btn-primary btn-outline">Request Admission</a>
+                                        @endif
                                     @else
                                     @if(!$group->isOwner(\Auth::user()))
                                         <a href="{{ url($group->username . '/leave/group') }}" class="btn btn-rounded btn-danger btn-outline">Leave Group</a>

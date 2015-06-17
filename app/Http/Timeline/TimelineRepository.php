@@ -5,6 +5,7 @@
 */
 use App\Chatroom;
 use App\Event;
+use App\Http\Mail\GroupMailer;
 use App\Http\Traits\Postable;
 use App\School;
 
@@ -16,11 +17,16 @@ class TimelineRepository
     use Postable;
 
 	protected $school;
-	
-	function __construct(School $school)
+    /**
+     * @var GroupMailer
+     */
+    private $groupMailer;
+
+    function __construct(School $school, GroupMailer $groupMailer)
 	{
 		$this->school = $school;
-	}
+        $this->groupMailer = $groupMailer;
+    }
 
 	public function createEvent($request, $group, $user)
 	{
@@ -44,6 +50,7 @@ class TimelineRepository
         $message =  'A new Event was created on ' .$group->name . ' Titled: ' . $request->title ;
         $url = $event->id.'/events/profile';
         $this->post($message , $group, $url);
+        $this->groupMailer->sendNewEventNotification($group, $event, $url);
         return $event;
 	}
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\SearchRequest;
 use Illuminate\Http\Request;
+use App\Request as RequestClass;
 
 class FollowController extends Controller {
     /**
@@ -55,14 +56,48 @@ class FollowController extends Controller {
         return view('inspina.groups.search', compact('groups', 'title', 'tagline'));
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
+    /**
+     * This stores a admission request for the new group
+     * @param $group
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function createRequest($group)
+    {
+        RequestClass::create([
+            'group_id' => $group->id,
+            'user_id' => \Auth::user()->id,
+        ]);
+
+        return redirect('/')->with('message', 'The admission request has been sent to '. $group->name .' administrator !');
+    }
+
+    public function storeRequest($request)
+    {
+        if(!($request->group()->isFollowedBy($request->user())))
+        {
+            $this->clientRepository->clientJoin($request->group(), $request->user());
+            $request->delete();
+            return redirect($request->group()->username)->with('message', 'The User has been added to this group.');
+        }
+
+        $request->delete();
+        return redirect($request->group()->username);
+
+    }
+
+    /**
+     * Store a newly created member for a public group.
+     *
+     * @param $group
+     * @return Response
+     */
 	public function store($group)
 	{
-        $this->clientRepository->clientJoin($group, $this->user());
+        if(!($group->isFollowedBy(\Auth::user())))
+        {
+            $this->clientRepository->clientJoin($group, $this->user());
+        }
+
         return redirect($group->username);
 	}
 
@@ -82,28 +117,6 @@ class FollowController extends Controller {
 
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
     /**
      * Remove the specified resource from storage.
      *
@@ -117,6 +130,12 @@ class FollowController extends Controller {
         return redirect('/');
 	}
 
+    public function destroyRequest($request)
+    {
+        $request->delete();
+        return redirect()->back()->with('message', 'The user admission request has been deleted.');
+    }
+
     /**
      * * Funtion for searching through the group records.
      * @param SearchRequest $request
@@ -129,5 +148,7 @@ class FollowController extends Controller {
         $tagline = 'Results('.$groups->count().') for "'.$request->value.'"';
         return view('inspina.groups.search', compact('groups', 'title', 'tagline'));
     }
+
+
 
 }

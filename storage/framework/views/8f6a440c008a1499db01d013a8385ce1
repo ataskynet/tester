@@ -28,7 +28,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-3 pull-right">
+                <div class="col-md-3 col-xs-12 pull-right">
                     <?php echo $__env->make('inspina.partials.group_features', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                 </div>
             </div>

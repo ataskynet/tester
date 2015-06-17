@@ -34,7 +34,7 @@ Route::bind('id' , function($id)
 Route::bind('username' , function($name)
 {
     /** @var int $id */
-    return App\Group::where('username',$name)->first();
+    return App\Group::findOrFailByUsername($name);
 });
 
 Route::bind('mail' , function($id)
@@ -76,7 +76,7 @@ Route::bind('notice' , function($id)
 Route::bind('group' , function($username)
 {
     /** @var int $id */
-    return App\Group::where('username', $username)->first();
+    return App\Group::findOrFailByUsername($username)->first();
 });
 
 Route::bind('folder' , function($id)
@@ -95,6 +95,12 @@ Route::bind('code' , function($code)
 {
     /** @var int $code */
     return App\User::where('code', $code)->first();
+});
+
+Route::bind('request' , function($id)
+{
+    /** @var int $id */
+    return App\Request::find($id);
 });
 
 /**Route::bind('school' , function($school)
@@ -239,6 +245,9 @@ Route::get('/test/reset',function()
         Route::post('/group/search',  ['middleware' => 'school', 'uses' => 'FollowController@search']);
         Route::get('/join/group',  ['middleware' => 'school', 'uses' => 'FollowController@store']);
         Route::get('{username}/join/group',  ['middleware' => 'school', 'uses' => 'FollowController@store']);
+        Route::get('{username}/send/request',  ['middleware' => 'school', 'uses' => 'FollowController@createRequest']);
+        Route::get('{request}/confirm/request',  ['middleware' => 'school', 'uses' => 'FollowController@storeRequest']);
+        Route::get('{request}/trash/request',  ['middleware' => 'school', 'uses' => 'FollowController@destroyRequest']);
         Route::get('{username}/leave/group',  ['middleware' => 'school', 'uses' => 'FollowController@destroy']);
         Route::get('/mygroups',  ['middleware' => 'school', 'uses' => 'FollowController@index']);
 

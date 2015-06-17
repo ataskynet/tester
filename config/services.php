@@ -15,7 +15,7 @@ return [
 	*/
 
 	'mailgun' => [
-        'domain' => 'mg.skoolspace.com',
+        'domain' => 'sandbox732e2dde860941db8fccb36f5755ec5c.mailgun.org',
         'secret' => 'key-2677b7be98b3b2cb6edb50e2f529e5db',
 	],
 

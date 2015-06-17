@@ -40,6 +40,11 @@ class HomeController extends Controller {
         $this->mailer = $mailer;
     }
 
+    public function returnProfilePicture($email){
+        $user = User::where('email', $email)->first();
+
+        return $user->profileSource();
+    }
 	/**
 	 * Show the application dashboard to the user.
 	 *

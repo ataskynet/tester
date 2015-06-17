@@ -1,10 +1,14 @@
 <?php namespace App;
 
+use App\Exceptions\SkoolspaceModelNotFoundException;
 use Illuminate\Database\Eloquent\Model;
 use App\Post;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 class Group extends Model {
 
-	protected $fillable = [ 'user_id',  'group_id', 'username', 'name', 'description', 'email', 'school_affiliation'];
+	protected $fillable = [ 'user_id',  'group_id', 'username', 'name', 'description', 'email', 'school_affiliation', 'type'];
+
 
 
     public function user()
@@ -66,7 +70,7 @@ class Group extends Model {
         if($profile != null)
 
             return $profile->source;
-        return 'uploads/images/default/prof5.png';
+        return 'uploads/images/default/avatar.png';
     }
 
     public function folders()
@@ -101,4 +105,27 @@ class Group extends Model {
         return $query->where($field, 'LIKE', "%$value%");
     }
 
+    public static function scopeFindOrFailByUsername($query, $username)
+    {
+
+        if($username == '')
+            return null;
+        $group = $query->where('username', $username)->first();
+
+        if($group == null )
+            throw (new SkoolspaceModelNotFoundException);
+        return $group;
+    }
+
+    public function isPublic()
+    {
+        if($this->type == 1)
+            return false;
+        return true;
+    }
+
+    public function sentRequests()
+    {
+        return Request::where('group_id', $this->id)->get();
+    }
 }

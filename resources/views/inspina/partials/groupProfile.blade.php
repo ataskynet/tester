@@ -1,7 +1,14 @@
-<div class="col-md-3" style="padding: ">
+<div class="col-md-3">
      <div class="ibox float-e-margins">
                             <div class="ibox-title">
                                 <h5>{{$group->name}}</h5>
+                                <span class="badge badge-info pull-right">
+                                    @if($group->type == 1)
+                                        Private
+                                    @else
+                                        Public
+                                    @endif
+                                </span>
                             </div>
                             <div>
                                 <div class="ibox-content no-padding border-left-right">
@@ -34,6 +41,9 @@
                                 </div>
                             </div>
                         </div>
+                       @if(!($group->isPublic()))
+                            @include('inspina.partials.requests', ['user' => \Auth::user()])
+                       @endif
 
 
 

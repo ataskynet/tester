@@ -30,6 +30,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="row form-group">
+                <label class="col-sm-2 control-label">Type of group:</label>
+                    <div class="col-sm-10">
+                        <label class="checkbox-inline">
+                            <input type="radio" value="1" id="inlineCheckbox1" name="type" > Private
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" value="0" id="inlineCheckbox2" name="type" checked> Public
+                        </label>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <a href="{{url('/')}}" class="btn btn-default">Close</a>

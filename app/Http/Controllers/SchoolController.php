@@ -110,10 +110,7 @@ class SchoolController extends Controller {
         }
         $user  = $this->newUser($request->all(), $activationCode);
 
-
-        $this->auth->login($user);
-
-        //$this->mailer->sendConfirmationMailTo($this->user(), $activationCode);
+        $this->mailer->sendConfirmationMailTo($user, $activationCode);
 
         return redirect('/notActivated');
     }
@@ -142,10 +139,6 @@ class SchoolController extends Controller {
 
         $user = User::where('email', $request->email)->where('password',  bcrypt($request->password))->first();
 
-
-
-
-
         $credentials = $request->only('email', 'password');
 
         if ($this->auth->attempt($credentials, $request->has('remember')))
@@ -154,7 +147,7 @@ class SchoolController extends Controller {
 
             if($active != 1){
                 $this->auth->logout();
-                return redirect('/notActivated');
+                return $this->getNotActivated($user);
             }
             return redirect()->intended($this->redirectPath());
         }
@@ -165,7 +158,11 @@ class SchoolController extends Controller {
                 'email' => $this->getFailedLoginMessage(),
             ]);
     }
-
+    public function getNotActivated($user)
+    {
+        $this->mailer->sendConfirmationMailTo($this->user(), $this->user()->code);
+        return redirect('/notActivated');
+    }
     /**
      * Get the failed login message.
      *

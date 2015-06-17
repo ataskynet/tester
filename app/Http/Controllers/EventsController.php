@@ -48,7 +48,7 @@ class EventsController extends Controller {
 	{
         $title = "Events";
         $events = $this->repo->eventsForGroup($group);
-        return view('inspina.events.index', compact('events','title','group'));
+        return view('inspina.events.home', compact('events','title','group'));
 	}
 
 	/**
