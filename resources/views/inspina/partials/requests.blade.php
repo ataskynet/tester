@@ -1,6 +1,6 @@
                      @if(!($group->isPublic()))
                         <div class="ibox float-e-margins">
-                            <div class="ibox-title">
+                            <div class="ibox-title ultra-skin" style="color: #ffffff;">
                                 <span class="fa fa-inbox"></span> Member Requests
                             </div>
                             <div class="ibox-content">

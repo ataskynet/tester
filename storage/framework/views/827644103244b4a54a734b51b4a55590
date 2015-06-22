@@ -1,6 +1,6 @@
  <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5><?php echo e($user->firstName); ?> <?php echo e($user->lastName); ?></h5>
+                        <div class="ibox-title blue-skin" style="color: #ffffff;">
+                            <h5>Welcome, <?php echo e($user->firstName); ?> <?php echo e($user->lastName); ?></h5>
                         </div>
                         <div>
                             <div class="ibox-content no-padding border-left-right">

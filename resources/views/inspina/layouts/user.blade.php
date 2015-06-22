@@ -45,21 +45,22 @@
                         </a>
                     </li>
                     <li>
-                          <a href="" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                   <!--       <a href="" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                           <i class="glyphicon glyphicon-calendar"></i>
                             Events <span class="caret"></span>
                           </a>
                           <ul class="dropdown-menu" role="menu">
-                           @foreach(\Auth::user()->follows()->get() as $group)
-                             <li><a href="{{ url($group->username, 'events') }}">{{ $group->name }} &nbsp; <span class="badge badge-info test-right">{{ $group->events()->count() }}</span></a></li>
-                           @endforeach
+                           foreach(\Auth::user()->follows()->get() as $group)
+                             <li><a href=" url($group->username, 'events') }}">{$group->name }} &nbsp; <span class="badge badge-info test-right">{
+                              $group->events()->count() }}</span></a></li>
+                           endforeach
                                 <li class="text-center">
                                  <div class="text-center link-block">
-                                    <a href="{{ url('/events/attending') }}"><i class="fa fa-calendar-o"></i> Attending Events <span class="badge badge-danger text-right"> {{ \Auth::user()->attend()->get()->count() }}</span></a>
+                                    <a href="{ url('/events/attending') }}"><i class="fa fa-calendar-o"></i> Attending Events <span class="badge badge-danger text-right"> { \Auth::user()->attend()->get()->count() }}</span></a>
                                  </div>
                                 </li>
                           </ul>
-                    </li>
+                    </li> -->
                     <li>
                           <a href="" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                           <i class="glyphicon glyphicon-pushpin"></i>
@@ -208,7 +209,9 @@
 
        <!-- Input Mask-->
         <script src="{{ asset('/inspina/js/plugins/jasny/jasny-bootstrap.min.js') }}"></script>
-
+<script>
+    $('#messenger').delay(3000).slideUp(300);
+</script>
 <script>
     $('#flash-overlay-modal').modal();
 </script>

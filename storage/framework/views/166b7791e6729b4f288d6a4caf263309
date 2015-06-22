@@ -8,11 +8,9 @@
                 </div>
                 <div class="col-md-6">
                     <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Group Activites</h5>
-                            <div class="ibox-tools">
+                        <div class="ibox-title" >
+                            <h5>Group Activities</h5>
 
-                            </div>
                         </div>
                         <div class="ibox-content">
 

@@ -1,6 +1,7 @@
 <?php namespace App\Http\File;
 
 use App\File;
+use App\Http\Mail\GroupMailer;
 use App\Http\Traits\Postable;
 
 class FileRepository
@@ -8,12 +9,27 @@ class FileRepository
 
     use Postable;
 
+
     protected $profileTypes = [
         'png', 'jpg', 'jpeg', 'jpe'
     ];
+    /**
+     * @var
+     */
+    private $groupMailer;
+
+    /**
+     * @param GroupMailer $groupMailer
+     */
+    function __construct(GroupMailer $groupMailer)
+    {
+
+        $this->groupMailer = $groupMailer;
+    }
 
     public function uploadGroupDocument($file, $location, $folder, $type, $requestName)
     {
+
 
         $group = $folder->group()->first();
         if($requestName == null)
@@ -25,7 +41,7 @@ class FileRepository
             $name = $fileName.'.'.$type;
         }
         $rand = $this->randomFileName();
-        $actualName = $rand . '.' . $type;
+        $actualName = $name . '#'. $rand . '.' . $type;
 
         $tmpName = $file['file']['tmp_name'];
         $destination = 'uploads/' . $location . '/' . $actualName;
@@ -45,6 +61,51 @@ class FileRepository
         $message = 'New document: ' . $name . ' uploaded to Folder: ' . $folder->name .' by '.\Auth::user()->firstName.' '.\Auth::user()->lastName;
         $url = '/manager/'.$group->username.'/'.$folder->id;
         $this->post($message, $group, $url);
+        $this->groupMailer->sendFileUploadNotification($group, $url);
+        return true;
+
+    }
+
+    /**
+     * @param $file
+     * @param $location
+     * @param $folder
+     * @param $type
+     * @param $requestName
+     * @return bool
+     */
+    public function uploadPersonalDocument($file, $location, $folder, $type, $requestName)
+    {
+
+        if($requestName == null)
+            $name = $file['file']['name'];
+        else
+        {
+            $fileName = preg_replace("([^\w\s\d\-_~,;:\[\]\(\].]|[\.]{2,})", '', $requestName);
+            $fileName = filter_var($fileName, FILTER_SANITIZE_URL);
+            $name = $fileName.'.'.$type;
+        }
+        $rand = $this->randomFileName();
+        $actualName = $name.$rand . '.' . $type;
+
+        $tmpName = $file['file']['tmp_name'];
+        $destination = 'uploads/' . $location . '/' . $actualName;
+
+        if (!move_uploaded_file($tmpName, $destination)) {
+            return false;
+        }
+
+        $file = File::create([
+            'name' => $name,
+            'type' => $type,
+            'rand' => $rand,
+            'source' => $destination,
+            'folder_id' => '0',
+            'user_id' => \Auth::user()->id,
+        ]);
+
+        $folder->files()->attach($file->id);
+
         return true;
 
     }

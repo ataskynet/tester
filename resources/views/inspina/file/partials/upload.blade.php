@@ -4,9 +4,9 @@
                                     <div class="modal-content animated bounceInRight">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                                <i class="fa fa-laptop modal-icon"></i>
+                                                <i class="fa fa-upload modal-icon"></i>
                                                 <h4 class="modal-title">Upload New File</h4>
-                                                <small class="font-bold">Only images and documents to be shared ( Maximum file size: 24mb ).</small>
+                                                <small class="font-bold">Only images and documents to be shared ( Maximum file size: 100mb ).</small>
                                             </div>
                                             <form action="{{ url('manager/upload',$folder->id) }}" method="POST" id="uploadfileform" enctype="multipart/form-data">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

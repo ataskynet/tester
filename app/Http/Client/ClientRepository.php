@@ -55,7 +55,11 @@ class ClientRepository
 
 	public function clientJoin($group, $user)
 	{
-		return $user->follows()->attach($group->id);
+        if(!($group->isFollowedBy($user)))
+        {
+            $user->follows()->attach($group->id);
+        }
+        return $user;
 	}
 
 	public function clientsForUser($user)

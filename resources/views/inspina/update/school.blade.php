@@ -37,7 +37,7 @@
                                                       <input name="name" type="text" class="form-control" placeholder="Group Name" value="{{$group->name}}" required = "required">
                                                   </div>
                                                 <div class="col-md-6">
-                                                    <input name="school_affiliation" id="school" type="text" class="form-control" placeholder="From Which school?" required = "required">
+                                                    <input name="school_affiliation" id="school" type="text" class="form-control" placeholder="From Which school?" value="{{ $group->school_affiliation }}" required = "required">
                                                 </div>
                                               </div>
                                               <div class="row form-group">

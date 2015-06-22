@@ -1,1 +1,0 @@
-<a href="<?php echo e(url('/')); ?>" class="col-md-12 btn btn-block btn-primary">Back To News Feed</a>

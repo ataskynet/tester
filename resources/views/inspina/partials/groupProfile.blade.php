@@ -1,6 +1,6 @@
 <div class="col-md-3">
      <div class="ibox float-e-margins">
-                            <div class="ibox-title">
+                            <div class="ibox-title ultra-skin" style="color: #ffffff;">
                                 <h5>{{$group->name}}</h5>
                                 <span class="badge badge-info pull-right">
                                     @if($group->type == 1)
@@ -41,8 +41,10 @@
                                 </div>
                             </div>
                         </div>
-                       @if(!($group->isPublic()))
-                            @include('inspina.partials.requests', ['user' => \Auth::user()])
+                       @if($group->isOwner(\Auth::user()))
+                           @if(!($group->isPublic()))
+                                @include('inspina.partials.requests', ['user' => \Auth::user()])
+                           @endif
                        @endif
 
 

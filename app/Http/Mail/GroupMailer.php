@@ -5,42 +5,28 @@ use Illuminate\Support\Facades\Mail;
 
 class GroupMailer {
 
-    public function sendFileUploadNotification($group, $file)
+    public function sendFileUploadNotification($group,  $url)
     {
+        $counter = 5;
+
         foreach($group->followers()->get() as $user)
         {
             $data = [
                 'name' => $user->fullName(),
                 'groupName' => $group->name,
+                'link' => $url,
             ];
 
-            Mail::send('inspina.email.upload_file', $data, function($message) use ($user, $file)
+            Mail::later($counter, 'inspina.email.new_file', $data, function($message) use ($user)
             {
-                $message->to($user->email, $user->fullName())->subject('New File has been shared.');
+                $message->to($user->email, $user->fullName())->subject('New File Uploaded.');
 
-                $message->attach($file->source());
             });
+
+            $counter++;
         }
     }
 
-    public function sendNewEventNotification($group,$event ,$link)
-    {
 
-            $data =  [
-                'groupName' => $group->name,
-                'event_name' => $event->name,
-                'event_description' => $event->description,
-                'link' => $link,
-            ];
-
-            Mail::send('inspina.email.new_event', $data, function($message) use ($group)
-            {
-                foreach($group->followers()->get() as $user)
-                {
-                    $message->to($user->email, $user->fullName())->subject('New Event Has Been Created.');
-                }
-
-            });
-        }
 
 } 

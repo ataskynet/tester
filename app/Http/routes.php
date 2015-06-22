@@ -76,13 +76,19 @@ Route::bind('notice' , function($id)
 Route::bind('group' , function($username)
 {
     /** @var int $id */
-    return App\Group::findOrFailByUsername($username)->first();
+    return App\Group::findOrFailByUsername($username);
 });
 
 Route::bind('folder' , function($id)
 {
     /** @var int $id */
     return App\Folder::find($id);
+});
+
+Route::bind('userFolder' , function($id)
+{
+    /** @var int $id */
+    return App\UserFolder::find($id);
 });
 
 Route::bind('file' , function($id)
@@ -126,33 +132,10 @@ Route::get('/test/reset',function()
 
 /* Joining groups routes ends here*/
 
-/* Community Routes */
-    /* School Routes */
-        Route::get('/admin',  ['middleware' => 'school', 'uses' => 'HomeController@admin']);
-        Route::get('/admin/community',  ['middleware' => 'school', 'uses' => 'ForumController@adminIndex']);
-        Route::get('/{username}/admin/{subject}/community/',  ['middleware' => 'school', 'uses' => 'ForumController@adminChat']);
-        Route::post('/{username}/{subject}/admin/community',  ['middleware' => 'school', 'uses' => 'ForumController@postAdminChat']);
-    /* End School Routes */
-
-    /* Client Routes */
-        Route::get('/community',  ['middleware' => 'school', 'uses' => 'ForumController@clientIndex']);
-        Route::get('/{username}/{subject}/community/',  ['middleware' => 'school', 'uses' => 'ForumController@clientShow']);
-        Route::post('/community/{client}/{subject}',  ['middleware' => 'school', 'uses' => 'ForumController@postClientChat']);
-        
-    /* End CLient Routes */
-/* End Community Routes */
 
 
-/* Chat Routes */
-    /* Client Routes */
-        Route::get('/chats', ['middleware' => 'school', 'uses' => 'ChatController@index']);
-        Route::get('/chat/{client}/home', ['middleware' => 'school', 'uses' => 'ChatController@show']);
-        Route::get('/{client}/chat/{recipient}', ['middleware' => 'school', 'uses' => 'ChatController@create']);
-        Route::post('/{client}/chat/{recipient}', ['middleware' => 'school', 'uses' => 'ChatController@store']);
+/* End Back Pack Routes */
 
-    /* End Client Rotes */
-
-/* End Chat Routes */
 
 /* File Manager Routes */
     /* Client Routes */
@@ -186,36 +169,6 @@ Route::get('/test/reset',function()
     /* End School Routes */
 
 
-/* Events Routes */
-    /* School Routes */
-        Route::get('/admin/events',  ['middleware' => 'school', 'uses' => 'TimelineController@admin']);
-        Route::get('/admin/{username}/events',  ['middleware' => 'school', 'uses' => 'TimelineController@create']);
-        Route::post('/admin/{username}/events',  ['middleware' => 'school', 'uses' => 'TimelineController@store']);
-        Route::get('/events/update/{event}',  ['middleware' => 'school', 'uses' => 'TimelineController@edit']);
-        Route::post('/events/update/{event}',  ['middleware' => 'school', 'uses' => 'TimelineController@update']);
-        Route::get('/events/destroy/{event}',  ['middleware' => 'school', 'uses' => 'TimelineController@destroy']);
-
-    /* End School Routes */
-
-    /* Client Routes */
-        Route::get('/{username}/events',  ['middleware' => 'school', 'uses' => 'EventsController@index']);
-        Route::get('/{username}/events/create',  ['middleware' => 'school', 'uses' => 'EventsController@create']);
-        Route::post('/{username}/events/create',  ['middleware' => 'school', 'uses' => 'EventsController@store']);
-        Route::post('/{username}/events/search',  ['middleware' => 'school', 'uses' => 'EventsController@search']);
-        Route::get('/{event}/events/update',  ['middleware' => 'school', 'uses' => 'EventsController@edit']);
-        Route::get('/{event}/events/destroy',  ['middleware' => 'school', 'uses' => 'EventsController@destroy']);
-        Route::post('/{event}/events/update',  ['middleware' => 'school', 'uses' => 'EventsController@update']);
-        Route::post('/event/file/{folder}',  ['middleware' => 'school', 'uses' => 'EventsController@storeFile']);
-        Route::post('/{event}/event/chat/store',  ['middleware' => 'school', 'uses' => 'EventsController@storeMessage']);
-        Route::get('{event}/events/profile',  ['middleware' => 'school', 'uses' => 'EventsController@show']);
-        Route::get('{event}/events/attend',  ['middleware' => 'school', 'uses' => 'EventsController@attend']);
-        Route::get('/events/attending',  ['middleware' => 'school', 'uses' => 'EventsController@getUserAttendingEvents']);
-        Route::post('/events/attending/search',  ['middleware' => 'school', 'uses' => 'EventsController@getUserSearchedChosenEvents']);
-        Route::get('{event}/events/notAttend',  ['middleware' => 'school', 'uses' => 'EventsController@notAttend']);
-        Route::get('/events',  ['middleware' => 'school', 'uses' => 'TimelineController@Index']);
-    /* End Client Routes */
-    
-/* End Event Routes */
 
 /* Notice Routes */
     /* School Routes */
@@ -307,6 +260,150 @@ Route::get('/test/reset',function()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Chat Routes */
+/* Client Routes
+    Route::get('/chats', ['middleware' => 'school', 'uses' => 'ChatController@index']);
+    Route::get('/chat/{client}/home', ['middleware' => 'school', 'uses' => 'ChatController@show']);
+    Route::get('/{client}/chat/{recipient}', ['middleware' => 'school', 'uses' => 'ChatController@create']);
+    Route::post('/{client}/chat/{recipient}', ['middleware' => 'school', 'uses' => 'ChatController@store']);
+
+/* End Client Rotes */
+
+/* End Chat Routes */
+
+/* Community Routes */
+/* School Routes
+Route::get('/admin',  ['middleware' => 'school', 'uses' => 'HomeController@admin']);
+Route::get('/admin/community',  ['middleware' => 'school', 'uses' => 'ForumController@adminIndex']);
+Route::get('/{username}/admin/{subject}/community/',  ['middleware' => 'school', 'uses' => 'ForumController@adminChat']);
+Route::post('/{username}/{subject}/admin/community',  ['middleware' => 'school', 'uses' => 'ForumController@postAdminChat']);
+/* End School Routes */
+
+/* Client Routes
+Route::get('/community',  ['middleware' => 'school', 'uses' => 'ForumController@clientIndex']);
+Route::get('/{username}/{subject}/community/',  ['middleware' => 'school', 'uses' => 'ForumController@clientShow']);
+Route::post('/community/{client}/{subject}',  ['middleware' => 'school', 'uses' => 'ForumController@postClientChat']);
+
+/* End Client Routes */
+/* End Community Routes */
+
+/* Events Routes */
+/* School Routes
+Route::get('/admin/events',  ['middleware' => 'school', 'uses' => 'TimelineController@admin']);
+Route::get('/admin/{username}/events',  ['middleware' => 'school', 'uses' => 'TimelineController@create']);
+Route::post('/admin/{username}/events',  ['middleware' => 'school', 'uses' => 'TimelineController@store']);
+Route::get('/events/update/{event}',  ['middleware' => 'school', 'uses' => 'TimelineController@edit']);
+Route::post('/events/update/{event}',  ['middleware' => 'school', 'uses' => 'TimelineController@update']);
+Route::get('/events/destroy/{event}',  ['middleware' => 'school', 'uses' => 'TimelineController@destroy']);
+*/
+/* End School Routes */
+
+/* Client Routes
+Route::get('/{username}/events',  ['middleware' => 'school', 'uses' => 'EventsController@index']);
+Route::get('/{username}/events/create',  ['middleware' => 'school', 'uses' => 'EventsController@create']);
+Route::post('/{username}/events/create',  ['middleware' => 'school', 'uses' => 'EventsController@store']);
+Route::post('/{username}/events/search',  ['middleware' => 'school', 'uses' => 'EventsController@search']);
+Route::get('/{event}/events/update',  ['middleware' => 'school', 'uses' => 'EventsController@edit']);
+Route::get('/{event}/events/destroy',  ['middleware' => 'school', 'uses' => 'EventsController@destroy']);
+Route::post('/{event}/events/update',  ['middleware' => 'school', 'uses' => 'EventsController@update']);
+Route::post('/event/file/{folder}',  ['middleware' => 'school', 'uses' => 'EventsController@storeFile']);
+Route::post('/{event}/event/chat/store',  ['middleware' => 'school', 'uses' => 'EventsController@storeMessage']);
+Route::get('{event}/events/profile',  ['middleware' => 'school', 'uses' => 'EventsController@show']);
+Route::get('{event}/events/attend',  ['middleware' => 'school', 'uses' => 'EventsController@attend']);
+Route::get('/events/attending',  ['middleware' => 'school', 'uses' => 'EventsController@getUserAttendingEvents']);
+Route::post('/events/attending/search',  ['middleware' => 'school', 'uses' => 'EventsController@getUserSearchedChosenEvents']);
+Route::get('{event}/events/notAttend',  ['middleware' => 'school', 'uses' => 'EventsController@notAttend']);
+Route::get('/events',  ['middleware' => 'school', 'uses' => 'TimelineController@Index']);
+
+*/
+/* End Client Routes */
+
+/* End Event Routes */
+
+/* Bag Pack Routes
+Route::get('/pack', ['middleware' => 'school', 'uses' => 'PackController@index']);
+Route::get('/pack/{userFolder}', ['middleware' => 'school', 'uses' => 'PackController@show']);
+Route::get('/{group}/pack/share/{file}', ['middleware' => 'school', 'uses' => 'PackController@share']);
+Route::post('/pack/search/{file}', ['middleware' => 'school', 'uses' => 'PackController@search']);
+Route::get('/pack/share/{file}', ['middleware' => 'school', 'uses' => 'PackController@getShare']);
+Route::get('/{group}/shared/', ['middleware' => 'school', 'uses' => 'PackController@getShared']);
+Route::post('/pack/upload/{userFolder}', ['middleware' => 'school', 'uses' => 'PackController@store']);
+Route::post('/pack/folder', ['middleware' => 'school', 'uses' => 'PackController@storeFolder']);
+Route::post('/pack/{userFolder}/sub', ['middleware' => 'school', 'uses' => 'PackController@storeSubFolder']);
+*/
 /* School Messenger Routes */
 /*
 Route::get('/{username}/forum/' ,  ['middleware' => 'school', 'uses' => 'MessengerController@getSchoolMessages']);

@@ -1,6 +1,6 @@
                         <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                Followed Groups
+                            <div class="ibox-title blue-skin" style="color: #ffffff;">
+                                <i class="fa fa-group"></i> My Groups
                             </div>
                             <div class="ibox-content">
                                 <div class="file-manager">

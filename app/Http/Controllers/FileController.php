@@ -75,9 +75,9 @@ class FileController extends Controller
 
         $type = $request->file('file')->getClientOriginalExtension();
         $name = $request->name;
-        if($request->file('file')->getClientSize() > 10000000)
+        if($request->file('file')->getClientSize() > 100000000)
         {
-            return redirect()->back()->with('error', 'The file must be under 10Mb in size.');
+            return redirect()->back()->with('error', 'The file must be under 100Mb in size.');
         }
 
         if(!$this->repo->authenticateType($type, $allowedTypes))
@@ -92,6 +92,7 @@ class FileController extends Controller
      * Display the specified resource.
      *
      * @param $group
+     * @param $folder
      * @internal param int $id
      * @return Response
      */

@@ -1,5 +1,5 @@
 <div class="ibox float-e-margins">
-    <div class="ibox-title">
+    <div class="ibox-title ultra-skin" style="color: #ffffff;">
     <b>
         <?php echo e($group->name); ?> Features:
     </b>
@@ -8,7 +8,7 @@
                                 <div class="file-manager">
 
                                     <ul class="folder-list" style="padding: 0">
-                                        <li><a href="<?php echo e($group->username .'/events'); ?>"><i class="fa fa-calendar-o"></i> Events <i class="badge badge-default pull-right"><?php echo e($group->events()->get()->count()); ?></i></a></li>
+                                        <!--<li><a href="<?php echo e($group->username .'/events'); ?>"><i class="fa fa-calendar-o"></i> Events <i class="badge badge-default pull-right"> //$group->events()->get()->count() }}</i></a></li>-->
                                         <li><a href="<?php echo e($group->username.'/notice'); ?>"><i class="glyphicon glyphicon-pushpin"></i> Notices <i class="badge badge-default pull-right"><?php echo e($group->notices()->get()->count()); ?></i></a></li>
                                         <li><a href="<?php echo e($group->username.'/contacts'); ?>"><i class="fa fa-group"></i> Members <i class="badge badge-default pull-right"><?php echo e($group->followersCount()); ?></i></a></li>
 
@@ -18,7 +18,7 @@
                         </div>
 
 <div class="ibox float-e-margins">
-    <div class="ibox-title">
+    <div class="ibox-title ultra-skin" style="color: #ffffff;">
         <b>
             File Manager
         </b>

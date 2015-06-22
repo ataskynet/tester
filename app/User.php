@@ -87,6 +87,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->belongsToMany('App\Event', 'attendances', 'user_id', 'event_id')->withTimestamps();
     }
 
+    public function folders()
+    {
+        return $this->hasMany('App\UserFolder');
+    }
     public function fullName()
     {
         return $this->firstName . ' ' . $this->lastName;

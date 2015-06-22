@@ -21,6 +21,7 @@ class Group extends Model {
         return $this->belongsToMany('App\User', 'follows', 'group_id', 'user_id')->withTimestamps();
     }
 
+
     public function followersCount()
     {
         return $this->followers()->get()->count();
