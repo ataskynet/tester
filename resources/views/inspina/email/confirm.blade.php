@@ -294,23 +294,22 @@
                                     <td class="content-block">
                                         <h3>HI ,{{ $name }}</h3>
                                 </tr>
-                                <tr>
-                                    <td class="content-block">
-                                        Welcome to skoolspace!<br/> Do Activate Your Account in order to login please.
-                                        Do not hesitate to share your feed back to us through info@skoolspace.com.
-                                    </td>
-                                </tr>
+                                <tr><td class="content-block"><br/></td></tr>
                                 <tr>
                                     <td class="content-block">
                                         We may need to send you critical information about our service and it is important that we have an accurate email address.
                                         Copy and paste this link if the link below is not actionable. <br/> {{ $link }} <br/> Thank You.
                                     </td>
                                 </tr>
+                                <tr><td class="content-block"><br/></td></tr>
                                 <tr>
                                     <td class="content-block aligncenter">
-                                        <a href="{{ $link }}" class="btn-primary">Confirm email address</a>
+                                        <a href="{{ url($link) }}" class="btn-primary">Confirm email address</a>
                                     </td>
                                 </tr>
+                                <tr><td class="content-block"><br/></td></tr>
+                                <tr><td class="content-block">{{ url($link) }}</td></tr>
+                                <tr><td class="content-block"><br/></td></tr>
                               </table>
                         </td>
                     </tr>

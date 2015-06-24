@@ -1,1 +1,1 @@
-<a class="btn btn-sm  btn-info" href="{{ url('/') }}"><i class="glyphicon glyphicon-arrow-left"></i> Back Home</a>
+<a class="btn btn-sm  btn-info pull-left" href="{{ url('/') }}"><i class="glyphicon glyphicon-arrow-left"></i> Back Home</a>

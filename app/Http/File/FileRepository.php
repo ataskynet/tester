@@ -10,6 +10,10 @@ class FileRepository
     use Postable;
 
 
+    public $allowedTypes = [
+        'txt', 'pdf', 'docx', 'jpg', 'png', 'ppt', 'doc', 'jpeg', 'jpe'
+    ];
+
     protected $profileTypes = [
         'png', 'jpg', 'jpeg', 'jpe'
     ];
@@ -41,7 +45,7 @@ class FileRepository
             $name = $fileName.'.'.$type;
         }
         $rand = $this->randomFileName();
-        $actualName = $name . '#'. $rand . '.' . $type;
+        $actualName = $name . $rand . '.' . $type;
 
         $tmpName = $file['file']['tmp_name'];
         $destination = 'uploads/' . $location . '/' . $actualName;

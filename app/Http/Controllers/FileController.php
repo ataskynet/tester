@@ -68,11 +68,6 @@ class FileController extends Controller
      */
 	public function store($folder ,CreateFileRequest $request)
 	{
-
-        $allowedTypes = [
-          'txt', 'pdf', 'docx', 'jpg', 'png', 'ppt', 'doc', 'jpeg', 'jpe'
-        ];
-
         $type = $request->file('file')->getClientOriginalExtension();
         $name = $request->name;
         if($request->file('file')->getClientSize() > 100000000)
@@ -80,7 +75,7 @@ class FileController extends Controller
             return redirect()->back()->with('error', 'The file must be under 100Mb in size.');
         }
 
-        if(!$this->repo->authenticateType($type, $allowedTypes))
+        if(!$this->repo->authenticateType($type, $this->repo->allowedTypes))
             return redirect()->back()->with('error', 'This file extension is not supported.');
 
         $this->repo->uploadGroupDocument($_FILES, 'documents', $folder  ,$type, $name);

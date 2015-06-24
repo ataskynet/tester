@@ -129,4 +129,33 @@ class Group extends Model {
     {
         return Request::where('group_id', $this->id)->get();
     }
+
+    public function  sharers()
+    {
+        return $this->belongsToMany('App\User', 'sharers', 'group_id', 'user_id')->withTimestamps();
+    }
+
+    public function  sharedFiles()
+    {
+        return $this->belongsToMany('App\PersonalFile', 'sharer_files', 'group_id', 'personal_file_id')->withTimestamps();
+    }
+
+    public function isASharer($user)
+    {
+        $userIdList = $this->sharers()->lists('user_id');
+
+        foreach($userIdList as $userId)
+        {
+            if($user->id == $userId)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function sharedFilesOf($user)
+    {
+        return $this->sharedFiles()->where('user_id', $user->id)->get();
+    }
 }

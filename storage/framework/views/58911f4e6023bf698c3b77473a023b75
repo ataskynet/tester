@@ -36,7 +36,6 @@
 
                                        <span> <b>Followers</b>: <?php echo e($group->followers()->get()->count()); ?></span>&nbsp;&nbsp;&nbsp;
 
-                                       <span> <b>Events</b>: <?php echo e($group->events()->get()->count()); ?></span>&nbsp;&nbsp;&nbsp;
                                        <span> <b>Notices</b>: <?php echo e($group->notices()->get()->count()); ?></span>
 
                                     <br>

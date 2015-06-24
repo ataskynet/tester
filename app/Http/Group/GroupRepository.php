@@ -30,8 +30,13 @@ class GroupRepository {
         return false;
     }
 
-    public function searchedGroups($value)
+    public function searchedGroups($value, $howMany =10)
     {
-        return Group::searchFor('name', $value)->paginate(10);
+        return Group::searchFor('name', $value)->paginate($howMany);
+    }
+
+    public function searchMyGroups($value, $user, $howMany =10 )
+    {
+        return $user->follows()->searchFor('name', $value)->paginate($howMany);
     }
 } 

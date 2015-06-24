@@ -28,15 +28,16 @@
                                     <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">New Folder</button>
                                     <div class="hr-line-dashed"></div>
                                     <?php echo $__env->make('inspina.file.partials.createFolder', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-                                    <h5>Group Folder</h5>
+                                    <h5>Group Folder <small class="pull-right">Files</small></h5>
                                     <ul class="folder-list" style="padding: 0">
                                     <?php if($group->folders()->get()->count() != 0): ?>
                                     <?php foreach($group->mainFolders() as $folder): ?>
-                                        <li><a href="<?php echo e('/manager/'.$group->username.'/'.$folder->id); ?>"><i class="fa fa-folder"></i> <?php echo e($folder->name); ?></a></li>
+                                        <li><a href="<?php echo e('/manager/'.$group->username.'/'.$folder->id); ?>"><i class="fa fa-folder"></i> <?php echo e($folder->name); ?> <span class="badge badge-info pull-right"><?php echo e($folder->files()->count()); ?></span></a></li>
                                     <?php endforeach; ?>
                                     <?php else: ?>
                                         <li><b> <span align="center">No Folders for this group.</span></b></li>
                                     <?php endif; ?>
+                                        <li><a href="<?php echo e(url('/share/'.$group->username)); ?>"><b><span align="center"> <i class="glyphicon glyphicon-share"></i> Shared <span class="badge badge-default pull-right"><?php echo e($group->sharedFiles()->count()); ?></span></span></b></a></li>
                                     </ul>
                                 </div>
                             </div>

@@ -36,7 +36,6 @@
 
                                        <span> <b>Followers</b>: {{ $group->followers()->get()->count() }}</span>&nbsp;&nbsp;&nbsp;
 
-                                       <span> <b>Events</b>: {{ $group->events()->get()->count() }}</span>&nbsp;&nbsp;&nbsp;
                                        <span> <b>Notices</b>: {{ $group->notices()->get()->count() }}</span>
 
                                     <br>

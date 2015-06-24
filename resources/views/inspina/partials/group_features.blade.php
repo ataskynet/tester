@@ -28,15 +28,16 @@
                                     <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">New Folder</button>
                                     <div class="hr-line-dashed"></div>
                                     @include('inspina.file.partials.createFolder')
-                                    <h5>Group Folder</h5>
+                                    <h5>Group Folder <small class="pull-right">Files</small></h5>
                                     <ul class="folder-list" style="padding: 0">
                                     @if($group->folders()->get()->count() != 0)
                                     @foreach($group->mainFolders() as $folder)
-                                        <li><a href="{{'/manager/'.$group->username.'/'.$folder->id}}"><i class="fa fa-folder"></i> {{$folder->name}}</a></li>
+                                        <li><a href="{{'/manager/'.$group->username.'/'.$folder->id}}"><i class="fa fa-folder"></i> {{$folder->name}} <span class="badge badge-info pull-right">{{ $folder->files()->count() }}</span></a></li>
                                     @endforeach
                                     @else
                                         <li><b> <span align="center">No Folders for this group.</span></b></li>
                                     @endif
+                                        <li><a href="{{ url('/share/'.$group->username) }}"><b><span align="center"> <i class="glyphicon glyphicon-share"></i> Shared <span class="badge badge-default pull-right">{{ $group->sharedFiles()->count() }}</span></span></b></a></li>
                                     </ul>
                                 </div>
                             </div>

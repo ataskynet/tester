@@ -26,7 +26,7 @@ Route::controllers([
 
 /*  Bindings for the school, users, clients  */
 
-Route::bind('id' , function($id)
+Route::bind('user' , function($id)
 {
     return App\User::find($id);
 });
@@ -109,6 +109,18 @@ Route::bind('request' , function($id)
     return App\Request::find($id);
 });
 
+Route::bind('personalFolder' , function($id)
+{
+    /** @var int $id */
+    return App\PersonalFolder::find($id);
+});
+
+Route::bind('personalFile' , function($id)
+{
+    /** @var int $id */
+    return App\PersonalFile::find($id);
+});
+
 /**Route::bind('school' , function($school)
 {
      @var TYPE_NAME $id
@@ -118,24 +130,37 @@ Route::bind('request' , function($id)
 
 /* The testing route */
 
-
-
-Route::get('/test/reset',function()
-{
-    return view('auth.reset');
-});
-
-
 /* Testing Route Ends */
-/* Joining groups routes */
-
-
-/* Joining groups routes ends here*/
-
-
-
+/* Back Pack routes */
+    Route::get('/pack/{personalFolder}/',
+        [ 'middleware' => 'school', 'uses' => 'PackController@show' ]);
+    Route::post('/pack/',
+        [ 'middleware' => 'school', 'uses' => 'PackController@storeFolder' ]);
+    Route::post('/pack/{personalFolder}',
+        [ 'middleware' => 'school', 'uses' => 'PackController@store' ]);
+    Route::post('/pack/{personalFolder}/sub',
+        [ 'middleware' => 'school', 'uses' => 'PackController@storeSubFolder' ]);
+    Route::post('/pack/{personalFolder}/update',
+        [ 'middleware' => 'school', 'uses' => 'PackController@update' ]);
+    Route::post('/pack/{personalFolder}/delete',
+        [ 'middleware' => 'school', 'uses' => 'PackController@storeSubFolder' ]);
+    Route::get('/pack/delete/{personalFolder}/{personalFile}',
+        [ 'middleware' => 'school', 'uses' => 'PackController@destroy' ]);
 /* End Back Pack Routes */
-
+/* Sharing Routes */
+    Route::get('/share/{personalFile}/groups/',
+        [ 'middleware' => 'school', 'uses' => 'ShareController@index' ]);
+    Route::get('/share/{personalFile}/{username}/',
+        [ 'middleware' => 'school', 'uses' => 'ShareController@create' ]);
+    Route::get('/share/{username}/',
+        [ 'middleware' => 'school', 'uses' => 'ShareController@show' ]);
+    Route::get('/share/{username}/files/{user}/',
+        [ 'middleware' => 'school', 'uses' => 'ShareController@shared' ]);
+    Route::post('/share/{personalFile}/search/',
+        [ 'middleware' => 'school', 'uses' => 'ShareController@search' ]);
+    Route::get('/share/{personalFile}/{value}/search',
+        [ 'middleware' => 'school', 'uses' => 'ShareController@getSearch' ]);
+/* End Sharing Routes */
 
 /* File Manager Routes */
     /* Client Routes */
@@ -196,6 +221,7 @@ Route::get('/test/reset',function()
     /* Client Routes */
         Route::get('/groups/all',  ['middleware' => 'school', 'uses' => 'FollowController@create']);
         Route::post('/group/search',  ['middleware' => 'school', 'uses' => 'FollowController@search']);
+        Route::get('/group/{query}/search',  ['middleware' => 'school', 'uses' => 'FollowController@getSearch']);
         Route::get('/join/group',  ['middleware' => 'school', 'uses' => 'FollowController@store']);
         Route::get('{username}/join/group',  ['middleware' => 'school', 'uses' => 'FollowController@store']);
         Route::get('{username}/send/request',  ['middleware' => 'school', 'uses' => 'FollowController@createRequest']);

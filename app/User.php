@@ -95,4 +95,24 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->firstName . ' ' . $this->lastName;
     }
+
+    public function personalFiles()
+    {
+        return $this->hasMany('App\PersonalFile');
+    }
+
+    public function personalFolders()
+    {
+        return $this->hasMany('App\PersonalFolder');
+    }
+
+    public function shared()
+    {
+        return $this->belongsToMany('App\Group', 'sharers', 'user_id', 'group_id')->withTimestamps();
+    }
+
+    public function rootFolders()
+    {
+        return $this->personalFolders()->where('sub_directory', NULL)->get();
+    }
 }

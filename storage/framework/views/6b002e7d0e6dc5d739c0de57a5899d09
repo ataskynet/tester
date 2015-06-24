@@ -216,6 +216,29 @@
     $('#flash-overlay-modal').modal();
 </script>
 <?php echo $__env->yieldContent('script'); ?>
+<script>
+            function validateText(id)
+            {
+                if($("#" + id).val() == null || $("#" + id).val() == "")
+                {
+                    var div = $("#" + id).closest("div");
+                    div.addClass("has-error");
+                    return false;
+                }
+                else
+                {
+                    var div = $("#" + id).closest("div");
+                    div.removeClass("has-error");
+                    return true;
+                }
+            }
+            $(document).ready(
+                function(){
+                    <?php echo $__env->yieldContent('validation'); ?>
+                }
+            );
+</script>
+
 
 </body>
 

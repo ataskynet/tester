@@ -136,6 +136,13 @@ class FollowController extends Controller {
         return redirect()->back()->with('message', 'The user admission request has been deleted.');
     }
 
+    public function getSearch($query)
+    {
+        $title = 'Join a new group';
+        $groups = $this->groupRepository->searchedGroups($query);
+        $tagline = 'Results('.$groups->count().') for "'.$query.'"';
+        return view('inspina.groups.search', compact('groups', 'title', 'tagline'));
+    }
     /**
      * * Funtion for searching through the group records.
      * @param SearchRequest $request
@@ -143,10 +150,8 @@ class FollowController extends Controller {
      */
     public function search(SearchRequest $request)
     {
-        $title = 'Join a new group';
-        $groups = $this->groupRepository->searchedGroups($request->value);
-        $tagline = 'Results('.$groups->count().') for "'.$request->value.'"';
-        return view('inspina.groups.search', compact('groups', 'title', 'tagline'));
+
+        return redirect('/group/'.$request->value.'/search/');
     }
 
 

@@ -6,7 +6,7 @@
                                                         <img alt="image" class="img-circle" src="{{$status->group()->first()->profileSource()}}">
                                                     </a>
                                                     <div class="media-body ">
-                                                        <small class="pull-right">{{ $status->updated_at }}</small>
+                                                        <small class="pull-right">{{ $status->updated_at->diffForHumans() }}</small>
                                                         <a href="{{ url($status->url) }}">
                                                         <strong>{{ $status->title }}</strong><br>
                                                         </a>

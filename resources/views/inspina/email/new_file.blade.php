@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>New File Uploaded</title>
+    <title>New File</title>
 
     <style rel="stylesheet" type="text/css">
         /* -------------------------------------
@@ -296,32 +296,44 @@
                                 </tr>
                                 <tr>
                                     <td class="content-block">
-                                        Hey there skoolspace user a new file has been uploaded to the skoolspace account.
+                                        Hey there skoolspace user a new file has been uploaded to the {{ $groupName }} skoolspace account.
                                         Check it out and download it if you wish to. Use the link below for further information.
+                                        <br>
+
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="content-block aligncenter">
+                                        <a href="{{url($link)}}" class="btn-primary">Click to view file</a>
+                                        <br>
+                                    </td>
+                                </tr>
+
+                                <tr><td class="content-block"><br></td></tr>
+                                <tr>
+                                    <td class="content-block">
+                                        Copy and paste this url into you address bar if the link is not actionable
+                                        <br>
+                                        {{url($link)}}
+                                    </td>
+                                </tr>
+
+                                <tr><td class="content-block"><br></td></tr>
+                                <tr>
+                                    <td class="content-block">
                                         <br>
                                         Thank You, for Using skoolspace.
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="content-block">
-                                        <br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="content-block aligncenter">
-                                        <a href="{{ $link }}" class="btn-primary">Click to view file</a>
-                                        <br>
-                                        {{ $link }}
-                                    </td>
-                                </tr>
-                              </table>
+                                </table>
                         </td>
                     </tr>
                 </table>
                 <div class="footer">
                     <table width="100%">
                         <tr>
-                            <td class="aligncenter content-block">Verify skoolspace account from <a href="{{ url('/') }}"> info@skoolspace.com</a></td>
+                            <td class="aligncenter content-block">Share, notify, be informed. This is<a href="{{ url('/') }}"> skoolspace</a></td>
                         </tr>
                     </table>
                 </div></div>

@@ -16,11 +16,11 @@
                                     @include('inspina.file.partials.upload')
                                         <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#subModal">Create Sub Folder</button>
                                         <div class="hr-line-dashed"></div>
-                                        <h5>Folders</h5>
+                                        <h5>Folders <small class="pull-right">Files</small></h5>
                                         <ul class="folder-list" style="padding: 0">
                                         @if($subFolders->count() != 0)
                                         @foreach($subFolders as $subFolder)
-                                            <li><a href="{{url('manager/'.$group->username.'/'. $subFolder->id) }}"><i class="fa fa-folder"></i> {{ $subFolder->name}}</a></li>
+                                            <li><a href="{{url('manager/'.$group->username.'/'. $subFolder->id) }}"><i class="fa fa-folder"></i> {{ $subFolder->name}} <span class="badge badge-info pull-right">{{ $subFolder->files()->count() }}</span></a></li>
                                         @endforeach
                                         @else
                                             <li><b> <span align="center">No Sub Folders for this group.</span></b></li>
@@ -106,13 +106,14 @@
                                         @endif
                                             <div class="file-name">
                                                 {{ $document->name }}
-                                                @if($group->isOwner(\Auth::user()))
-                                                <span class="pull-right"><a href="{{ url('/manager/delete/'.$folder->id.'/'.$document->id) }} " class="pull-right"><i class="glyphicon glyphicon-remove pull-right"></i></a></span>
-                                                @endif
+
                                                 <br/>
-                                                <small>Added: {{ $document->created_at }}</small>
+                                                <small>Added: {{ $document->created_at->diffForHumans() }}</small>
                                                 <br>
                                                 <small>Uploaded By: @include('inspina.partials.name_tag',['user' => $document->user()->first()])</small>
+                                                @if($group->isOwner(\Auth::user()))
+                                                    <span class="pull-right"><a href="{{ url('/manager/delete/'.$folder->id.'/'.$document->id) }} " class="pull-right"><i class="glyphicon glyphicon-remove-sign pull-right"></i></a></span>
+                                                @endif
                                             </div>
                                         </a>
                                     </div>
@@ -136,6 +137,7 @@
                         $('form#createfolderform').submit();
 
                     })
+
                 $("#uploadfilebtn").click(function()
                     {
                         if(!validateText("file"))

@@ -28,5 +28,9 @@ class File extends Model {
         return $this->belongsTo('App\User');
     }
 
+    public function  sharerdFiles()
+    {
+        return $this->belongsToMany('App\Group', 'sharer_files', 'file_id', 'group_id')->withTimestamps();
+    }
 
 }
