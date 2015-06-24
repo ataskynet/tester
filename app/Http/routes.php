@@ -48,25 +48,25 @@ Route::bind('client' , function($id)
     /** @var int $id */
     return App\Client::where('id',$id)->first();
 });
-
+/*
 Route::bind('subject' , function($name)
 {
-    /** @var string $id */
+    /** @var string $id
     return new App\Http\Forum\Subject($name);
-});
-
+});*/
+/*
 Route::bind('recipient' , function($id)
 {
-    /** @var int $id */
+    /** @var int $id
     return App\Client::where('id',$id)->first();
 });
 
 Route::bind('event' , function($id)
 {
-    /** @var int $id */
+    /** @var int $id
     return App\Event::where('id',$id)->first();
 });
-
+*/
 Route::bind('notice' , function($id)
 {
     /** @var int $id */
