@@ -106,13 +106,13 @@
                                                 {{ $document->name }}
 
                                                 <br/>
-                                                <small>Added: {{ $document->created_at }}</small>
+                                                <small>Added: {{ $document->created_at->diffForHumans() }}</small>
                                                 <br>
                                                 <a href="{{ url('/share/'.$document->id.'/groups/') }}" style="padding-top: 30px;">
                                                  <i class="fa fa-share-square-o  "></i> Share
                                                 </a>
                                                 <a href="{{ url('/pack/delete/'.$folder->id.'/'.$document->id) }}" class="pull-right" >
-                                                 <i class="glyphicon glyphicon-remove-circle"></i>
+                                                 <i class="glyphicon glyphicon-remove-sign"></i>
                                                 </a>
 
                                             </div>

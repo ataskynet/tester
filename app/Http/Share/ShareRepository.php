@@ -29,7 +29,7 @@ use Postable;
         $message = 'New document: ' . $file->name . ' has been shared  by '.\Auth::user()->fullName();
         $url = '/share/'.$group->username.'/files/'.$user->id;
         $this->post($message, $group, $url);
-        $this->groupMailer->sendFileSharedNotification($group, $url);
+        $this->groupMailer->sendFileSharedNotification($group,$file, $url);
         return $file;
     }
 
@@ -51,6 +51,6 @@ use Postable;
 
     public function sharedFiles($group, $user)
     {
-        return $group->sharedFiles()->where('user_id', $user->id)->get();
+        return $group->sharedFiles()->where('user_id', $user->id)->latest()->get();
     }
 } 

@@ -106,13 +106,13 @@
 
 
                                                 <br/>
-                                                <small>Added: <?php echo e($document->created_at); ?></small>
+                                                <small>Added: <?php echo e($document->created_at->diffForHumans()); ?></small>
                                                 <br>
                                                 <a href="<?php echo e(url('/share/'.$document->id.'/groups/')); ?>" style="padding-top: 30px;">
                                                  <i class="fa fa-share-square-o  "></i> Share
                                                 </a>
                                                 <a href="<?php echo e(url('/pack/delete/'.$folder->id.'/'.$document->id)); ?>" class="pull-right" >
-                                                 <i class="glyphicon glyphicon-remove-circle"></i>
+                                                 <i class="glyphicon glyphicon-remove-sign"></i>
                                                 </a>
 
                                             </div>

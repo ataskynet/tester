@@ -62,16 +62,28 @@
                     </li>-->
                     <li>
                           <a href="" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                          <i class="fa fa-briefcase"></i>
+                            Back-Pack <span class="caret"></span>
+                          </a>
+                          <ul class="dropdown-menu" role="menu">
+                           @foreach(\Auth::user()->rootFolders() as $folder)
+                             <li><a href="{{ url('pack',$folder->id) }}">{{ $folder->name }} &nbsp; <span class="badge badge-info test-right">{{ $folder->files()->count() }}</span></a></li>
+                           @endforeach
+
+                          </ul>
+                    </li>
+                    <li>
+                          <a href="" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                           <i class="glyphicon glyphicon-pushpin"></i>
                             Pins <span class="caret"></span>
                           </a>
                           <ul class="dropdown-menu" role="menu">
-                           @foreach(\Auth::user()->follows()->get() as $group)
+                          @foreach(\Auth::user()->follows()->get() as $group)
                              <li><a href="{{ url($group->username, 'notice') }}">{{ $group->name }} &nbsp; <span class="badge badge-info test-right">{{ $group->notices()->count() }}</span></a></li>
                            @endforeach
+
                           </ul>
                     </li>
-
                 </ul>
                 <ul class="nav navbar-top-links navbar-right">
 
@@ -86,7 +98,7 @@
 
                                 <li>
                                     <div class="dropdown-messages-box">
-                                        <a href="{{ url($group->username) }}" class="pull-left">
+                                        <a href="{{url($group->username) }}" class="pull-left">
                                             <img alt="image" class="img-circle img-responsive" src="{{ asset($group->profileSource()) }}">
                                         </a>
                                         <div class="media-body">
@@ -123,17 +135,12 @@
                     <li>
                        <a aria-expanded="false" role="button" href="{{ url("/create/group ") }}"> Create Your Group</a>
                     </li>
+
                     <li>
-
-                          <a  href="" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                            <i class="glyphicon glyphicon-user"></i>
-                            {{\Auth::user()->firstName . ' '. \Auth::user()->lastName }} <span class="caret"></span>
-                          </a>
-                          <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{url('/profile/update')}}"><i class="fa fa-wrench"></i> Profile</a></li>
-                                <li><a href="{{url('/logout')}}"><i class="fa fa-sign-out"></i> Log out</a></li>
-                          </ul>
-
+                        <a aria-expanded="false" role="button" href="{{ url("/profile/update ") }}"> <i class="fa fa-cogs"> </i> Profile</a>
+                    </li>
+                    <li>
+                        <a aria-expanded="false" role="button" href="{{ url("/logout ") }}"> <i class="fa fa-sign-out"></i> Logout</a>
                     </li>
                 </ul>
             </div>

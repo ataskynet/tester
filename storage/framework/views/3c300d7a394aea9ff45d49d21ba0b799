@@ -3,7 +3,7 @@
 
                                                 <div class="feed-element">
                                                     <a href="<?php echo e($status->group()->first()->username); ?>" class="pull-left">
-                                                        <img alt="image" class="img-circle" src="<?php echo e($status->group()->first()->profileSource()); ?>">
+                                                        <img alt="image" class="img-circle" src="<?php echo e(asset($status->group()->first()->profileSource())); ?>">
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right"><?php echo e($status->updated_at->diffForHumans()); ?></small>

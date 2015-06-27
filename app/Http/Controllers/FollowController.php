@@ -127,6 +127,7 @@ class FollowController extends Controller {
 	public function destroy($group)
 	{
         $this->clientRepository->clientLeave($group, $this->user());
+        $this->flash('You have left the group: '.$group->name);
         return redirect('/');
 	}
 

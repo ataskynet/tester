@@ -22,7 +22,7 @@
                                             <li><a href="{{url('share/'.$group->username.'/files/'. $sharer->id) }}"><i class="fa fa-user"></i> {{ $sharer->fullName()}} <span class="badge badge-info pull-right">{{ $group->sharedFilesof($sharer)->count() }}</span></a></li>
                                         @endforeach
                                         @else
-                                            <li><b> <span align="center">No Sub Folders for this folder.</span></b></li>
+                                            <li><b> <span align="center">No-one has shared files with you yet!.</span></b></li>
                                         @endif
                                         </ul>
                                         <div class="clearfix"></div>
@@ -57,6 +57,7 @@
                                                 <br/>
                                                 <small>Created: {{ $document->created_at->diffForHumans() }}</small>
                                                 <br>
+                                                <small>Shared by: {{ $document->user()->first()->fullName() }}</small>
 
                                             </div>
                                         </a>
@@ -66,14 +67,16 @@
                             @endforeach
 
                             @else
-                                <div class="middle-box text-center animated fadeInRightBig">
-                                    <h3 class="font-bold">This is page content</h3>
-                                        <div class="error-desc">
-                                            You can create here any grid layout you want. And any variation layout you imagine:) Check out main dashboard and other site. It use many different layout.
-                                            <br><a href="index.html" class="btn btn-primary m-t">Dashboard</a>
-                                        </div>
+                                <div class="middle-box text-center animated fadeInRightBig" style="margin-top: 90px">
+                                    <h2 class="font-bold">No Sharers Yet!</h2>
+
+                                    <div class="error-desc">
+                                         <b>But </b>You can share a file to this group from your back-pack files with ease.
+                                         Try it out and share your files with the rest of the group I am sure they would appreciate it. :)
+                                         <br><a href="{{ url('/') }}" class="btn btn-primary m-t">Back Home</a>
+                                    </div>
                                 </div>
-                        @endif
+                            @endif
                                 </div>
                             </div>
                             </div>

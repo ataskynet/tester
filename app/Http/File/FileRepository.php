@@ -54,7 +54,7 @@ class FileRepository
             return false;
         }
 
-        $folder->files()->create([
+        $file = $folder->files()->create([
             'name' => $name,
             'type' => $type,
             'rand' => $rand,
@@ -65,7 +65,7 @@ class FileRepository
         $message = 'New document: ' . $name . ' uploaded to Folder: ' . $folder->name .' by '.\Auth::user()->firstName.' '.\Auth::user()->lastName;
         $url = '/manager/'.$group->username.'/'.$folder->id;
         $this->post($message, $group, $url);
-        $this->groupMailer->sendFileUploadNotification($group, $url);
+        $this->groupMailer->sendFileUploadNotification($group,$file, $url);
         return true;
 
     }

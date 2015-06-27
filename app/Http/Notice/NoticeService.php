@@ -1,5 +1,6 @@
 <?php namespace App\Http\Notice;
 
+use App\Http\Mail\GroupMailer;
 use App\Notice;
 
 use App\School;
@@ -11,11 +12,20 @@ use App\Commands\PinNoticeCommand;
 */
 class NoticeService
 {
-	
-	function __construct()
+
+    /**
+     * @var GroupMailer
+     */
+    private $groupMailer;
+
+    /**
+     * @param GroupMailer $groupMailer
+     */
+    function __construct(GroupMailer $groupMailer)
 	{
-		# code...
-	}
+
+        $this->groupMailer = $groupMailer;
+    }
 
 	public function storeNoticeCommand($request, $school)
 	{

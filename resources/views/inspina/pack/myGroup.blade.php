@@ -9,7 +9,7 @@
                         <div class="ibox float-e-margins">
                             <div class="ibox-content">
                                     <h2>
-                                       My Groups:
+                                       All Groups:
                                     </h2>
 
                                 <div class="search-form">

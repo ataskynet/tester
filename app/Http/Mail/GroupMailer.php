@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Mail;
 
 class GroupMailer {
 
-    public function sendFileUploadNotification($group,  $url)
+    public function sendFileUploadNotification($group,$file,$url)
     {
         $counter = 5;
 
@@ -13,6 +13,7 @@ class GroupMailer {
         {
             $data = [
                 'name' => $user->fullName(),
+                'fileName' => $file->name,
                 'groupName' => $group->name,
                 'link' => $url,
             ];
@@ -27,7 +28,30 @@ class GroupMailer {
         }
     }
 
-    public function sendFileSharedNotification($group,  $url)
+    public function sendFileSharedNotification($group, $file ,$url)
+    {
+        $counter = 5;
+
+        foreach($group->followers()->get() as $user)
+        {
+            $data = [
+                'name' => $user->fullName(),
+                'fileName' => $file->name,
+                'groupName' => $group->name,
+                'link' => $url,
+            ];
+
+            Mail::later($counter, 'inspina.email.new_file', $data, function($message) use ($user)
+            {
+                $message->to($user->email, $user->fullName())->subject('New File Shared.');
+
+            });
+
+            $counter++;
+        }
+    }
+
+    public function sendNewPinNotification($group, $notice ,$url)
     {
         $counter = 5;
 
@@ -36,12 +60,14 @@ class GroupMailer {
             $data = [
                 'name' => $user->fullName(),
                 'groupName' => $group->name,
+                'pinSender' => $notice->user()->first(),
+                'pinTitle' => $notice->title,
                 'link' => $url,
             ];
 
-            Mail::later($counter, 'inspina.email.new_file', $data, function($message) use ($user)
+            Mail::later($counter, 'inspina.email.new_pin', $data, function($message) use ($user)
             {
-                $message->to($user->email, $user->fullName())->subject('New File Shared.');
+                $message->to($user->email, $user->fullName())->subject('New Notice Pinned.');
 
             });
 

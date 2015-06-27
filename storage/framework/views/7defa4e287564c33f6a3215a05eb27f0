@@ -296,8 +296,8 @@
                                 </tr>
                                 <tr>
                                     <td class="content-block">
-                                        Hey there skoolspace user a new file has been uploaded to the <?php echo e($groupName); ?> skoolspace account.
-                                        Check it out and download it if you wish to. Use the link below for further information.
+                                        Hey there skoolspace user a new file has been uploaded to the <b><?php echo e($groupName); ?></b> skoolspace group, named
+                                        <?php echo e($fileName); ?>. Check it out and download it if you wish to. Use the link below to view the file.
                                         <br>
 
                                     </td>

@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Group;
 use App\Http\Group\GroupRepository;
 use App\Http\Pack\PackRepository;
 use App\Http\Requests;
@@ -37,10 +38,10 @@ class ShareController extends Controller {
 	public function index($file)
 	{
 		$title = "Groups to share to:";
-        $groups = \Auth::user()->follows()->paginate(9);
+        $groups = Group::paginate(9);
         return view('inspina.pack.myGroup', compact('title', 'groups', 'file'));
 	}
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -65,8 +66,8 @@ class ShareController extends Controller {
 	public function shared($group, $user)
 	{
 
-        $title = $user->fullname(). ' shared files:';
-		$documents = $group->sharedFiles()->where('user_id', $user->id)->paginate(9);
+        $title = $user->fullname(). ' Shared Files:';
+		$documents = $group->sharedFiles()->where('user_id', $user->id)->latest()->paginate(9);
         $sharers = $group->sharers()->get();
         return view('inspina.pack.files', compact('documents', 'group', 'sharers', 'title', 'user'));
 	}
@@ -80,9 +81,10 @@ class ShareController extends Controller {
      */
 	public function show($group)
 	{
-        $title = 'File Sharers';
-		$members = $group->sharers()->paginate(9);
-        return view('inspina.pack.users', compact('members','group', 'title'));
+        $title = 'Shared Files';
+        $documents = $group->sharedFiles()->paginate(9);
+        $sharers = $group->sharers()->get();
+        return view('inspina.pack.shared', compact('sharers','group', 'title', 'documents'));
 	}
 
     /**

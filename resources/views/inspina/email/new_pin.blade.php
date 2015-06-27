@@ -296,8 +296,8 @@
                                 </tr>
                                 <tr>
                                     <td class="content-block">
-                                        Hey there skoolspace user a new file has been uploaded to the <b>{{ $groupName }}</b> skoolspace group, named
-                                        {{ $fileName }}. Check it out and download it if you wish to. Use the link below to view the file.
+                                        Hey there skoolspace user a new notice has been pinned to the <b>{{ $groupName }}</b> skoolspace group.
+                                        The pin is from <em>{{ $pinSender }}</em> about <em>{{ $pinTitle }}</em>
                                         <br>
 
                                     </td>
@@ -305,7 +305,7 @@
 
                                 <tr>
                                     <td class="content-block aligncenter">
-                                        <a href="{{url($link)}}" class="btn-primary">Click to view file</a>
+                                        <a href="{{url($link)}}" class="btn-primary">Click to view pin</a>
                                         <br>
                                     </td>
                                 </tr>

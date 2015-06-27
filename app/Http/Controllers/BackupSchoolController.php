@@ -73,20 +73,14 @@ class SchoolController extends Controller {
     public function newUser($data, $activationCode)
     {
         return User::create([
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'firstName' => $data['firstName'],
-            'lastName' => $data['lastName'],
-            'telNumber' => $data['telNumber'],
-            'active' => 1,
-            'code' => $activationCode,
-        ]);
-    }
-
-
-    public function getNotActivated($user)
-    {
-        $this->mailer->sendConfirmationMailTo($user, $user->code);
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+                'firstName' => $data['firstName'],
+                'lastName' => $data['lastName'],
+                'telNumber' => $data['telNumber'],
+                'active' => 1,
+                'code' => $activationCode,
+            ]);
     }
     /**
      * Handle a registration request for the application.
@@ -106,7 +100,7 @@ class SchoolController extends Controller {
             'telNumber' => 'required',
             'terms' => 'required',
 
-        ]);
+            ]);
 
         if ($validator->fails())
         {
@@ -115,8 +109,6 @@ class SchoolController extends Controller {
             );
         }
         $user  = $this->newUser($request->all(), $activationCode);
-
-
 
         $this->mailer->sendConfirmationMailTo($user, $activationCode);
 
@@ -147,10 +139,6 @@ class SchoolController extends Controller {
 
         $user = User::where('email', $request->email)->where('password',  bcrypt($request->password))->first();
 
-
-
-
-
         $credentials = $request->only('email', 'password');
 
         if ($this->auth->attempt($credentials, $request->has('remember')))
@@ -158,9 +146,8 @@ class SchoolController extends Controller {
             $active = \Auth::user()->active;
 
             if($active != 1){
-                $this->getNotActivated($this->user());
                 $this->auth->logout();
-                return redirect('/notActivated');
+                return $this->getNotActivated($user);
             }
             return redirect()->intended($this->redirectPath());
         }
@@ -171,7 +158,11 @@ class SchoolController extends Controller {
                 'email' => $this->getFailedLoginMessage(),
             ]);
     }
-
+    public function getNotActivated($user)
+    {
+        $this->mailer->sendConfirmationMailTo($this->user(), $this->user()->code);
+        return redirect('/notActivated');
+    }
     /**
      * Get the failed login message.
      *
@@ -301,8 +292,8 @@ class SchoolController extends Controller {
         $this->auth->login($user);
         return redirect('/');
     }
-    /*_________________________________________________________________________________________________________*/
-    /* School Messenger Routes */
+/*_________________________________________________________________________________________________________*/
+/* School Messenger Routes */
     public function getSchoolMessages()
     {
         $schools = \Auth::user()->schools()->get();
