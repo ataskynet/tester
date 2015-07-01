@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdministratorsTable extends Migration {
+class CreateSupervisorsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,16 @@ class CreateAdministratorsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('administrators', function(Blueprint $table)
-		{
-			$table->increments('id');
+
+        Schema::create('supervisors', function(Blueprint $table)
+        {
+            $table->increments('id');
 
             $table->integer('user_id');
             $table->integer('group_id');
 
             $table->timestamps();
-		});
+        });
 	}
 
 	/**
@@ -30,7 +31,7 @@ class CreateAdministratorsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('administrators');
+        Schema::drop('supervisors');
 	}
 
 }

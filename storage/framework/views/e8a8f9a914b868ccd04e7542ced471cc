@@ -26,7 +26,8 @@
 
             </div>
             <h3>Welcome to skoolspace</h3>
-            <p>Perfectly designed and precisely built for school groups event management and file sharing.
+            <p>
+            Perfectly designed and precisely built for school group's management.
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
             <p>Login in. To see it in action.</p>
@@ -39,6 +40,9 @@
                 </div>
                 <div class="form-group">
                     <input type="password" id="loginPassword" class="form-control" placeholder="Password" required="" name="password">
+                </div>
+                <div class="form-group">
+                     <div class="checkbox i-checks"><label> <input type="checkbox" id="registrationTerms" name="remember"><i></i> Stay signed in </label></div>
                 </div>
                 <button type="button" id="loginbtn" class="btn btn-primary block full-width m-b">Login</button>
 

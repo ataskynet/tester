@@ -80,11 +80,27 @@ class ClientRepository
             'firstName' =>$request->firstName,
             'lastName' => $request->lastName,
             'telNumber' => $request->telNumber,
+            'pin_notification' => $request->pin_notification,
         ])->save();
     }
 
     public function deactivateUser($user)
     {
+        $groups = $user->follows()->get();
+
+        $adminGroups = $user->administrates()->get();
+
+        foreach($adminGroups as $group)
+        {
+            $user->administrates()->detach($group->id);
+        }
+
+        foreach($groups as $group)
+        {
+            $user->follows()->detach($group->id);
+        }
+
+
         $user->active = 0;
         $user->code = str_random(90);
         $user->save();

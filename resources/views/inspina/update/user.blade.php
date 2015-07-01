@@ -10,23 +10,7 @@
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
                                 <h5>User Profile</h5>
-                                <div class="ibox-tools">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                        <i class="fa fa-wrench"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-user">
-                                        <li><a href="#">Config option 1</a>
-                                        </li>
-                                        <li><a href="#">Config option 2</a>
-                                        </li>
-                                    </ul>
-                                    <a class="close-link">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div>
+
                             </div>
                             <div class="ibox-content">
 
@@ -65,8 +49,18 @@
                                                        <input name="password" type="password" class="form-control" placeholder="New Password" >
                                                    </div>
                                                </div>
-
-                                           </div>
+                                            <div class="row form-group">
+                                            <label class="col-sm-4 control-label">Mail Notification:</label>
+                                                <div class="col-sm-8">
+                                                    <label class="checkbox-inline">
+                                                        <input type="radio" value="1" id="inlineCheckbox1" name="pin_notification" @if($user->pin_notification == 1)checked @endif > Allow all notifications
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="radio" value="0" id="inlineCheckbox2" name="pin_notification" @if($user->pin_notification == 0) checked @endif > Allow only new file notifications
+                                                    </label>
+                                                </div>
+                                            </div>
+                                          </div>
                                            <div class="modal-footer">
                                                <a href="{{url('/')}}" class="btn btn-default">Close</a>
                                                <button type="submit" class="btn btn-info">Update</button>
@@ -76,7 +70,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <a href="{{url( '/profile/destroy')}}" class="btn btn-danger btn-sm btn-block"><i class="fa fa-"></i> Delete skoolspace profile</a>
+                            <a href="{{url( '/profile/destroy')}}" class="btn btn-danger btn-sm btn-block"><i class="fa fa-"></i> Deactivate skoolspace profile</a>
                         </div>
                     </div>
                 </div>

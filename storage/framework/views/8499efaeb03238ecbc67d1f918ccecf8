@@ -9,11 +9,11 @@
 
     <title>SS+ | Login</title>
 
-    <link href="{{asset('inspina/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('inspina/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
+    <link href="<?php echo e(asset('inspina/css/bootstrap.min.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('inspina/font-awesome/css/font-awesome.css')); ?>" rel="stylesheet">
 
-    <link href="{{asset('inspina/css/animate.css')}}" rel="stylesheet">
-    <link href="{{asset('inspina/css/style.css')}}" rel="stylesheet">
+    <link href="<?php echo e(asset('inspina/css/animate.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('inspina/css/style.css')); ?>" rel="stylesheet">
 
 </head>
 
@@ -29,15 +29,15 @@
             <h2 class="normal">Activate your account</h2>
             <p>A link has been sent to your email account to activate your account.</p>
             <p class="p-b-20">Activate your account Now! to enjoy skoolspace, it's free and always will be.</p>
-
-                <a href="{{ url('/notActivated/'. $user->id) }}" class="btn btn-info btn-cons"> Resend the Email </a>
+          
+                <a href="<?php echo e(url('/notActivated/'. $user->id)); ?>" class="btn btn-info btn-cons"> Resend the Email </a>
             <p class="m-t"> <small>skoolspace framework built for school group management <br> &copy; 2014</small> </p>
         </div>
     </div>
 
     <!-- Mainly scripts -->
-    <script src="{{asset('inspina/js/jquery-2.1.1.js')}}"></script>
-    <script src="{{asset('inspina/js/bootstrap.min.js')}}"></script>
+    <script src="<?php echo e(asset('inspina/js/jquery-2.1.1.js')); ?>"></script>
+    <script src="<?php echo e(asset('inspina/js/bootstrap.min.js')); ?>"></script>
     <script>
         function validateText(id)
         {

@@ -87,6 +87,7 @@ class SchoolController extends Controller {
     public function getNotActivated($user)
     {
         $this->mailer->sendConfirmationMailTo($user, $user->code);
+        return view('inspina.account.notActivated', compact('user'));
     }
     /**
      * Handle a registration request for the application.
@@ -147,20 +148,16 @@ class SchoolController extends Controller {
 
         $user = User::where('email', $request->email)->where('password',  bcrypt($request->password))->first();
 
-
-
-
-
         $credentials = $request->only('email', 'password');
 
         if ($this->auth->attempt($credentials, $request->has('remember')))
         {
-            $active = \Auth::user()->active;
+            $active = \Auth::user()->isActive();
+            $currentUser = \Auth::user();
 
-            if($active != 1){
-                $this->getNotActivated($this->user());
+            if(!$active){
                 $this->auth->logout();
-                return redirect('/notActivated');
+                return redirect('/notActivated/' . $currentUser->id);
             }
             return redirect()->intended($this->redirectPath());
         }
@@ -289,6 +286,10 @@ class SchoolController extends Controller {
         $school->fill($request->input())->save();
         return redirect($school->username);
     }
+
+
+
+
 
     public function getActivate($user)
     {

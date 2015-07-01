@@ -148,6 +148,20 @@ Route::bind('personalFile' , function($id)
         [ 'middleware' => 'school', 'uses' => 'PackController@destroy' ]);
 /* End Back Pack Routes */
 /* Sharing Routes */
+    Route::get('/{username}/administrators/',
+        [ 'middleware' => 'school', 'uses' => 'AdministratorController@index' ]);
+    Route::get('/{username}/administrators/all',
+        [ 'middleware' => 'school', 'uses' => 'AdministratorController@show' ]);
+    Route::get('/{username}/administrators/add/{user}',
+        [ 'middleware' => 'school', 'uses' => 'AdministratorController@store' ]);
+    Route::get('/{username}/administrators/delete/{user}',
+        [ 'middleware' => 'school', 'uses' => 'AdministratorController@destroy' ]);
+    Route::post('/{username}/administrators/search',
+        [ 'middleware' => 'school', 'uses' => 'AdministratorController@search' ]);
+    Route::get('/{username}/administrators/{value}/search',
+        [ 'middleware' => 'school', 'uses' => 'AdministratorController@getSearch' ]);
+/* End Sharing Routes */
+/* Sharing Routes */
     Route::get('/share/{personalFile}/groups/',
         [ 'middleware' => 'school', 'uses' => 'ShareController@index' ]);
     Route::get('/share/{personalFile}/{username}/',
@@ -250,9 +264,8 @@ Route::bind('personalFile' , function($id)
     Route::get('/', ['middleware' => 'school', 'uses' => 'HomeController@index']);
     Route::get('/noAccount', ['middleware' => 'school', 'uses' => 'HomeController@noAccount']);
     Route::get('/profile/activate/{code}',  'SchoolController@getActivate');
-    Route::get('/notActivated', function(){
-        return view('inspina.account.notActivated');
-    });
+    Route::get('/notActivated/{user}', 'SchoolController@getNotActivated');
+
  /*End of Login and Registration */
 
 

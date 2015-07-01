@@ -11,6 +11,11 @@
                                         <!--<li><a href="{{$group->username .'/events'}}"><i class="fa fa-calendar-o"></i> Events <i class="badge badge-default pull-right"> //$group->events()->get()->count() }}</i></a></li>-->
                                         <li><a href="{{$group->username.'/notice'}}"><i class="glyphicon glyphicon-pushpin"></i> Notices <i class="badge badge-default pull-right">{{ $group->notices()->get()->count() }}</i></a></li>
                                         <li><a href="{{$group->username.'/contacts'}}"><i class="fa fa-group"></i> Members <i class="badge badge-default pull-right">{{ $group->followersCount() }}</i></a></li>
+                                        @if($group->isOwner(\Auth::user()))
+                                            <li><a href="{{$group->username.'/administrators'}}"><i class="fa fa-group"></i> Supervisors <i class="badge badge-primary pull-right" style="color: #ffffff">{{ $group->administrators()->get()->count() }}</i></a></li>
+                                        @else
+                                            <li><a href="{{$group->username.'/administrators/all'}}"><i class="fa fa-group"></i> Supervisors <i class="badge badge-info pull-right" style="color: #ffffff">{{ $group->administrators()->get()->count() }}</i></a></li>
+                                        @endif
 
                                     </ul>
                                 </div>

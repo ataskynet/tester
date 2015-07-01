@@ -94,7 +94,7 @@ class FileController extends Controller
 	public function show($group, $folder)
 	{
         $title = 'File Manager: '.$folder->name;
-        $documents = $folder->files()->get();
+        $documents = $folder->files()->paginate(10);
         $subFolders = $folder->folders()->get();
 
         return view('inspina.file.manager', compact('title','group','folder', 'documents', 'subFolders'));

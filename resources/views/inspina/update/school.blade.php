@@ -49,6 +49,7 @@
                                                       </div>
                                                   </div>
                                               </div>
+
                                           </div>
                                           <div class="modal-footer">
                                               <a href="{{url($group->username)}}" class="btn btn-default">Close</a>

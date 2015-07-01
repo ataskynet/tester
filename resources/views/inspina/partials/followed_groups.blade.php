@@ -8,7 +8,13 @@
                                     <ul class="folder-list" style="padding: 0">
                                     @if($user->followedGroups()->count() != 0)
                                     @foreach($user->followedGroups() as $group)
-                                        <li><a href="{{$group->username}}"><i class="fa fa-group"></i> {{ $group->name }} <i class="badge badge-default pull-right">{{ $group->followersCount() }}</i></a></li>
+                                        <li><a href="{{$group->username}}"><i class="fa fa-group"></i> {{ $group->name }}
+
+                                        <i class="badge badge-default pull-right">{{ $group->followersCount() }}</i>
+                                        @if($group->isSupervisedBy(\Auth::user()))
+                                            <i class="label label-info pull-right" style="color: #ffffff"> As Supervisor </i>
+                                        @endif
+                                        </a></li>
                                     @endforeach
                                     @else
                                         <h3 align="center">Follow New Groups :)</h3>

@@ -11,20 +11,23 @@ class GroupMailer {
 
         foreach($group->followers()->get() as $user)
         {
-            $data = [
-                'name' => $user->fullName(),
-                'fileName' => $file->name,
-                'groupName' => $group->name,
-                'link' => $url,
-            ];
-
-            Mail::later($counter, 'inspina.email.new_file', $data, function($message) use ($user)
+            if(!$group->isSupervisedBy($user))
             {
-                $message->to($user->email, $user->fullName())->subject('New File Uploaded.');
+                $data = [
+                    'name' => $user->fullName(),
+                    'fileName' => $file->name,
+                    'groupName' => $group->name,
+                    'link' => $url,
+                ];
 
-            });
+                Mail::later($counter, 'inspina.email.new_file', $data, function($message) use ($user)
+                {
+                    $message->to($user->email, $user->fullName())->subject('New File Uploaded.');
 
-            $counter++;
+                });
+
+                $counter++;
+            }
         }
     }
 
@@ -34,20 +37,21 @@ class GroupMailer {
 
         foreach($group->followers()->get() as $user)
         {
-            $data = [
-                'name' => $user->fullName(),
-                'fileName' => $file->name,
-                'groupName' => $group->name,
-                'link' => $url,
-            ];
+            if(!$group->isSupervisedBy($user)) {
+                $data = [
+                    'name' => $user->fullName(),
+                    'fileName' => $file->name,
+                    'groupName' => $group->name,
+                    'link' => $url,
+                ];
 
-            Mail::later($counter, 'inspina.email.new_file', $data, function($message) use ($user)
-            {
-                $message->to($user->email, $user->fullName())->subject('New File Shared.');
+                Mail::later($counter, 'inspina.email.new_file', $data, function ($message) use ($user) {
+                    $message->to($user->email, $user->fullName())->subject('New File Shared.');
 
-            });
+                });
 
-            $counter++;
+                $counter++;
+            }
         }
     }
 
@@ -57,21 +61,22 @@ class GroupMailer {
 
         foreach($group->followers()->get() as $user)
         {
-            $data = [
-                'name' => $user->fullName(),
-                'groupName' => $group->name,
-                'pinSender' => $notice->user()->first(),
-                'pinTitle' => $notice->title,
-                'link' => $url,
-            ];
+            if(!$group->isSupervisedBy($user) && $user->isMailable()) {
+                $data = [
+                    'name' => $user->fullName(),
+                    'groupName' => $group->name,
+                    'pinSender' => $notice->user()->first(),
+                    'pinTitle' => $notice->title,
+                    'link' => $url,
+                ];
 
-            Mail::later($counter, 'inspina.email.new_pin', $data, function($message) use ($user)
-            {
-                $message->to($user->email, $user->fullName())->subject('New Notice Pinned.');
+                Mail::later($counter, 'inspina.email.new_pin', $data, function ($message) use ($user) {
+                    $message->to($user->email, $user->fullName())->subject('New Notice Pinned.');
 
-            });
+                });
 
-            $counter++;
+                $counter++;
+            }
         }
     }
 

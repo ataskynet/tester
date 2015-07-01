@@ -67,10 +67,11 @@
 
                             @else
                                 <div class="middle-box text-center animated fadeInRightBig">
-                                    <h3 class="font-bold">This is page content</h3>
+                                    <h3 class="font-bold">No Files Shared Yet</h3>
                                         <div class="error-desc">
-                                            You can create here any grid layout you want. And any variation layout you imagine:) Check out main dashboard and other site. It use many different layout.
-                                            <br><a href="index.html" class="btn btn-primary m-t">Dashboard</a>
+                                            No file has been shared to the group yet! You could share a file to this group by uploading files to you back-pack and
+                                            share them to the this group for your fellow users to enjoy.
+                                            <br><a href="{{ url('/') }}" class="btn btn-primary m-t">Home</a>
                                         </div>
                                 </div>
                         @endif

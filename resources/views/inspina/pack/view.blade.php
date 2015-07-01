@@ -20,7 +20,7 @@
                                         <ul class="folder-list" style="padding: 0">
                                         @if($subFolders->count() != 0)
                                         @foreach($subFolders as $subFolder)
-                                            <li><a href="{{url('pack/'. $subFolder->id) }}"><i class="fa fa-folder"></i> {{ $subFolder->name}} <span class="badge badge-info pull-right">{{ $folder->files()->count() }}</span></a></li>
+                                            <li><a href="{{url('pack/'. $subFolder->id) }}"><i class="fa fa-folder"></i> {{ $subFolder->name}} <span class="badge badge-info pull-right">{{ $subFolder->files()->count() }}</span></a></li>
                                         @endforeach
                                         @else
                                             <li><b> <span align="center">No Sub Folders for this folder.</span></b></li>

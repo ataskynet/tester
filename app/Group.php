@@ -158,4 +158,24 @@ class Group extends Model {
     {
         return $this->sharedFiles()->where('user_id', $user->id)->get();
     }
+
+    public function  administrators()
+    {
+        return $this->belongsToMany('App\User', 'supervisors', 'group_id', 'user_id')->withTimestamps();
+    }
+
+    public function isSupervisedBy($user)
+    {
+        $adminsId = $this->administrators()->lists('user_id');
+
+        foreach($adminsId as $adminId)
+        {
+            if($user->id == $adminId)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

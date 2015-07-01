@@ -25,6 +25,7 @@
                                         </div>
                                     </form>
                                 </div>
+                            @if($groups->count() != 0)
                               @foreach($groups as $group)
                                 <div class="hr-line-dashed"></div>
                                 <div class="search-result">
@@ -44,6 +45,11 @@
                                         </p>
                                 </div>
                               @endforeach
+
+                            @else
+                                <div class="hr-line-dashed"></div>
+                                <h2 align="center"> No groups available to share the file with.</h2>
+                            @endif
 
                                 <div class="hr-line-dashed"></div>
                                 <div class="text-center">

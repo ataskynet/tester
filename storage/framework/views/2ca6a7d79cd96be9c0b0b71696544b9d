@@ -125,6 +125,9 @@
                             </div>
                             </div>
                         </div>
+                        <div class="text-center">
+                            <?php echo $documents->render() ?>
+                        </div>
                         </div>
                 <!-- Content ends Here! -->
 <?php $__env->stopSection(); ?>

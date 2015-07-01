@@ -92,7 +92,8 @@ class ClientController extends Controller
         // This checks of there's a need to upload the picture and saves the rest of the information if not.
         if ($request->file('profile') == null) {
             $this->repo->updateUser($request, $user);
-            return redirect('/')->with('success', 'Profile Successfully updated');
+            $this->flash('Your profile information was successfully updated');
+            return redirect('/');
         }
 
         //Uploads the prof pic and stores it in the database.
@@ -100,6 +101,7 @@ class ClientController extends Controller
             return redirect()->back()->withErrors( 'Profile Was Not Updated, Check if below 10mb or right extension.');
 
         //Persists the rest of the data.
+        $this->flash('Your profile information was successfully updated');
         $this->repo->updateUser($request, $user);
 
         return redirect('/');

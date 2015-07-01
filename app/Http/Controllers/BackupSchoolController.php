@@ -143,9 +143,9 @@ class SchoolController extends Controller {
 
         if ($this->auth->attempt($credentials, $request->has('remember')))
         {
-            $active = \Auth::user()->active;
+            $active = \Auth::user()->isActive();
 
-            if($active != 1){
+            if($active){
                 $this->auth->logout();
                 return $this->getNotActivated($user);
             }

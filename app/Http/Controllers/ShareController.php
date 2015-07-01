@@ -38,7 +38,7 @@ class ShareController extends Controller {
 	public function index($file)
 	{
 		$title = "Groups to share to:";
-        $groups = Group::paginate(9);
+        $groups= \Auth::user()->follows()->paginate(9);
         return view('inspina.pack.myGroup', compact('title', 'groups', 'file'));
 	}
     

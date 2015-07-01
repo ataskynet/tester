@@ -8,7 +8,14 @@
                                     <ul class="folder-list" style="padding: 0">
                                     <?php if($user->followedGroups()->count() != 0): ?>
                                     <?php foreach($user->followedGroups() as $group): ?>
-                                        <li><a href="<?php echo e($group->username); ?>"><i class="fa fa-group"></i> <?php echo e($group->name); ?> <i class="badge badge-default pull-right"><?php echo e($group->followersCount()); ?></i></a></li>
+                                        <li><a href="<?php echo e($group->username); ?>"><i class="fa fa-group"></i> <?php echo e($group->name); ?>
+
+
+                                        <i class="badge badge-default pull-right"><?php echo e($group->followersCount()); ?></i>
+                                        <?php if($group->isSupervisedBy(\Auth::user())): ?>
+                                            <i class="label label-info pull-right" style="color: #ffffff"> As Supervisor </i>
+                                        <?php endif; ?>
+                                        </a></li>
                                     <?php endforeach; ?>
                                     <?php else: ?>
                                         <h3 align="center">Follow New Groups :)</h3>

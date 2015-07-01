@@ -22,7 +22,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'email', 'password', 'firstName', 'lastName', 'telNumber', 'code', 'active'];
+	protected $fillable = ['name', 'email', 'password', 'firstName', 'lastName', 'telNumber', 'code', 'active', 'pin_notification'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -115,4 +115,35 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->personalFolders()->where('sub_directory', NULL)->get();
     }
+
+    public function  administrates()
+    {
+        return $this->belongsToMany('App\Group', 'supervisors', 'user_id', 'group_id')->withTimestamps();
+    }
+
+    public static function scopeSearchFor($query, $field, $value)
+    {
+        return $query->where($field, 'LIKE', "%$value%");
+    }
+
+    public function isMailable()
+    {
+        if($this->pin_notification == 1)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function isActive()
+    {
+        if($this->active == 1)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
 }

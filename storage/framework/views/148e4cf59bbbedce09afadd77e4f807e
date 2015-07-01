@@ -23,6 +23,7 @@
                                         </div>
                                     </form>
                                 </div>
+                            <?php if($groups->count() != 0): ?>
                               <?php foreach($groups as $group): ?>
                                 <div class="hr-line-dashed"></div>
                                 <div class="search-result">
@@ -43,6 +44,11 @@
                                         </p>
                                 </div>
                               <?php endforeach; ?>
+
+                            <?php else: ?>
+                                <div class="hr-line-dashed"></div>
+                                <h2 align="center"> No groups available to share the file with.</h2>
+                            <?php endif; ?>
 
                                 <div class="hr-line-dashed"></div>
                                 <div class="text-center">

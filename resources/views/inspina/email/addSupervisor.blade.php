@@ -287,7 +287,7 @@
                             <table  cellpadding="0" cellspacing="0">
                                 <!--<tr>
                                     <td>
-                                        <img class="img-responsive" src="{{ asset('inspina/email_templates/img/header.jpg') }}"/>
+                                        <img class="img-responsive" src=" //asset('inspina/email_templates/img/header.jpg') }}"/>
                                     </td>
                                 </tr> -->
                                 <tr>
@@ -297,19 +297,19 @@
                                 <tr><td class="content-block"><br/></td></tr>
                                 <tr>
                                     <td class="content-block">
-                                        We may need to send you critical information about our service and it is important that we have an accurate email address.
+                                       You have been added as a supervisor to the group: <b> {{ $groupName }}</b>, you can now share files make notices to the group.
+                                       Enjoy skoolspace!
                                     </td>
                                 </tr>
                                 <tr><td class="content-block"><br/></td></tr>
                                 <tr>
                                     <td class="content-block aligncenter">
-                                        <a href="{{ url($link) }}" class="btn-primary">Confirm email address</a>
+                                        <a href="{{ url($link) }}" class="btn-primary">Checkout the group: <b> {{$groupName}}</b></a>
                                     </td>
                                 </tr>
                                 <tr><td class="content-block"><br/></td></tr>
                                 <tr>
-                                <td class="content-block">Copy and paste this link if the link above is not actionable. <br/> <a href="{{ url($link) }}"></a>{{ url($link) }} <br/> Thank You.</td>
-                                </tr>
+                                <td class="content-block">Copy and paste this link if the link above is not actionable. <br/> <a href="{{ url($link) }}"></a>{{ url($link) }} <br/> Thank You.</td></tr>
                                 <tr><td class="content-block"><br/></td></tr>
                               </table>
                         </td>

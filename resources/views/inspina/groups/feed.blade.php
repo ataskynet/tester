@@ -9,7 +9,13 @@
                 <div class="col-md-6">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>Group Activities</h5>
+                            <h5>
+                                Group Activities
+
+                            </h5>
+                            @if($group->isSupervisedBy(\Auth::user()))
+                               <i class="label label-info pull-right" style="color: #ffffff"> As Supervisor </i>
+                            @endif
                         </div>
                         <div class="ibox-content">
 
