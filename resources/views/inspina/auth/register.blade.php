@@ -29,6 +29,7 @@
                     in managing and sharing resources in their various groups.
                 </p>
                 <p> Join skoolspace to get informed and share among your peers and make school group management that much easier.</p>
+                <p><small> <b>Ps: Confirm your email within 7 days or your account will be temporarily unactivated, till you do</b> </small></p>
                 <p>
                     <b>Welcome to the skoolspace community!</b>
                 </p>
@@ -57,9 +58,7 @@
                         <div class="form-group">
                             <input type="password" id="registrationPasswordConfirmation" class="form-control" placeholder="Confirm Password" name="password_confirmation" required="">
                         </div>
-                        <div class="form-group">
-                            <div class="checkbox i-checks"><label> <input type="checkbox" id="registrationTerms" name="terms"><i></i> Agree the terms and policy </label></div>
-                        </div>
+
                         <button type="button" id="registrationbtn" class="btn btn-primary block full-width m-b">Create an account</button>
 
                         <p class="text-muted text-center">

@@ -57,7 +57,9 @@
                                                 <br/>
                                                 <small>Created: {{ $document->created_at->diffForHumans() }}</small>
                                                 <br>
-
+                                                <a href="{{ url($document->source) }}" style="padding-top: 30px;">
+                                                <i class="fa fa-download "></i> Download
+                                                </a>
                                             </div>
                                         </a>
                                     </div>

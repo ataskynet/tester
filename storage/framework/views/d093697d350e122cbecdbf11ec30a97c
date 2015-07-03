@@ -34,7 +34,7 @@
 
                 <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
                     <i class="fa fa-reorder"></i>
-                    <span class="glyphicon glyphicon-list"></span>
+                   <span class="fa fa-bars"></span>
                 </button>
                 <a href="<?php echo e(url('/')); ?>" class="navbar-brand">skoolspace</a>
             </div>

@@ -15,6 +15,7 @@
 
             <link href="{{asset('/inspina/css/animate.css')}}" rel="stylesheet">
             <link href="{{ asset('/inspina/css/style.css') }}" rel="stylesheet">
+            <link href="{{ asset('/inspina/css/myStyle.css') }}" rel="stylesheet">
 
             <link href="{{asset('/datetime/css/bootstrap-datepicker3.css')}}" rel="stylesheet">
 
@@ -33,6 +34,7 @@
             <div class="navbar-header">
                 <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
                     <i class="fa fa-reorder"></i>
+                    <span class="fa fa-bars"></span>
                 </button>
                 <a href="{{ url('/') }}" class="navbar-brand">skoolspace</a>
             </div>
@@ -221,6 +223,12 @@
 <script>
     $('#flash-overlay-modal').modal();
 </script>
+<script>
+   /* $(document).ready(function()
+    {
+        $('[data-toggle="tooltip"]').tooltip();
+    });*/
+</script>
 @yield('script')
 <script>
             function validateText(id)
@@ -243,6 +251,7 @@
                     @yield('validation')
                 }
             );
+
 </script>
 
 

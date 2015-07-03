@@ -57,7 +57,7 @@ class AdministratorController extends Controller {
     {
         $title = $group->name . ' Administrators';
         $supervisors = $group->administrators()->get();
-        $members = User::orderBy('firstName')->paginate(10);
+        $members = User::orderBy('firstName')->where('active', 1)->paginate(10);
         return view('inspina.administrators.index', compact('title','group', 'supervisors', 'members'));
     }
 
@@ -92,7 +92,7 @@ class AdministratorController extends Controller {
      */
     public function search(SearchRequest $searchRequest, $group)
     {
-        return redirect($group->username.'/administrators/'.$searchRequest->value.'/search/');
+        return redirect($group->username.'/contacts/'.$searchRequest->value.'/search/');
     }
 
     /**
@@ -102,10 +102,9 @@ class AdministratorController extends Controller {
      */
     public function getSearch($group, $query)
     {
-        $title =  'Administrators searched: ' . $query;
-        $supervisors = $group->administrators()->get();
-        $members = $this->administratorRepository->searchedUsers($query);
-        return view('inspina.administrators.index', compact('title', 'group','supervisors', 'members'));
+        $title =  'Members searched: ' . $query;
+        $members = $this->administratorRepository->searchedGroupUsers($group, $query);
+        return view('inspina.followers.index', compact('title', 'group', 'members'));
     }
 
     public function show($group)

@@ -14,7 +14,7 @@
 
                             </h5>
                             @if($group->isSupervisedBy(\Auth::user()))
-                               <i class="label label-info pull-right" style="color: #ffffff"> As Supervisor </i>
+                            <!--   <i class="label label-info pull-right" style="color: #ffffff" data-toggle="tooltip" data-placement="bottom" title="You are a supervisor in this group."> As Supervisor </i> -->ss
                             @endif
                         </div>
                         <div class="ibox-content">

@@ -10,12 +10,14 @@
                                     <ul class="folder-list" style="padding: 0">
                                         <!--<li><a href="<?php echo e($group->username .'/events'); ?>"><i class="fa fa-calendar-o"></i> Events <i class="badge badge-default pull-right"> //$group->events()->get()->count() }}</i></a></li>-->
                                         <li><a href="<?php echo e($group->username.'/notice'); ?>"><i class="glyphicon glyphicon-pushpin"></i> Notices <i class="badge badge-default pull-right"><?php echo e($group->notices()->get()->count()); ?></i></a></li>
-                                        <li><a href="<?php echo e($group->username.'/contacts'); ?>"><i class="fa fa-group"></i> Members <i class="badge badge-default pull-right"><?php echo e($group->followersCount()); ?></i></a></li>
+                                        <li data-toggle="tooltip" data-placement="bottom" title="View group members and their information."><a href="<?php echo e($group->username.'/contacts'); ?>"><i class="fa fa-group"></i> Members <i class="badge badge-default pull-right"><?php echo e($group->followersCount()); ?></i></a></li>
+                                       <!--
                                         <?php if($group->isOwner(\Auth::user())): ?>
-                                            <li><a href="<?php echo e($group->username.'/administrators'); ?>"><i class="fa fa-group"></i> Supervisors <i class="badge badge-primary pull-right" style="color: #ffffff"><?php echo e($group->administrators()->get()->count()); ?></i></a></li>
+                                            <li data-toggle="tooltip" data-placement="bottom" title="View and manage group supervisors."><a href="<?php echo e($group->username.'/administrators'); ?>"><i class="fa fa-gavel"></i> Supervisors <i class="badge badge-primary pull-right" style="color: #ffffff"><?php echo e($group->administrators()->get()->count()); ?></i></a></li>
                                         <?php else: ?>
-                                            <li><a href="<?php echo e($group->username.'/administrators/all'); ?>"><i class="fa fa-group"></i> Supervisors <i class="badge badge-info pull-right" style="color: #ffffff"><?php echo e($group->administrators()->get()->count()); ?></i></a></li>
+                                            <li data-toggle="tooltip" data-placement="bottom" title="View group supervisors and their information."><a href="<?php echo e($group->username.'/administrators/all'); ?>"><i class="fa fa-gavel"></i> Supervisors <i class="badge badge-info pull-right" style="color: #ffffff"><?php echo e($group->administrators()->get()->count()); ?></i></a></li>
                                         <?php endif; ?>
+                                        -->
 
                                     </ul>
                                 </div>
@@ -37,7 +39,7 @@
                                     <ul class="folder-list" style="padding: 0">
                                     <?php if($group->folders()->get()->count() != 0): ?>
                                     <?php foreach($group->mainFolders() as $folder): ?>
-                                        <li><a href="<?php echo e('/manager/'.$group->username.'/'.$folder->id); ?>"><i class="fa fa-folder"></i> <?php echo e($folder->name); ?> <span class="badge badge-info pull-right"><?php echo e($folder->files()->count()); ?></span></a></li>
+                                        <li><a href="<?php echo e('/manager/'.$group->username.'/'.$folder->id.'/main/'); ?>"><i class="fa fa-folder"></i> <?php echo e($folder->name); ?> <span class="badge badge-info pull-right"><?php echo e($folder->files()->count()); ?></span></a></li>
                                     <?php endforeach; ?>
                                     <?php else: ?>
                                         <li><b> <span align="center">No Folders for this group.</span></b></li>

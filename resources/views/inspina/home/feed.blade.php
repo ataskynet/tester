@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="ibox float-e-margins">
-                        <div class="ibox-title" >
+                        <div class="ibox-title"  data-toggle="tooltip" data-placement="bottom" title="Compiled activities from all your groups.">
                             <h5>Group Activities</h5>
 
                         </div>

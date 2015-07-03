@@ -29,8 +29,16 @@
             <h2 class="normal">Activate your account</h2>
             <p>A link has been sent to your email account to activate your account.</p>
             <p class="p-b-20">Activate your account Now! to enjoy skoolspace, it's free and always will be.</p>
+            <p><small> <b>Ps: Confirm your email within 7 days or your account will be temporarily unactivated, till you do</b> </small></p>
+
+
 
                 <a href="{{ url('/notActivated/'. $user->id) }}" class="btn btn-info btn-cons"> Resend the Email </a>
+                @if($user->isActive())
+                    or
+                    <a href="{{ url('/login') }}" class="btn btn-primary btn-cons">{{ (7 - $user->trialDays()) }} day free trial.</a>
+                @endif
+
             <p class="m-t"> <small>skoolspace framework built for school group management <br> &copy; 2014</small> </p>
         </div>
     </div>

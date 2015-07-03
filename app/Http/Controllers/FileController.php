@@ -91,8 +91,13 @@ class FileController extends Controller
      * @internal param int $id
      * @return Response
      */
-	public function show($group, $folder)
+	public function show($group, $folder = null)
 	{
+        if($folder == null)
+        {
+            $this->flash('I am sorry. The folder is no longer available.');
+            return redirect()->back();
+        }
         $title = 'File Manager: '.$folder->name;
         $documents = $folder->files()->paginate(10);
         $subFolders = $folder->folders()->get();

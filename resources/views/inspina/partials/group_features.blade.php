@@ -10,12 +10,14 @@
                                     <ul class="folder-list" style="padding: 0">
                                         <!--<li><a href="{{$group->username .'/events'}}"><i class="fa fa-calendar-o"></i> Events <i class="badge badge-default pull-right"> //$group->events()->get()->count() }}</i></a></li>-->
                                         <li><a href="{{$group->username.'/notice'}}"><i class="glyphicon glyphicon-pushpin"></i> Notices <i class="badge badge-default pull-right">{{ $group->notices()->get()->count() }}</i></a></li>
-                                        <li><a href="{{$group->username.'/contacts'}}"><i class="fa fa-group"></i> Members <i class="badge badge-default pull-right">{{ $group->followersCount() }}</i></a></li>
+                                        <li data-toggle="tooltip" data-placement="bottom" title="View group members and their information."><a href="{{$group->username.'/contacts'}}"><i class="fa fa-group"></i> Members <i class="badge badge-default pull-right">{{ $group->followersCount() }}</i></a></li>
+                                       <!--
                                         @if($group->isOwner(\Auth::user()))
-                                            <li><a href="{{$group->username.'/administrators'}}"><i class="fa fa-group"></i> Supervisors <i class="badge badge-primary pull-right" style="color: #ffffff">{{ $group->administrators()->get()->count() }}</i></a></li>
+                                            <li data-toggle="tooltip" data-placement="bottom" title="View and manage group supervisors."><a href="{{$group->username.'/administrators'}}"><i class="fa fa-gavel"></i> Supervisors <i class="badge badge-primary pull-right" style="color: #ffffff">{{ $group->administrators()->get()->count() }}</i></a></li>
                                         @else
-                                            <li><a href="{{$group->username.'/administrators/all'}}"><i class="fa fa-group"></i> Supervisors <i class="badge badge-info pull-right" style="color: #ffffff">{{ $group->administrators()->get()->count() }}</i></a></li>
+                                            <li data-toggle="tooltip" data-placement="bottom" title="View group supervisors and their information."><a href="{{$group->username.'/administrators/all'}}"><i class="fa fa-gavel"></i> Supervisors <i class="badge badge-info pull-right" style="color: #ffffff">{{ $group->administrators()->get()->count() }}</i></a></li>
                                         @endif
+                                        -->
 
                                     </ul>
                                 </div>
@@ -37,7 +39,7 @@
                                     <ul class="folder-list" style="padding: 0">
                                     @if($group->folders()->get()->count() != 0)
                                     @foreach($group->mainFolders() as $folder)
-                                        <li><a href="{{'/manager/'.$group->username.'/'.$folder->id}}"><i class="fa fa-folder"></i> {{$folder->name}} <span class="badge badge-info pull-right">{{ $folder->files()->count() }}</span></a></li>
+                                        <li><a href="{{'/manager/'.$group->username.'/'.$folder->id.'/main/'}}"><i class="fa fa-folder"></i> {{$folder->name}} <span class="badge badge-info pull-right">{{ $folder->files()->count() }}</span></a></li>
                                     @endforeach
                                     @else
                                         <li><b> <span align="center">No Folders for this group.</span></b></li>

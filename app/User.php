@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -143,7 +144,28 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             return true;
         }
 
+        if($this->trialDays() <= 7)
+        {
+            return true;
+        }
+
+          return false;
+    }
+
+    Public function isTrial()
+    {
+        if($this->active == 0 && $this->trialDays() <=7)
+        {
+            return true;
+        }
+
         return false;
+    }
+    public function trialDays()
+    {
+        $created = new Carbon($this->created_at);
+        $now = Carbon::now();
+        return $created->diff($now)->days;
     }
 
 }

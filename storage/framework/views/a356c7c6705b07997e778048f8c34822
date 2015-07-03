@@ -1,7 +1,7 @@
 <ul class="notes">
     <?php foreach($notices as $notice): ?>
         <li>
-            <div>
+            <div style="overflow: auto">
                 <small><?php echo e($notice->updated_at); ?></small>
                 <h4><?php echo e($notice->title); ?></h4>
                 <p><?php echo e($notice->message); ?></p>

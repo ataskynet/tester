@@ -1,7 +1,7 @@
 <ul class="notes">
     @foreach($notices as $notice)
         <li>
-            <div>
+            <div style="overflow: auto">
                 <small>{{$notice->updated_at}}</small>
                 <h4>{{$notice->title}}</h4>
                 <p>{{$notice->message}}</p>

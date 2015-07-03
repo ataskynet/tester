@@ -19,7 +19,9 @@
                                             <ul class="folder-list" style="padding: 0">
                                             @if($supervisors->count() != 0)
                                             @foreach($supervisors as $supervisor)
-                                                <h5>{{$supervisor->fullName()}} &nbsp; &nbsp;<a href="{{ url($group->username.'/administrators/delete/'.$supervisor->id) }}"><i class="glyphicon glyphicon-remove-sign pull-right"></i></a></h5>
+                                                <h5>{{$supervisor->fullName()}} &nbsp; &nbsp;
+                                                <a href="{{ url($group->username . '/' .$supervisor->id .'/main'. '/visit/pack/ ') }}"><i class="fa fa-briefcase pull-right"></i></a>
+                                                </h5>
                                                 <li></li>
                                             @endforeach
                                             @else
@@ -49,7 +51,7 @@
                             @if($members->count() != 0)
                                 @foreach($members as $member)
                                         <div class="col-lg-6">
-                                            <div class="contact-box">
+                                            <div class="contact-box" style="overflow: auto">
 
                                                 <div class="col-sm-4">
                                                     <div class="text-center">
@@ -64,7 +66,7 @@
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <h3><strong>{{ $member->fullName() }}</strong></h3>
-                                                    <p><i class="glyphicon glyphicon-pushpin"></i> {{ $member->notices()->get()->count() }} &nbsp; &nbsp;  <i class="fa fa-folder-open"></i> {{ $member->files()->get()->count() }}</p>
+                                                    <p><i class="glyphicon glyphicon-pushpin"></i> {{ $member->notices()->get()->count() }} &nbsp; &nbsp;  <i class="fa fa-folder-open"></i> {{ $member->personalFiles()->get()->count() }}</p>
                                                     <address>
                                                         <strong>Contact Info.</strong><br>
                                                        {{ $member->email }}<br>
@@ -81,10 +83,10 @@
 
                                 @else
                                     <div class="middle-box text-center animated fadeInRightBig">
-                                        <h3 class="font-bold">This is page content</h3>
+                                        <h3 class="font-bold">No user found</h3>
                                             <div class="error-desc">
-                                                You can create here any grid layout you want. And any variation layout you imagine:) Check out main dashboard and other site. It use many different layout.
-                                                <br><a href="index.html" class="btn btn-primary m-t">Dashboard</a>
+                                                Check if you have the correct name for the user your are searching for, Enjoy skoolspace.
+                                                <br><a href="{{ $group->username }}" class="btn btn-primary m-t">Group Feed</a>
                                             </div>
                                     </div>
                                 @endif

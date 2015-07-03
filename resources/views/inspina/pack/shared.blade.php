@@ -59,6 +59,8 @@
                                                 <br>
                                                 <small>Shared by: {{ $document->user()->first()->fullName() }}</small>
 
+                                                <span class="pull-right"><a href="{{ url($document->source) }} " class="pull-right"><i class="fa fa-download pull-right"></i></a></span>
+
                                             </div>
                                         </a>
                                     </div>
@@ -70,7 +72,7 @@
                                 <div class="middle-box text-center animated fadeInRightBig" style="margin-top: 90px">
                                     <h2 class="font-bold">No Sharers Yet!</h2>
 
-                                    <div class="error-desc">
+                                    <div class="error-desc col-xs-10 col-xs-offset-1">
                                          <b>But </b>You can share a file to this group from your back-pack files with ease.
                                          Try it out and share your files with the rest of the group I am sure they would appreciate it. :)
                                          <br><a href="{{ url('/') }}" class="btn btn-primary m-t">Back Home</a>

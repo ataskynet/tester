@@ -47,17 +47,7 @@
                                                       </div>
                                                   </div>
                                               </div>
-                                            <div class="row form-group">
-                                            <label class="col-sm-2 control-label">Mail Notification:</label>
-                                                <div class="col-sm-10">
-                                                    <label class="checkbox-inline">
-                                                        <input type="radio" value="1" id="inlineCheckbox1" name="pin_notification" > Allow all notifications
-                                                    </label>
-                                                    <label class="checkbox-inline">
-                                                        <input type="radio" value="0" id="inlineCheckbox2" name="pin_notification" checked> Allow only new file notifications
-                                                    </label>
-                                                </div>
-                                            </div>
+
                                           </div>
                                           <div class="modal-footer">
                                               <a href="<?php echo e(url($group->username)); ?>" class="btn btn-default">Close</a>

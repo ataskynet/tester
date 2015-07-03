@@ -32,4 +32,9 @@ class AdministratorRepository {
     {
         return User::searchFor('firstName', $value)->paginate($howMany);
     }
+
+    public function searchedGroupUsers($group, $value, $howMany =10)
+    {
+        return $group->followers()->searchFor('firstName', $value)->paginate($howMany);
+    }
 } 

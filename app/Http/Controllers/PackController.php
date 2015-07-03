@@ -40,14 +40,26 @@ class PackController extends Controller {
 		//
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @param $group
+     * @param $user
+     * @param null $folder
+     * @return Response
+     */
+	public function visit($group ,$user , $folder = null)
 	{
-		//
+        if($folder == null)
+        {
+            $title = $user->fullName() . "'s Back-Pack";
+            $folders = $user->rootFolders();
+            return view('inspina.pack.public', compact('user','group','folders','title'));
+        }
+        $title = $user->fullName() . "'s Back-Pack: " .$folder->name;
+        $folders = $folder->subFolders()->get();
+        $documents =  $folder->files()->get();
+        return view('inspina.pack.public', compact('user','folders', 'documents', 'folder', 'group','title'));
 	}
 
     /**

@@ -24,7 +24,7 @@
 
                                         @if($group->isOwner(\Auth::user()))
                                         <div class="row">
-                                            <div class="col-md-5 col-md-offset-3" >
+                                            <div class="col-md-5 col-md-offset-3" data-toggle="tooltip" data-placement="bottom" title="Updated group profile information." >
                                                 <a href="{{ url($group->username . '/update') }}" class="btn btn-primary btn-sm btn-rounded"><i class="fa fa-edit"></i> Edit Profile</a>
                                             </div>
                                         </div>

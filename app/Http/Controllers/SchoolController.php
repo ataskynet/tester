@@ -78,7 +78,7 @@ class SchoolController extends Controller {
             'firstName' => $data['firstName'],
             'lastName' => $data['lastName'],
             'telNumber' => $data['telNumber'],
-            'active' => 1,
+            'active' => 0,
             'code' => $activationCode,
         ]);
     }
@@ -105,8 +105,6 @@ class SchoolController extends Controller {
             'firstName' => 'required',
             'lastName' => 'required',
             'telNumber' => 'required',
-            'terms' => 'required',
-
         ]);
 
         if ($validator->fails())
@@ -121,7 +119,7 @@ class SchoolController extends Controller {
 
         $this->mailer->sendConfirmationMailTo($user, $activationCode);
 
-        return redirect('/notActivated');
+        return redirect('/notActivated/'.$user->id);
     }
 
     /**
@@ -158,6 +156,11 @@ class SchoolController extends Controller {
             if(!$active){
                 $this->auth->logout();
                 return redirect('/notActivated/' . $currentUser->id);
+            }
+            if($currentUser->isTrial())
+            {
+                $this->flash('Your account is not verified, Please verify within '. (7 - $currentUser->trialDays()) .' days');
+                $this->mailer->sendConfirmationMailTo($currentUser, $currentUser->code);
             }
             return redirect()->intended($this->redirectPath());
         }

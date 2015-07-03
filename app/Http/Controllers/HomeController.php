@@ -3,6 +3,7 @@
 use App\course;
 use App\Http\Mail\UserMailer;
 use App\Http\Post\PostRepository;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -98,4 +99,8 @@ class HomeController extends Controller {
        #$mailer->sendConfirmationMailTo($this->user(), str_random(60));
     }
 
+    public function tester()
+    {
+
+    }
 }

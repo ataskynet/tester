@@ -2,7 +2,7 @@
                 <!-- Content starts here -->
                 <div class="wrapper wrapper-content" style="padding-right: 0px; padding-top: 0px;">
                     <div class="row">
-                   <?php echo $__env->make('inspina.partials.file_nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                   <?php echo $__env->make('inspina.partials.back_file_nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                     </div>
                     <br>
                     <?php echo $__env->make('inspina.partials.error', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -11,17 +11,14 @@
                             <div class="ibox float-e-margins">
                                 <div class="ibox-content">
                                     <div class="file-manager">
-                                    <?php echo $__env->make('inspina.file.partials.upload', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-                                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#subModal">Create Sub Folder</button>
-                                        <div class="hr-line-dashed"></div>
                                         <h5>Folders <small class="pull-right">Files</small></h5>
                                         <ul class="folder-list" style="padding: 0">
-                                        <?php if($subFolders->count() != 0): ?>
-                                        <?php foreach($subFolders as $subFolder): ?>
-                                            <li><a href="<?php echo e(url('manager/'.$group->username.'/'. $subFolder->id.'/main/')); ?>"><i class="fa fa-folder"></i> <?php echo e($subFolder->name); ?> <span class="badge badge-info pull-right"><?php echo e($subFolder->files()->count()); ?></span></a></li>
+                                        <?php if($folders->count() != 0): ?>
+                                        <?php foreach($folders as $folder): ?>
+                                            <li><a href="<?php echo e(url($group->username . '/' .$user->id . '/' .$folder->id. '/visit/pack/ ')); ?>"><i class="fa fa-folder"></i> <?php echo e($folder->name); ?> <span class="badge badge-info pull-right"><?php echo e($folder->files()->count()); ?></span></a></li>
                                         <?php endforeach; ?>
                                         <?php else: ?>
-                                            <li><b> <span align="center">No Sub Folders for this group.</span></b></li>
+                                            <li><b> <span align="center">No folders created here yet.</span></b></li>
                                         <?php endif; ?>
                                         </ul>
                                         <div class="clearfix"></div>
@@ -32,62 +29,28 @@
                         <div class="col-lg-9 animated fadeInRight">
                             <div class="row">
                                 <div class="col-lg-12">
-                                <?php echo $__env->make('inspina.file.partials.createSubFolder', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+                                <?php foreach($folders as $folder): ?>
                                     <div class="file-box">
                                         <div class="file">
-                                            <a href="" data-toggle="modal" data-target="#uploadModal">
-                                                <span class="corner"></span>
-
-                                                <div class="icon">
-                                                    <i class="fa fa-plus"></i>
-                                                </div>
-                                                <div  class="text-center file-name">
-                                                    <h3>Upload File</h3>
-                                                </div>
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                    <?php if($group->isOwner(\Auth::user())): ?>
-                                        <?php echo $__env->make('inspina.file.partials.updateFolder', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-                                        <div class="file-box">
-                                            <div class="file">
-                                                <a href="" data-toggle="modal" data-target="#updateModal">
-                                                    <span class="corner"></span>
-
-                                                    <div class="icon">
-                                                        <i class="fa fa-edit"></i>
-                                                    </div>
-                                                    <div  class="text-center file-name">
-                                                        <h3>Rename Folder</h3>
-                                                    </div>
-                                                </a>
-                                            </div>
-
-                                        </div>
-                                    <?php endif; ?>
-                                <?php foreach($subFolders as $subFolder): ?>
-                                    <div class="file-box">
-                                        <div class="file">
-                                            <a href="<?php echo e(url('manager/'.$group->username.'/'. $subFolder->id.'/main/')); ?>">
+                                            <a href="<?php echo e(url($group->username . '/' .$user->id . '/' .$folder->id. '/visit/pack/ ')); ?>">
                                                 <span class="corner"></span>
 
                                                 <div class="icon">
                                                     <i class="fa fa-folder"></i>
                                                 </div>
                                                 <div class="file-name">
-                                                    Folder: <?php echo e($subFolder->name); ?>
+                                                    Folder: <?php echo e($folder->name); ?>
 
                                                     <br/>
-                                                    <small>Added: <?php echo e($subFolder->created_at); ?></small>
-
+                                                    <small>Added: <?php echo e($folder->created_at->diffForHumans()); ?></small>
                                                 </div>
                                             </a>
                                         </div>
                                     </div>
                                 <?php endforeach; ?>
 
+                    <?php if(isset($documents)): ?>
                         <?php if($documents->count() != 0): ?>
                             <?php foreach($documents as $document): ?>
                                 <div class="file-box">
@@ -111,10 +74,11 @@
                                                 <br/>
                                                 <small>Added: <?php echo e($document->created_at->diffForHumans()); ?></small>
                                                 <br>
-                                                <small>Uploaded By: <?php echo $__env->make('inspina.partials.name_tag',['user' => $document->user()->first()], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?></small>
-                                                <?php if($group->isOwner(\Auth::user())): ?>
-                                                    <span class="pull-right"><a href="<?php echo e(url('/manager/delete/'.$folder->id.'/'.$document->id)); ?> " class="pull-right"><i class="glyphicon glyphicon-remove-sign pull-right"></i></a></span>
-                                                <?php endif; ?>
+                                                <a href="<?php echo e(url($document->source)); ?>" style="padding-top: 30px;">
+                                                 <i class="fa fa-download "></i> Download
+                                                </a>
+
+
                                             </div>
                                         </a>
                                     </div>
@@ -122,12 +86,22 @@
                                 </div>
                             <?php endforeach; ?>
                         <?php endif; ?>
+                    <?php endif; ?>
+
+                        <?php if($folders->count() == 0 && !isset($documents)): ?>
+                                <div class="middle-box text-center animated fadeInRightBig" style="margin-top: 90px">
+                                    <h2 class="font-bold">This Back-Pack is empty</h2>
+
+                                    <div class="error-desc col-xs-10 col-xs-offset-1">
+                                         <b>But </b>You can fill out your own back pack so that your fellow members may be able to access your files and benefit <fro></fro>m them.
+
+                                         <br><a href="<?php echo e(url('/')); ?>" class="btn btn-primary m-t">Back Home</a>
+                                    </div>
+                                </div>
+                        <?php endif; ?>
                                 </div>
                             </div>
                             </div>
-                        </div>
-                        <div class="text-center">
-                            <?php echo $documents->render() ?>
                         </div>
                         </div>
                 <!-- Content ends Here! -->
@@ -141,7 +115,6 @@
                         $('form#createfolderform').submit();
 
                     })
-
                 $("#uploadfilebtn").click(function()
                     {
                         if(!validateText("file"))
@@ -152,4 +125,4 @@
 <?php $__env->stopSection(); ?>
 
 
-<?php echo $__env->make('inspina.layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('inspina.layouts.user', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

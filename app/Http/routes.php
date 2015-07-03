@@ -134,6 +134,8 @@ Route::bind('personalFile' , function($id)
 /* Back Pack routes */
     Route::get('/pack/{personalFolder}/',
         [ 'middleware' => 'school', 'uses' => 'PackController@show' ]);
+    Route::get('{group}/{user}/{personalFolder}/visit/pack',
+        [ 'middleware' => 'school', 'uses' => 'PackController@visit' ]);
     Route::post('/pack/',
         [ 'middleware' => 'school', 'uses' => 'PackController@storeFolder' ]);
     Route::post('/pack/{personalFolder}',
@@ -195,7 +197,7 @@ Route::bind('personalFile' , function($id)
             [ 'middleware' => 'school', 'uses' => 'FileController@updateFolder' ]);
         Route::get('/manager/delete/{folder}/{file}',
             [ 'middleware' => 'school', 'uses' => 'FileController@destroy' ]);
-        Route::get('/manager/{group}/{folder}',
+        Route::get('/manager/{group}/{folder}/main',
             [ 'middleware' => 'school', 'uses' => 'FileController@show' ]);
         /*Route::get('/download/',
             [ 'middleware' => 'school', 'uses' => 'FileController@download' ]);*/
@@ -225,6 +227,10 @@ Route::bind('personalFile' , function($id)
 
 /* Group Followers */
     Route::get('/{username}/contacts',  ['middleware' => 'school', 'uses' => 'FollowController@show']);
+    Route::post('/{username}/contacts/search',
+        [ 'middleware' => 'school', 'uses' => 'AdministratorController@search' ]);
+    Route::get('/{username}/contacts/{value}/search',
+        [ 'middleware' => 'school', 'uses' => 'AdministratorController@getSearch' ]);
 
 /* End Group Followers */
 /* Group Routes */ 
@@ -282,6 +288,7 @@ Route::bind('personalFile' , function($id)
     Route::get('/{username}/delete/',  ['middleware' => 'school', 'uses' => 'GroupController@destroy']);
 /*End of Group CRUD Routes */
 
+Route::get('/tester/main/one',  ['middleware' => 'school', 'uses' => 'HomeController@tester']);
 
 
 

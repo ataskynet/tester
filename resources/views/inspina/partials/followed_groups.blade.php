@@ -1,5 +1,5 @@
                         <div class="ibox float-e-margins">
-                            <div class="ibox-title blue-skin" style="color: #ffffff;">
+                            <div class="ibox-title blue-skin" style="color: #ffffff;" data-toggle="tooltip" data-placement="bottom" title="This are the groups you are currently part of.">
                                 <i class="fa fa-group"></i> My Groups
                             </div>
                             <div class="ibox-content">
@@ -11,9 +11,7 @@
                                         <li><a href="{{$group->username}}"><i class="fa fa-group"></i> {{ $group->name }}
 
                                         <i class="badge badge-default pull-right">{{ $group->followersCount() }}</i>
-                                        @if($group->isSupervisedBy(\Auth::user()))
-                                            <i class="label label-info pull-right" style="color: #ffffff"> As Supervisor </i>
-                                        @endif
+
                                         </a></li>
                                     @endforeach
                                     @else
