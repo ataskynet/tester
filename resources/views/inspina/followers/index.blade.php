@@ -11,10 +11,9 @@
                      <div class="col-md-1">
                           <a href="{{ url($group->username . '/contacts') }}" id="loading-example-btn" class="btn btn-white btn-sm" ><i class="fa fa-refresh"></i> Refresh</a>
                      </div>
-                     <form action="{{ url($group->username.'/contacts/search') }}" method="POST">
-                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                     <form action="{{ url($group->username.'/contacts') }}" method="get">
                            <div class="col-md-11">
-                                <div class="input-group"><input type="text" name="value" placeholder="Search By User Name" class="input-sm form-control"> <span class="input-group-btn">
+                                <div class="input-group"><input type="search" name="value" placeholder="Search By User First Name" class="input-sm form-control"> <span class="input-group-btn">
                                      <button type="submit" class="btn btn-sm btn-primary"> <i class="fa fa-search"></i> Search Members</button> </span></div>
                                 </div>
                      </form>

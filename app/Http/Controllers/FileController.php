@@ -124,6 +124,10 @@ class FileController extends Controller
 		return redirect('manager/'.$folder->group()->first()->username.'/'.$folder->id);
 	}
 
+    public function redirect($group, $folder)
+    {
+        return redirect('/manager/'.$group->username . '/'.$folder->id .'/main/');
+    }
     /**
      * @param CreateFolderRequest $request
      * @param $group
@@ -145,9 +149,10 @@ class FileController extends Controller
 
     public function destroyFolder($folder)
     {
+        $name = $folder->name;
         $group = $folder->group()->first();
         $this->folderRepository->destroy($folder);
-        $this->flash('You have successfully deleted a folder');
+        $this->flash('You have successfully deleted the '.$name.' folder');
         return redirect($group->username);
     }
 

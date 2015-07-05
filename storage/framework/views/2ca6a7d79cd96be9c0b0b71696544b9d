@@ -113,7 +113,7 @@
                                                 <br>
                                                 <small>Uploaded By: <?php echo $__env->make('inspina.partials.name_tag',['user' => $document->user()->first()], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?></small>
                                                 <?php if($group->isOwner(\Auth::user())): ?>
-                                                    <span class="pull-right"><a href="<?php echo e(url('/manager/delete/'.$folder->id.'/'.$document->id)); ?> " class="pull-right"><i class="glyphicon glyphicon-remove-sign pull-right"></i></a></span>
+                                                    <span class="pull-right"><a href="<?php echo e(url('/manager/delete/'.$folder->id.'/'.$document->id)); ?> " class="pull-right" onclick="return confirm_deletion(this);"><i class="glyphicon glyphicon-remove-sign pull-right"></i></a></span>
                                                 <?php endif; ?>
                                             </div>
                                         </a>

@@ -14,7 +14,7 @@ class FolderRepository {
         ]);
 
         $message = 'New Folder: ' . $name . ' created in ' . $group->name ;
-        $url = '/manager/'.$group->username.'/'.$folder->id;
+        $url = '/manager/'.$group->username.'/'.$folder->id . '/main';
         $this->post($message, $group, $url);
 
         return $folder;
@@ -42,8 +42,8 @@ class FolderRepository {
             'sub-directory' => 1,
         ]);
 
-        $message = 'New Folder: ' . $newFolderName . ' created in ' . $folder->group()->first()->name ;
-        $url = '/manager/'.$folder->group()->first()->username.'/'.$newFolder->id;
+        $message = 'New Folder: ' . $newFolderName . ' created in folder '.$folder->name .'.' ;
+        $url = '/manager/'.$folder->group()->first()->username.'/'.$newFolder->id .'/main';
         $this->post($message, $folder->group()->first(), $url);
 
         return $newFolder;

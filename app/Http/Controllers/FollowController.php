@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Group;
+use App\Http\Administrator\AdministratorRepository;
 use App\Http\CLient\ClientRepository;
 use App\Http\Group\GroupRepository;
 use App\Http\Requests;
@@ -19,16 +20,22 @@ class FollowController extends Controller {
      * @var GroupRepository
      */
     private $groupRepository;
+    /**
+     * @var AdministratorRepository
+     */
+    private $administratorRepository;
 
     /**
      * @param ClientRepository $clientRepository
      * @param GroupRepository $groupRepository
+     * @param AdministratorRepository $administratorRepository
      */
-    public function __construct(ClientRepository $clientRepository, GroupRepository $groupRepository)
+    public function __construct(ClientRepository $clientRepository, GroupRepository $groupRepository, AdministratorRepository $administratorRepository)
     {
 
         $this->clientRepository = $clientRepository;
         $this->groupRepository = $groupRepository;
+        $this->administratorRepository = $administratorRepository;
     }
 	/**
 	 * Display a listing of the resource.
@@ -48,11 +55,17 @@ class FollowController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Request $request)
 	{
         $title = 'Join a new group';
-        $groups = Group::allPaginatedGroups();
-        $tagline = "Join a New Group";
+        if(!$request->value)
+        {
+            $groups = Group::allPaginatedGroups();
+            $tagline = "Join a New Group";
+            return view('inspina.groups.search', compact('groups', 'title', 'tagline'));
+        }
+        $groups = $this->groupRepository->searchedGroups($request->value);
+        $tagline = 'Results('.$groups->count().') for "'.$request->value.'"';
         return view('inspina.groups.search', compact('groups', 'title', 'tagline'));
 	}
 
@@ -108,11 +121,18 @@ class FollowController extends Controller {
      * @internal param int $id
      * @return Response
      */
-	public function show($group)
+	public function show(Request $request, $group)
 	{
+
+        if($request->value)
+        {
+            $title =  'Members searched: ' . $request->value;
+            $members = $this->administratorRepository->searchedGroupUsers($group, $request->value);
+            return view('inspina.followers.index', compact('members','title', 'group'));
+        }
+
         $title = $group->name .' Members';
         $members = $this->clientRepository->paginatedMembersOfGroup($group);
-
         return view('inspina.followers.index', compact('members','title', 'group'));
 
 	}

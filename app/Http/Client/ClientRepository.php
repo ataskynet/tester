@@ -20,7 +20,7 @@ class ClientRepository
 
     public function paginatedMembersOfGroup($group, $howMany = 9)
     {
-        return $group->followers()->paginate($howMany);
+        return $group->followers()->orderBy('firstName')->paginate($howMany);
     }
 
 	Public function retrieveClient($school, $user)

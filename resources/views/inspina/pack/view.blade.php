@@ -7,7 +7,7 @@
                    @include('inspina.partials.back_pack_nav')
                     </div>
                     <br>
-                    @include('inspina.partials.error')
+
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="ibox float-e-margins">
@@ -111,7 +111,7 @@
                                                 <a href="{{ url('/share/'.$document->id.'/groups/') }}" style="padding-top: 30px;">
                                                  <i class="fa fa-share-square-o  "></i> Share
                                                 </a>
-                                                <a href="{{ url('/pack/delete/'.$folder->id.'/'.$document->id) }}" class="pull-right" >
+                                                <a href="{{ url('/pack/delete/'.$folder->id.'/'.$document->id) }}" class="pull-right" onclick="return confirm_deletion(this);">
                                                  <i class="glyphicon glyphicon-remove-sign"></i>
                                                 </a>
 

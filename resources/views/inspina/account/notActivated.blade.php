@@ -27,9 +27,8 @@
 
             </div>
             <h2 class="normal">Activate your account</h2>
-            <p>A link has been sent to your email account to activate your account.</p>
-            <p class="p-b-20">Activate your account Now! to enjoy skoolspace, it's free and always will be.</p>
-            <p><small> <b>Ps: Confirm your email within 7 days or your account will be temporarily unactivated, till you do</b> </small></p>
+            <p>A link has been sent to your email account to verify your account.</p>
+            <p class="p-b-20">Verify account Now! to enjoy skoolspace freely.</p>
 
 
 

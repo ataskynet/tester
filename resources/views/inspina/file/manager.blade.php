@@ -113,7 +113,7 @@
                                                 <br>
                                                 <small>Uploaded By: @include('inspina.partials.name_tag',['user' => $document->user()->first()])</small>
                                                 @if($group->isOwner(\Auth::user()))
-                                                    <span class="pull-right"><a href="{{ url('/manager/delete/'.$folder->id.'/'.$document->id) }} " class="pull-right"><i class="glyphicon glyphicon-remove-sign pull-right"></i></a></span>
+                                                    <span class="pull-right"><a href="{{ url('/manager/delete/'.$folder->id.'/'.$document->id) }} " class="pull-right" onclick="return confirm_deletion(this);"><i class="glyphicon glyphicon-remove-sign pull-right"></i></a></span>
                                                 @endif
                                             </div>
                                         </a>

@@ -219,6 +219,17 @@
 <script>
     $('#flash-overlay-modal').modal();
 </script>
+<script type="text/javascript">
+function confirm_deletion(node) {
+    return confirm("Are you sure you want to delete this?");
+}
+
+function confirm_deactivation(node) {
+    return confirm("Are you sure you want to deactivate your account?");
+}
+
+
+</script>
 <?php echo $__env->yieldContent('script'); ?>
 <script>
             function validateText(id)

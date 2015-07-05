@@ -16,7 +16,7 @@ class Group extends Model {
         return $this->belongsTo('App\User');
     }
 
-    public function  followers()
+    public function followers()
     {
         return $this->belongsToMany('App\User', 'follows', 'group_id', 'user_id')->withTimestamps();
     }
@@ -106,6 +106,7 @@ class Group extends Model {
         return $query->where($field, 'LIKE', "%$value%");
     }
 
+
     public static function scopeFindOrFailByUsername($query, $username)
     {
 
@@ -177,5 +178,14 @@ class Group extends Model {
         }
 
         return false;
+    }
+
+    public function followersSearch($value)
+    {
+        $this->followers(function($query) use($value)
+        {
+            $query->where('firstName' , 'LIKE', "%$value%");
+
+        })->paginate(9);
     }
 }

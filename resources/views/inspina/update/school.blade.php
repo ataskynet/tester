@@ -62,7 +62,7 @@
                         </div>
                         @include('inspina.update.partials.administrator')
                         <div class="col-md-12">
-                            <a href="{{url($group->username, 'delete')}}" class="btn btn-danger btn-sm btn-block"><i class="fa fa-"></i> Delete Group</a>
+                            <a href="{{url($group->username, 'delete')}}" class="btn btn-danger btn-sm btn-block" onclick="return confirm_deletion(this);"><i class="fa fa-"></i> Delete Group</a>
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,7 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-md-6">
-                        <input name="name" id="name" type="text" class="form-control" placeholder="Group Name" required = "required">
+                        <input name="name" id="name" type="text" class="form-control" placeholder="Unique Group Name" required = "required">
                     </div>
                     <div class="col-md-6">
                         <input name="school_affiliation" id="school" type="text" class="form-control" placeholder="From Which school?" required = "required">

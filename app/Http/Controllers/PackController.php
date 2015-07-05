@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\CreateFileRequest;
 use App\Http\Requests\CreateFolderRequest;
+use App\PersonalFolder;
 use Illuminate\Http\Request;
 
 class PackController extends Controller {
@@ -141,8 +142,16 @@ class PackController extends Controller {
 
     public function destroyFolder($folder)
     {
+        $name = $folder->name;
+        if($folder->isSubFolder())
+        {
+            $parentFolder = PersonalFolder::find($folder->personal_folder_id);
+            $this->packRepository->deleteFolder($folder);
+            $this->flash('You have successfully deleted the '.$name.' folder');
+            return redirect('/pack/' .$parentFolder->id);
+        }
         $this->packRepository->deleteFolder($folder);
-        $this->flash('You have successfully deleted a folder');
+        $this->flash('You have successfully deleted the '.$name.' folder');
         return redirect('/');
     }
 

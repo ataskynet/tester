@@ -22,7 +22,7 @@
                                             <li><a href="{{url('share/'.$group->username.'/files/'. $sharer->id) }}"><i class="fa fa-user"></i> {{ $sharer->fullName()}} <span class="badge badge-info pull-right">{{ $group->sharedFilesof($sharer)->count() }}</span></a></li>
                                         @endforeach
                                         @else
-                                            <li><b> <span align="center">No Sub Folders for this folder.</span></b></li>
+                                            <li><b> <span align="center">No sharers for the group yet.</span></b></li>
                                         @endif
                                         </ul>
                                         <div class="clearfix"></div>

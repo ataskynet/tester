@@ -25,20 +25,20 @@
 
                                                <div class="row form-group">
                                                    <div class="col-md-12">
-                                                       <input name="email" type="email" class="form-control" placeholder="Group Name" disabled="true" value="<?php echo e($user->email); ?>" required = "required">
+                                                       <input name="email" type="email" class="form-control" placeholder="Email" disabled="true" value="<?php echo e($user->email); ?>" required = "required">
                                                    </div>
                                                </div>
                                                <div class="row form-group">
                                                    <div class="col-md-6">
-                                                       <input name="firstName" type="text" class="form-control" placeholder="Group's Email" value="<?php echo e($user->firstName); ?>" required = "required">
+                                                       <input name="firstName" type="text" class="form-control" placeholder="First Name" value="<?php echo e($user->firstName); ?>" required = "required">
                                                    </div>
                                                    <div class="col-md-6">
-                                                       <input name="lastName" type="text" class="form-control"  placeholder="Unique Username" value="<?php echo e($user->lastName); ?>" required = "required">
+                                                       <input name="lastName" type="text" class="form-control"  placeholder="Last Name" value="<?php echo e($user->lastName); ?>" required = "required">
                                                    </div>
                                                </div>
                                                <div class="row form-group">
                                                    <div class="col-md-12">
-                                                       <input name="telNumber" type="text" class="form-control" placeholder="Group Name" value="<?php echo e($user->telNumber); ?>" required = "required">
+                                                       <input name="telNumber" type="text" class="form-control" placeholder="Telephone Number" value="<?php echo e($user->telNumber); ?>" required = "required">
                                                    </div>
                                                </div>
 
@@ -68,7 +68,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <a href="<?php echo e(url( '/profile/destroy')); ?>" class="btn btn-danger btn-sm btn-block"><i class="fa fa-"></i> Deactivate skoolspace profile</a>
+                            <a href="<?php echo e(url( '/profile/destroy')); ?>" class="btn btn-danger btn-sm btn-block" onclick="return confirm_deactivation(this);"><i class="fa fa-"></i> Deactivate skoolspace profile</a>
                         </div>
                     </div>
                 </div>

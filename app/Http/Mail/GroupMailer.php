@@ -65,7 +65,7 @@ class GroupMailer {
                 $data = [
                     'name' => $user->fullName(),
                     'groupName' => $group->name,
-                    'pinSender' => $notice->user()->first(),
+                    'pinSender' => $notice->user()->first()->fullName(),
                     'pinTitle' => $notice->title,
                     'link' => $url,
                 ];

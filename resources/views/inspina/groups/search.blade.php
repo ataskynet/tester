@@ -13,10 +13,10 @@
                                     </h2>
 
                                 <div class="search-form">
-                                    <form action="{{ url('/group/search') }}" method="post">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <form action="{{ url('/groups/all') }}" method="get">
+
                                         <div class="input-group">
-                                            <input type="text" placeholder="Search by group name" name="value" class="form-control input-lg">
+                                            <input type="search" placeholder="Search by group name" name="value" class="form-control input-lg">
                                             <div class="input-group-btn">
                                                 <button class="btn btn-lg btn-primary" type="submit">
                                                     Search
