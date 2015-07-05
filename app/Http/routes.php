@@ -164,7 +164,7 @@ Route::bind('personalFile' , function($id)
         [ 'middleware' => 'school', 'uses' => 'AdministratorController@getSearch' ]);
 /* End Sharing Routes */
 /* Sharing Routes */
-    Route::get('/share/{personalFile}/groups/',
+    Route::get('share/{personalFile}/groups',
         [ 'middleware' => 'school', 'uses' => 'ShareController@index' ]);
     Route::get('/share/{personalFile}/{username}/',
         [ 'middleware' => 'school', 'uses' => 'ShareController@create' ]);
@@ -174,7 +174,7 @@ Route::bind('personalFile' , function($id)
         [ 'middleware' => 'school', 'uses' => 'ShareController@shared' ]);
     Route::post('/share/{personalFile}/search/',
         [ 'middleware' => 'school', 'uses' => 'ShareController@search' ]);
-    Route::get('/share/{personalFile}/{value}/search',
+    Route::get('/share/{personalFile}/search',
         [ 'middleware' => 'school', 'uses' => 'ShareController@getSearch' ]);
 /* End Sharing Routes */
 

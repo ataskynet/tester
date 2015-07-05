@@ -20,7 +20,7 @@
                                             <li><a href="<?php echo e(url('share/'.$group->username.'/files/'. $sharer->id)); ?>"><i class="fa fa-user"></i> <?php echo e($sharer->fullName()); ?> <span class="badge badge-info pull-right"><?php echo e($group->sharedFilesof($sharer)->count()); ?></span></a></li>
                                         <?php endforeach; ?>
                                         <?php else: ?>
-                                            <li><b> <span align="center">No Sub Folders for this folder.</span></b></li>
+                                            <li><b> <span align="center">No sharers for the group yet.</span></b></li>
                                         <?php endif; ?>
                                         </ul>
                                         <div class="clearfix"></div>
@@ -56,7 +56,9 @@
                                                 <br/>
                                                 <small>Created: <?php echo e($document->created_at->diffForHumans()); ?></small>
                                                 <br>
-
+                                                <a href="<?php echo e(url($document->source)); ?>" style="padding-top: 30px;">
+                                                <i class="fa fa-download "></i> Download
+                                                </a>
                                             </div>
                                         </a>
                                     </div>

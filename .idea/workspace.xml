@@ -34,18 +34,28 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="11.769231" vertical-offset="2703" max-vertical-offset="9282">
-              <caret line="150" column="26" selection-start-line="150" selection-start-column="26" selection-end-line="150" selection-end-column="26" />
+            <state vertical-scroll-proportion="-2.6153846" vertical-offset="2601" max-vertical-offset="9282">
+              <caret line="166" column="16" selection-start-line="166" selection-start-column="16" selection-end-line="166" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="board.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/inspina/notice/partials/board.blade.php">
+      <file leaf-file-name="ShareController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ShareController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16098484" vertical-offset="0" max-vertical-offset="528">
-              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.62846583" vertical-offset="408" max-vertical-offset="2159">
+              <caret line="52" column="68" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myGroup.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/inspina/pack/myGroup.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="1156">
+              <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -61,8 +71,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/storage/logs/laravel-2015-07-01.log" />
-        <option value="$PROJECT_DIR$/resources/views/inspina/pack/myGroup.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/inspina/auth/register.blade.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
@@ -90,7 +98,6 @@
         <option value="$PROJECT_DIR$/app/Http/File/FolderRepository.php" />
         <option value="$PROJECT_DIR$/resources/views/inspina/groups/search.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/inspina/pack/files.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/inspina/update/partials/administrator.blade.php" />
         <option value="$PROJECT_DIR$/app/Group.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/FollowController.php" />
@@ -112,6 +119,9 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/PackController.php" />
         <option value="$PROJECT_DIR$/resources/views/inspina/account/notActivated.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/inspina/notice/partials/board.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/inspina/pack/myGroup.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ShareController.php" />
       </list>
     </option>
   </component>
@@ -284,63 +294,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="notice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="skoolspace" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="skoolspace" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="inspina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="notice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="skoolspace" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="skoolspace" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="inspina" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="account" />
+              <option name="myItemId" value="pack" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -366,7 +320,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="G:/Year 3 Sem 1/Web Apps/skoole" />
-    <property name="SearchEverywhereHistoryKey" value="pac&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/PackController.php&#10;File&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/FileController.php&#10;user&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/User.php&#10;fol&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/FollowController.php&#10;group&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Group.php&#10;per&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/PersonalFolder.php&#10;folder&#9;null&#9;null&#10;update&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/file/partials/updateFolder.blade.php&#10;fee&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/groups/feed.blade.php&#10;admin&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/AdministratorController.php&#10;ind&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/followers/index.blade.php&#10;sea&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/groups/search.blade.php&#10;file&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/FileController.php&#10;share&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/pack/shared.blade.php&#10;Foll&#9;null&#9;null&#10;Adm&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/AdministratorController.php&#10;lis&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/administrators/list.blade.php&#10;fo&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/followed_groups.blade.php&#10;fe&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/groups/feed.blade.php&#10;gr&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/group_features.blade.php&#10;Fil&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/FileController.php&#10;adm&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/AdministratorController.php&#10;groupProf&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/groupProfile.blade.php&#10;sta&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/status.blade.php&#10;feed&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/home/feed.blade.php&#10;foll&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/followed_groups.blade.php&#10;inde&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/administrators/index.blade.php&#10;list&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/administrators/list.blade.php&#10;file_nav&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/file_nav.blade.php&#10;packController&#9;null&#9;null&#10;scho&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/SchoolController.php&#10;group_feat&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/group_features.blade.php&#10;F&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/FileController.php&#10;Filec&#9;null&#9;null&#10;sch&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/SchoolController.php&#10;statu&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/status.blade.php&#10;not&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/account/notActivated.blade.php&#10;ch&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/SchoolController.php&#10;home&#9;null&#9;null&#10;main&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/layouts/main.blade.php&#10;school&#9;null&#9;null&#10;cl&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/ClientController.php&#10;back_to&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/back_to_group_feed.blade.php&#10;maIL&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/config/mail.php&#10;admi&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/AdministratorController.php&#10;UserMail&#9;null&#9;null&#10;clien&#9;null&#9;null&#10;groupContr&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/GroupController.php&#10;groupMai&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Mail/GroupMailer.php&#10;followe&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/followed_groups.blade.php" />
+    <property name="SearchEverywhereHistoryKey" value="sharec&#9;null&#9;null&#10;pac&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/PackController.php&#10;File&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/FileController.php&#10;user&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/User.php&#10;fol&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/FollowController.php&#10;group&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Group.php&#10;per&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/PersonalFolder.php&#10;folder&#9;null&#9;null&#10;update&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/file/partials/updateFolder.blade.php&#10;fee&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/groups/feed.blade.php&#10;admin&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/AdministratorController.php&#10;ind&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/followers/index.blade.php&#10;sea&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/groups/search.blade.php&#10;file&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/FileController.php&#10;share&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/pack/shared.blade.php&#10;Foll&#9;null&#9;null&#10;Adm&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/AdministratorController.php&#10;lis&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/administrators/list.blade.php&#10;fo&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/followed_groups.blade.php&#10;fe&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/groups/feed.blade.php&#10;gr&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/group_features.blade.php&#10;Fil&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/FileController.php&#10;adm&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/AdministratorController.php&#10;groupProf&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/groupProfile.blade.php&#10;sta&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/status.blade.php&#10;feed&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/home/feed.blade.php&#10;foll&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/followed_groups.blade.php&#10;inde&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/administrators/index.blade.php&#10;list&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/administrators/list.blade.php&#10;file_nav&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/file_nav.blade.php&#10;packController&#9;null&#9;null&#10;scho&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/SchoolController.php&#10;group_feat&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/group_features.blade.php&#10;F&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/FileController.php&#10;Filec&#9;null&#9;null&#10;sch&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/SchoolController.php&#10;statu&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/status.blade.php&#10;not&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/account/notActivated.blade.php&#10;ch&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/SchoolController.php&#10;home&#9;null&#9;null&#10;main&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/layouts/main.blade.php&#10;school&#9;null&#9;null&#10;cl&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/ClientController.php&#10;back_to&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/resources/views/inspina/partials/back_to_group_feed.blade.php&#10;maIL&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/config/mail.php&#10;admi&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/AdministratorController.php&#10;UserMail&#9;null&#9;null&#10;clien&#9;null&#9;null&#10;groupContr&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Controllers/GroupController.php&#10;groupMai&#9;FILE&#9;file://C:/Users/nanoy/Documents/GitHub/skoolspace/app/Http/Mail/GroupMailer.php" />
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="Configurable.PHP.Blade" />
@@ -466,7 +420,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2952454" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2952454" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24810319" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -526,20 +480,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/inspina/partials/back_pack_nav.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="204">
-          <caret line="4" column="72" selection-start-line="4" selection-start-column="72" selection-end-line="4" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/inspina/partials/back_to_group_feed.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="102">
-          <caret line="0" column="39" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="145" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/inspina/partials/back_file_nav.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="505">
@@ -908,18 +848,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/inspina/notice/partials/board.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="11.769231" vertical-offset="2703" max-vertical-offset="9282">
-          <caret line="150" column="26" selection-start-line="150" selection-start-column="26" selection-end-line="150" selection-end-column="26" />
+        <state vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="340">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/inspina/notice/partials/board.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16098484" vertical-offset="0" max-vertical-offset="528">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        <state vertical-scroll-proportion="-2.6153846" vertical-offset="2601" max-vertical-offset="9282">
+          <caret line="166" column="16" selection-start-line="166" selection-start-column="16" selection-end-line="166" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/inspina/pack/myGroup.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="1156">
+          <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ShareController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62846583" vertical-offset="408" max-vertical-offset="2159">
+          <caret line="52" column="68" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
           <folding />
         </state>
       </provider>

@@ -9,16 +9,16 @@
                         <div class="ibox float-e-margins">
                             <div class="ibox-content">
                                     <h2>
-                                       All Groups:
+                                       {{ $tagline }}
                                     </h2>
 
                                 <div class="search-form">
-                                    <form action="{{ url('/share/'.$file->id.'/search/') }}" method="post">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <form action="{{ url('/share/'.$file->id.'/groups/') }}" method="get">
                                         <div class="input-group">
-                                            <input type="text" placeholder="Search by group name" name="value" class="form-control input-lg">
+                                            <input type="search" placeholder="Search by group name" name="value" class="form-control input-lg">
                                             <div class="input-group-btn">
                                                 <button class="btn btn-lg btn-primary" type="submit">
+                                                <i class="fa fa-search"></i>
                                                     Search
                                                 </button>
                                             </div>

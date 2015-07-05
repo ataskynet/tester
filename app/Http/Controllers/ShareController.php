@@ -30,16 +30,27 @@ class ShareController extends Controller {
         $this->repository = $repository;
         $this->groupRepository = $groupRepository;
     }
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index($file)
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param $file
+     * @param Request $request
+     * @return Response
+     */
+	public function index($file, Request $request)
 	{
-		$title = "Groups to share to:";
+        $title = "Groups to share to:";
+
+        if($request->value)
+        {
+            $groups = $this->groupRepository->searchMyGroups($request->value, \Auth::user());
+            $tagline = 'Results('.$groups->count().') for "'.$request->value.'"';
+            return view('inspina.pack.myGroup', compact('groups', 'title', 'tagline', 'file'));
+        }
+        $tagline = 'All your groups:';
         $groups= \Auth::user()->follows()->paginate(9);
-        return view('inspina.pack.myGroup', compact('title', 'groups', 'file'));
+        return view('inspina.pack.myGroup', compact('title','tagline', 'groups', 'file'));
 	}
     
     /**
