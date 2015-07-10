@@ -46,9 +46,29 @@
                                             <div class="image">
                                                 <img src="{{ asset($document->source)}}" alt="{{ $document->name }}" class="img-responsive"/>
                                             </div>
+                                        @elseif($document->isPpt())
+                                            <div class="icon">
+                                                <img src="{{ asset('inspina/icons/powerpoint1.png') }}" alt="{{ $document->name }}"/>
+                                            </div>
+                                        @elseif($document->isPdf())
+                                            <div class="icon">
+                                                <img src="{{ asset('inspina/icons/pdf.png') }}" alt="{{ $document->name }}"/>
+                                            </div>
+                                        @elseif($document->isDoc())
+                                            <div class="icon">
+                                                <img src="{{ asset('inspina/icons/word1.png') }}" alt="{{ $document->name }}"/>
+                                            </div>
+                                        @elseif($document->isCompressedFile())
+                                            <div class="icon">
+                                                <img src="{{ asset('inspina/icons/compressed.png') }}" alt="{{ $document->name }}"/>
+                                            </div>
+                                        @elseif($document->isExcel())
+                                            <div class="icon">
+                                                <img src="{{ asset('inspina/icons/excel1.png') }}" alt="{{ $document->name }}"/>
+                                            </div>
                                         @else
                                             <div class="icon">
-                                                <i class="fa fa-file"></i>
+                                                <img src="{{ asset('inspina/icons/text3.png') }}" alt="{{ $document->name }}"/>
                                             </div>
                                         @endif
                                             <div class="file-name">

@@ -11,7 +11,7 @@ class FileRepository
 
 
     public $allowedTypes = [
-        'txt', 'pdf', 'docx', 'jpg', 'png', 'ppt', 'doc', 'jpeg', 'jpe'
+        'txt', 'pdf', 'docx', 'jpg', 'png', 'jpeg', 'jpe', 'ppt','pptx','pptm','pot','potx', 'doc',  'zip', 'tar', 'rar', '7z', 'iso','xls', 'xlsm', 'xlsx', 'xlsb', 'xlt',
     ];
 
     protected $profileTypes = [

@@ -6,8 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SS+ | <?php echo e($title); ?></title>
-
+    <title> | <?php echo e($title); ?></title>
+            <link  rel="icon" href="<?php echo e(asset('inspina/img/main9.png')); ?>" type="image/icon"/>
+            <link  rel="shortcut icon" href="<?php echo e(asset('inspina/img/main9.png')); ?>" type="image/icon"/>
              <link href="<?php echo e(asset('inspina/css/bootstrap.min.css')); ?>" rel="stylesheet">
             <link href="<?php echo e(asset('/inspina/font-awesome/css/font-awesome.css')); ?>" rel="stylesheet">
 
@@ -121,7 +122,7 @@
                             <?php if(\Auth::user()->follows()->get()->count() != 0): ?>
                                  <li class="text-center">
                                  <div class="text-center link-block">
-                                    <a href="<?php echo e(url('/mygroups')); ?>"><i class="fa fa-group"></i> All Groups</a>
+                                    <a href="<?php echo e(url('/mygroups')); ?>"><i class="fa fa-group"></i> My Groups</a>
                                  </div>
                                 </li>
                             <?php else: ?>

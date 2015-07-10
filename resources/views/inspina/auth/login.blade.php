@@ -6,7 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SS+ | Login</title>
+    <title> Login</title>
+
+    <link  rel="icon" href="{{ asset('inspina/img/main9.png') }}" type="image/icon"/>
+    <link  rel="shortcut icon" href="{{ asset('inspina/img/main9.png') }}" type="image/icon"/>
 
     <link href="{{asset('inspina/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('inspina/font-awesome/css/font-awesome.css')}}" rel="stylesheet">

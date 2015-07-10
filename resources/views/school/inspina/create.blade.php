@@ -18,7 +18,15 @@
                         <input name="name" id="name" type="text" class="form-control" placeholder="Group Name" required = "required">
                     </div>
                     <div class="col-md-6">
-                        <input name="school_affiliation" id="school" type="text" class="form-control" placeholder="From Which school?" required = "required">
+                    <label for="school_affiliation" class="col-md-6">Group's University or College </label>
+                        <select name="school_affiliation" id="school"  class="pull-right col-md-6">
+                            <option value="" > Select Group's University or College </option>
+                            <option value="Jomo Kenyatta University of Agriculture and Technology" selected> JKUAT </option>
+                            <option value="Kenyatta University">Kenyatta University</option>
+                            <option value="University of Nairobi"> University of Nairobi </option>
+                            <option value="Moi University"> Moi University </option>
+                            <option value="Other Institution"> Other Institution </option>
+                        </select>
                     </div>
                 </div>
                 <div class="row form-group">
@@ -34,10 +42,10 @@
                 <label class="col-sm-2 control-label">Type of group:</label>
                     <div class="col-sm-10">
                         <label class="checkbox-inline">
-                            <input type="radio" value="1" id="inlineCheckbox1" name="type" > Private
+                            <input type="radio" value="0" id="inlineCheckbox2" name="type" checked> Public
                         </label>
                         <label class="checkbox-inline">
-                            <input type="radio" value="0" id="inlineCheckbox2" name="type" checked> Public
+                            <input type="radio" value="1" id="inlineCheckbox1" name="type" > Private
                         </label>
                     </div>
                 </div>

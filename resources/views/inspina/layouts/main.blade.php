@@ -6,9 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SS+ | {{$title}}</title>
+    <title> | {{$title}}</title>
 
-             <link href="{{ asset('inspina/css/bootstrap.min.css') }}" rel="stylesheet">
+            <link  rel="icon" href="{{ asset('inspina/icon/logo.png') }}" type="image/icon"/>
+            <link  rel="shortcut icon" href="{{ asset('inspina/icon/logo.png') }}" type="image/icon"/>
+            <link href="{{ asset('inspina/css/bootstrap.min.css') }}" rel="stylesheet">
             <link href="{{ asset('/inspina/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
 
             @yield('styles')
@@ -120,7 +122,7 @@
                             @if(\Auth::user()->follows()->get()->count() != 0)
                                  <li class="text-center">
                                  <div class="text-center link-block">
-                                    <a href="{{ url('/mygroups') }}"><i class="fa fa-group"></i> All Groups</a>
+                                    <a href="{{ url('/mygroups') }}"><i class="fa fa-group"></i> My Groups</a>
                                  </div>
                                 </li>
                             @else

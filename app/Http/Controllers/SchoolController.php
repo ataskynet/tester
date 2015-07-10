@@ -83,6 +83,24 @@ class SchoolController extends Controller {
         ]);
     }
 
+    public function getTrial($user)
+    {
+        \Auth::login($user);
+
+            $active = \Auth::user()->isActive();
+            $currentUser = \Auth::user();
+
+            if(!$active){
+                $this->auth->logout();
+                return redirect('/notActivated/' . $currentUser->id);
+            }
+            if($currentUser->isTrial())
+            {
+                $this->flash('Your account is not verified, Please verify within '. (7 - $currentUser->trialDays()) .' days');
+                $this->mailer->sendConfirmationMailTo($currentUser, $currentUser->code);
+            }
+            return redirect()->intended('/');
+    }
 
     public function getNotActivated($user)
     {

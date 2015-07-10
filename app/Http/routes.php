@@ -260,15 +260,16 @@ Route::bind('personalFile' , function($id)
 
 /* Login and Registration */
     Route::get('/login', 'SchoolController@getLogin');
+    Route::get('/{user}/trial', 'SchoolController@getTrial');
     Route::get('/register', 'SchoolController@getRegister');
     Route::post('/register', 'SchoolController@postRegister');
     Route::post('/login', 'SchoolController@postLogin');
-    Route::get('/logout', 'SchoolController@getLogout');
-    Route::get('/profile/update', 'ClientController@edit');
-    Route::get('/profile/destroy', 'ClientController@destroyUser');
-    Route::post('/profile/update', 'ClientController@update');
-    Route::get('/patch/', 'ClientController@getPatchClient');
-    Route::post('/patch/', 'ClientController@postPatchClient');
+    Route::get('/logout', ['middleware' => 'school', 'uses' => 'SchoolController@getLogout']);
+    Route::get('/profile/update', ['middleware' => 'school', 'uses' => 'ClientController@edit']);
+    Route::get('/profile/destroy', ['middleware' => 'school', 'uses' => 'ClientController@destroyUser']);
+    Route::post('/profile/update', ['middleware' => 'school', 'uses' => 'ClientController@update']);
+    Route::get('/patch/', ['middleware' => 'school', 'uses' => 'ClientController@getPatchClient']);
+    Route::post('/patch/', ['middleware' => 'school', 'uses' => 'ClientController@postPatchClient']);
     Route::get('/', ['middleware' => 'school', 'uses' => 'HomeController@index']);
     Route::get('/noAccount', ['middleware' => 'school', 'uses' => 'HomeController@noAccount']);
     Route::get('/profile/activate/{code}',  'SchoolController@getActivate');

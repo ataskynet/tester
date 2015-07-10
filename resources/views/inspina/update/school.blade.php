@@ -37,7 +37,13 @@
                                                       <input name="name" type="text" class="form-control" placeholder="Group Name" value="{{$group->name}}" required = "required">
                                                   </div>
                                                 <div class="col-md-6">
-                                                    <input name="school_affiliation" id="school" type="text" class="form-control" placeholder="From Which school?" value="{{ $group->school_affiliation }}" required = "required">
+                                                        <select name="school_affiliation" id="school"  class="pull-right col-md-12">
+                                                            <option value="Jomo Kenyatta University of Agriculture and Technology" {{ ($group->school_affiliation == 'Jomo Kenyatta University of Agriculture and Technology') ? 'selected' : ''}}><b> JKUAT</b> </option>
+                                                            <option value="Kenyatta University" {{ ($group->school_affiliation == 'Kenyatta University') ? 'selected' : ''}}><b> Kenyatta University</b> </option>
+                                                            <option value="University of Nairobi" {{ ($group->school_affiliation == 'University of Nairobi') ? 'selected' : ''}}><b> University of Nairobi </b></option>
+                                                            <option value="Moi University" {{ ($group->school_affiliation == 'Moi University') ? 'selected' : ''}}><b> Moi University </b></option>
+                                                            <option value="Other Institution" {{ ($group->school_affiliation == 'Other Institution') ? 'selected' : ''}}><b> Other Institution </b></option>
+                                                        </select>
                                                 </div>
                                               </div>
                                               <div class="row form-group">

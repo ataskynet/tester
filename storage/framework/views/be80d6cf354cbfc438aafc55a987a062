@@ -44,9 +44,29 @@
                                             <div class="image">
                                                 <img src="<?php echo e(asset($document->source)); ?>" alt="<?php echo e($document->name); ?>" class="img-responsive"/>
                                             </div>
+                                        <?php elseif($document->isPpt()): ?>
+                                            <div class="icon">
+                                                <img src="<?php echo e(asset('inspina/icons/powerpoint1.png')); ?>" alt="<?php echo e($document->name); ?>"/>
+                                            </div>
+                                        <?php elseif($document->isPdf()): ?>
+                                            <div class="icon">
+                                                <img src="<?php echo e(asset('inspina/icons/pdf.png')); ?>" alt="<?php echo e($document->name); ?>"/>
+                                            </div>
+                                        <?php elseif($document->isDoc()): ?>
+                                            <div class="icon">
+                                                <img src="<?php echo e(asset('inspina/icons/word1.png')); ?>" alt="<?php echo e($document->name); ?>"/>
+                                            </div>
+                                        <?php elseif($document->isCompressedFile()): ?>
+                                            <div class="icon">
+                                                <img src="<?php echo e(asset('inspina/icons/compressed.png')); ?>" alt="<?php echo e($document->name); ?>"/>
+                                            </div>
+                                        <?php elseif($document->isExcel()): ?>
+                                            <div class="icon">
+                                                <img src="<?php echo e(asset('inspina/icons/excel1.png')); ?>" alt="<?php echo e($document->name); ?>"/>
+                                            </div>
                                         <?php else: ?>
                                             <div class="icon">
-                                                <i class="fa fa-file"></i>
+                                                <img src="<?php echo e(asset('inspina/icons/text3.png')); ?>" alt="<?php echo e($document->name); ?>"/>
                                             </div>
                                         <?php endif; ?>
                                             <div class="file-name">
