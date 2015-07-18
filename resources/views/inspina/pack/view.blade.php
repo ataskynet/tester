@@ -61,7 +61,7 @@
                                                         <i class="fa fa-edit"></i>
                                                     </div>
                                                     <div  class="text-center file-name">
-                                                        <h3>Rename Folder</h3>
+                                                        <h3>Update Folder</h3>
                                                     </div>
                                                 </a>
                                             </div>
@@ -80,6 +80,19 @@
                                                     Folder: {{ $subFolder->name }}
                                                     <br/>
                                                     <small>Added: {{ $subFolder->created_at->diffForHumans() }}</small>
+
+
+                                                        @if(!$subFolder->permission)
+                                                        <div class="label label-default pull-right">
+                                                            Private
+                                                        </div>
+                                                        @else
+                                                        <div class="label label-info pull-right">
+                                                            Public
+                                                        </div>
+                                                        @endif
+
+
                                                 </div>
                                             </a>
                                         </div>

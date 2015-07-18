@@ -10,6 +10,7 @@
                                     <ul class="folder-list" style="padding: 0">
                                         <!--<li><a href="<?php echo e($group->username .'/events'); ?>"><i class="fa fa-calendar-o"></i> Events <i class="badge badge-default pull-right"> //$group->events()->get()->count() }}</i></a></li>-->
                                         <li><a href="<?php echo e($group->username.'/notice'); ?>"><i class="glyphicon glyphicon-pushpin"></i> Notices <i class="badge badge-default pull-right"><?php echo e($group->notices()->get()->count()); ?></i></a></li>
+                                        <li><a href="<?php echo e($group->username.'/forums'); ?>"><i class="fa fa-comments-o"></i> Forums <i class="badge badge-default pull-right"><?php echo e($group->forums()->get()->count()); ?></i></a></li>
                                         <li data-toggle="tooltip" data-placement="bottom" title="View group members and their information."><a href="<?php echo e($group->username.'/contacts'); ?>"><i class="fa fa-group"></i> Members <i class="badge badge-default pull-right"><?php echo e($group->followersCount()); ?></i></a></li>
                                        <!--
                                         <?php if($group->isOwner(\Auth::user())): ?>

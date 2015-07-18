@@ -1,0 +1,53 @@
+<?php $__env->startSection('content'); ?>
+    <?php echo $__env->make('inspina.partials.to_group_feed_nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <div class="ibox-content m-b-sm border-bottom">
+        <div class="p-xs">
+            <div class="pull-left m-r-md">
+                <i class="glyphicon glyphicon-comment text-navy mid-icon"></i>
+            </div>
+            <h2>Welcome to <?php echo e($title); ?></h2>
+            <span>Feel free to share or enquire on anything and everything.</span>
+        </div>
+    </div>
+
+    <div class="ibox-content forum-container">
+        <div class="forum-title">
+        <?php echo $__env->make('inspina.forum.partials.createForum', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <div class="pull-right forum-desc">
+                <samll><a href="" data-toggle="modal" data-target="#createForum" class="btn btn-white">+ New Forum</a></samll>
+            </div>
+            <h3>All <?php echo e($title); ?></h3>
+        </div>
+    <?php if($forums->count() != 0): ?>
+        <?php foreach($forums as $forum): ?>
+            <div class="forum-item active">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="forum-icon">
+                            <i class="fa fa-comments-o"></i>
+                        </div>
+                        <a href="<?php echo e(url('/'. $group->username.'/forums/'.$forum->id)); ?>" class="forum-item-title"><?php echo e($forum->title); ?></a>
+                        <div class="forum-sub-title"><b>Created By: </b><?php echo e($forum->user()->first()->fullName()); ?>.</div>
+                    </div>
+                    <div class="col-md-2 pull-right forum-info">
+                        <span class="views-number"> <?php echo e($forum->posts()->get()->count()); ?> </span>
+                        <div>
+                            <small>Posts</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+
+        <div class="forum-item">
+            <h2 align="center"> No Forums have been created yet, but feel free to create one</h2>
+        </div>
+    <?php endif; ?>
+
+        <div align="center">
+            <?php echo $forums->render() ?>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('inspina.layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

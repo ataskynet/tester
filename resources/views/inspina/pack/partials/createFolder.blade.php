@@ -15,6 +15,17 @@
                                                    <label>Folder Name:</label>
                                                         <input class="form-control" name="name" id="name" type="text"/>
                                                    </div>
+                                                    <div class="row form-group">
+                                                    <label class="col-sm-4 control-label">You want the folder:</label>
+                                                        <div class="col-sm-8    ">
+                                                            <label class="checkbox-inline">
+                                                                <input type="radio" value="1" id="inlineCheckbox2" name="permission" checked> Public
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input type="radio" value="0" id="inlineCheckbox1" name="permission" > Private
+                                                            </label>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>

@@ -1,42 +1,40 @@
-@extends('inspina')
+@extends('inspina.layouts.main')
 
 @section('content')
+    @include('inspina.partials.to_group_forums')
     <div class="ibox-content forum-post-container">
         <div class="forum-post-info">
-            <h4><span class="text-navy"><i class="fa fa-globe"></i> {{ $school->name}}</span><span class="text-muted"></span></h4>
+            <h4><span class="text-navy"><i class="fa fa-comments"></i>  {{ $group->name }} Forums</span> - <span class="text-muted">{{ $forum->title }}</span></h4>
         </div>
+    @if($messages->count() != 0)
         @foreach($messages as $message)
         <div class="media">
-            <a class="forum-avatar" href="#">
-                <img src="http://localhost:8000/inspina/img/a1.jpg" class="img-circle" alt="image">
+            <a class="forum-avatar" href="{{ url('profile/'.$message->user()->first()->id) }}">
+                <img src="{{ asset($message->user()->first()->profileSource()) }}" class="img-circle" alt="image">
                 <div class="author-info">
-                    <strong>Class:</strong>1<br/>
-
+                    <strong>Posts: </strong>{{ $message->user()->first()->forumPostsof($forum)->count() }}<br/>
+                    {{ $message->created_at->diffForHumans() }}
                 </div>
             </a>
             <div class="media-body">
-                <h4 class="media-heading">{{ $message->title  }}</h4>
-                {{ $message->message }}
+
+                {!! nl2br($message->message) !!}
                 <br>
                 <br>
-                - {{ $message->name }}
+
+                - {{ $message->user()->first()->fullName() }}
+                <br/>
+                <br/>
             </div>
         </div>
         @endforeach
-        <form action="{{ url('/community/'. $client->id .'/'.$subject->name.'/') }}" method="post" >
+    @else
+        <div class="media">
+            <h2 align="center"> No contributions made to this forum yet, feel free to contribute. </h2>
+        </div>
+    @endif
+        <form action="{{ url($group->username . '/forums/'. $forum->id) }}" method="post" >
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-            <div class="row">
-                <div class="col-lg-10">
-                    <div class="chat-message-form">
-                        <div class="form-group">
-                            <input type="text" name="title" placeholder="The title of your post..." class="form-control">
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <br>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="chat-message-form">
@@ -53,7 +51,7 @@
                     <div class="col-lg-12">
                         <div class="chat-message-form">
                             <div class="form-group">
-                                <input type="submit" class="form-control btn btn-md btn-primary" value="Post" />
+                                <input type="submit" class="form-control btn btn-md btn-primary" value="Post to Forum" />
                             </div>
                         </div>
                     </div>

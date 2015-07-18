@@ -72,4 +72,10 @@
                 </div>
             </div>
 <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+    <script type="text/javascript">
+      $('#school').select2();
+    </script>
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('inspina.layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

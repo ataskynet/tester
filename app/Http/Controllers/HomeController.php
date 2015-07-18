@@ -5,7 +5,11 @@ use App\Http\Mail\UserMailer;
 use App\Http\Post\PostRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Validator;
 
 
 class HomeController extends Controller {
@@ -99,8 +103,57 @@ class HomeController extends Controller {
        #$mailer->sendConfirmationMailTo($this->user(), str_random(60));
     }
 
+    public function upload()
+    {
+        // getting all of the post data
+
+        $files = Input::file('files');
+        // Making counting of uploaded images
+        $file_count = count($files);
+        // start count how many uploaded
+        $uploadcount = 0;
+        foreach($files as $file) {
+            $rules = array('file' => 'required'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+            $validator = Validator::make(array('file'=> $file), $rules);
+            if($validator->passes()){
+                $destinationPath = 'uploads';
+                $filename = $file->getClientOriginalName();
+                $upload_success = $file->move($destinationPath, $filename);
+                $uploadcount ++;
+            }
+        }
+        if($uploadcount == $file_count){
+
+            return Response::json('success', 200);
+        }
+        else {
+            return Response::json('error', 400);
+        }
+    }
     public function tester()
     {
+        $input = Input::all();
 
+        $rules = array(
+            'file' => 'image|max:3000',
+        );
+
+        $validation = Validator::make($input, $rules);
+
+        if ($validation->fails()) {
+            return Response::make($validation->errors->first(), 400);
+        }
+
+        $destinationPath = 'uploads/test'; // upload path
+        $extension = Input::file('file')->getClientOriginalExtension(); // getting file extension
+        $fileName = rand(11111, 99999) . '.' . $extension; // renameing image
+        dd();
+        $upload_success = Input::file('file')->move($destinationPath, $fileName); // uploading file to given path
+
+        if ($upload_success) {
+            return Response::json('success', 200);
+        } else {
+            return Response::json('error', 400);
+        }
     }
 }

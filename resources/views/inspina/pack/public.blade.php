@@ -3,8 +3,8 @@
 @section('content')
                 <!-- Content starts here -->
                 <div class="wrapper wrapper-content" style="padding-right: 0px; padding-top: 0px;">
+                @include('inspina.partials.to_profile_nav')
                     <div class="row">
-                   @include('inspina.partials.back_file_nav')
                     </div>
                     <br>
                     @include('inspina.partials.error')
@@ -17,7 +17,7 @@
                                         <ul class="folder-list" style="padding: 0">
                                         @if($folders->count() != 0)
                                         @foreach($folders as $folder)
-                                            <li><a href="{{ url($group->username . '/' .$user->id . '/' .$folder->id. '/visit/pack/ ') }}"><i class="fa fa-folder"></i> {{ $folder->name}} <span class="badge badge-info pull-right">{{ $folder->files()->count() }}</span></a></li>
+                                            <li><a href="{{ url($user->id . '/visit/' .$folder->id. '/pack/ ') }}"><i class="fa fa-folder"></i> {{ $folder->name}} <span class="badge badge-info pull-right">{{ $folder->files()->count() }}</span></a></li>
                                         @endforeach
                                         @else
                                             <li><b> <span align="center">No folders created here yet.</span></b></li>
@@ -35,7 +35,7 @@
                                 @foreach($folders as $folder)
                                     <div class="file-box">
                                         <div class="file">
-                                            <a href="{{url($group->username . '/' .$user->id . '/' .$folder->id. '/visit/pack/ ') }}">
+                                            <a href="{{url($user->id . '/visit/' .$folder->id. '/pack/ ') }}">
                                                 <span class="corner"></span>
 
                                                 <div class="icon">
@@ -113,7 +113,7 @@
                                     <h2 class="font-bold">This Back-Pack is empty</h2>
 
                                     <div class="error-desc col-xs-10 col-xs-offset-1">
-                                         <b>But </b>You can fill out your own back pack so that your fellow members may be able to access your files and benefit <fro></fro>m them.
+                                         <b>But </b>You can fill out your own back pack so that your fellow members may be able to access your files and benefit from them.
 
                                          <br><a href="{{ url('/') }}" class="btn btn-primary m-t">Back Home</a>
                                     </div>

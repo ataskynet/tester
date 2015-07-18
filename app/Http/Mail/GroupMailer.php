@@ -31,6 +31,33 @@ class GroupMailer {
         }
     }
 
+    public function sendNewForumNotification($group,$forum,$url)
+    {
+        $counter = 5;
+
+        foreach($group->followers()->get() as $user)
+        {
+            if(!$group->isSupervisedBy($user))
+            {
+                $data = [
+                    'name' => $user->fullName(),
+                    'forumOwner' => $forum->user()->first()->fullName(),
+                    'forumName' => $forum->name,
+                    'groupName' => $group->name,
+                    'link' => $url,
+                ];
+
+                Mail::later($counter, 'inspina.email.new_forum', $data, function($message) use ($user)
+                {
+                    $message->to($user->email, $user->fullName())->subject('New File Uploaded.');
+
+                });
+
+                $counter++;
+            }
+        }
+    }
+
     public function sendFileSharedNotification($group, $file ,$url)
     {
         $counter = 5;

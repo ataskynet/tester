@@ -32,6 +32,14 @@ class ClientController extends Controller
         $this->auth = $auth;
     }
 
+    public function profile($user)
+    {
+        $title = $user->fullName();
+        $statuses = $user->statuses()->latest()->paginate(10);
+
+        return view('inspina.account.profile', compact('title', 'user', 'statuses'));
+    }
+
     public function index()
     {
         $title = "Your Groups";

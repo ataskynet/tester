@@ -1,0 +1,52 @@
+                                     <?php if($statuses->count() != 0): ?>
+                                        <?php foreach($statuses as $status): ?>
+
+                                                <div class="feed-element">
+                                                <?php if($status->group()->first()->isFollowedBy(\Auth::user())): ?>
+                                                    <a href="<?php echo e(url($status->url)); ?>" class="pull-left" data-toggle="tooltip" data-placement="left" title="Linked to the related activity.">
+                                                        <img alt="image" class="img-circle" src="<?php echo e(asset($status->user()->first()->profileSource())); ?>">
+                                                    </a>
+                                                <?php else: ?>
+                                                        <img alt="image" class="img-circle" src="<?php echo e(asset($status->user()->first()->profileSource())); ?>">
+                                                <?php endif; ?>
+                                                    <div class="media-body ">
+                                                        <small class="pull-right"><?php echo e($status->updated_at->diffForHumans()); ?></small>
+                                                        <strong>
+
+                                                        <a href="<?php echo e(url('/profile/'.$user->id)); ?>">
+                                                            <?php echo e($status->user()->first()->fullName()); ?>
+
+                                                        </a>
+
+
+                                                        @
+                                                    <?php if($status->group()->first()->isFollowedBy(\Auth::user())): ?>
+                                                        <a href="<?php echo e(url($status->group()->first()->username)); ?>">
+                                                              <?php echo e($status->group()->first()->name); ?>
+
+                                                        </a>
+                                                    <?php else: ?>
+                                                            <?php echo e($status->group()->first()->name); ?>
+
+                                                    <?php endif; ?>
+                                                        </strong><br/>
+
+
+                                                    <?php if($status->group()->first()->isFollowedBy(\Auth::user())): ?>
+                                                        <a href="<?php echo e(url($status->url)); ?>">
+                                                            <span class="text-muted"><?php echo e($status->message); ?></span>
+                                                        </a>
+                                                    <?php else: ?>
+                                                            <span class="text-muted"><?php echo e($status->message); ?></span>
+                                                    <?php endif; ?>
+
+
+                                                    </div>
+                                                </div>
+
+                                        <?php endforeach; ?>
+                                     <?php else: ?>
+                                        <div class="feed-element">
+                                            <h2 align="center"> <?php echo e($user->fullName()); ?> has no activities yet.</h2>
+                                        </div>
+                                     <?php endif; ?>

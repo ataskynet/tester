@@ -8,8 +8,8 @@
 
     <title> | <?php echo e($title); ?></title>
 
-            <link  rel="icon" href="<?php echo e(asset('inspina/icon/logo.png')); ?>" type="image/icon"/>
-            <link  rel="shortcut icon" href="<?php echo e(asset('inspina/icon/logo.png')); ?>" type="image/icon"/>
+            <link  rel="icon" href="<?php echo e(asset('inspina/icons/main.png')); ?>" type="image/icon"/>
+            <link  rel="shortcut icon" href="<?php echo e(asset('inspina/icons/main.png')); ?>" type="image/icon"/>
             <link href="<?php echo e(asset('inspina/css/bootstrap.min.css')); ?>" rel="stylesheet">
             <link href="<?php echo e(asset('/inspina/font-awesome/css/font-awesome.css')); ?>" rel="stylesheet">
 
@@ -18,9 +18,13 @@
             <link href="<?php echo e(asset('/inspina/css/animate.css')); ?>" rel="stylesheet">
             <link href="<?php echo e(asset('/inspina/css/style.css')); ?>" rel="stylesheet">
 
+            <link href="<?php echo e(asset('/inspina/css/plugins/dropzone/dropzone.css')); ?>" rel="stylesheet">
+
             <link href="<?php echo e(asset('/datetime/css/bootstrap-datepicker3.css')); ?>" rel="stylesheet">
 
             <link href="<?php echo e(asset('inspina/css/plugins/jasny/jasny-bootstrap.min.css')); ?>" rel="stylesheet">
+
+            <link href="<?php echo e(asset('/inspina/select/css/select2.min.css')); ?>" rel="stylesheet" />
 
 
 
@@ -196,6 +200,11 @@
 <script type="text/javascript" src="<?php echo e(asset('/datetime/js/bootstrap-datepicker.js')); ?>"></script>
 
 
+    <!--Select 2 -->
+    <script src="<?php echo e(asset('inspina/select/js/select2.min.js')); ?>"></script>
+
+    <!--Dropzone -->
+    <script src="<?php echo e(asset('/inspina/js/plugins/dropzone/dropzone.js')); ?>"></script>
 
     <!-- Peity -->
     <script src="<?php echo e(asset('/inspina/js/plugins/peity/jquery.peity.min.js')); ?>"></script>
@@ -221,6 +230,9 @@
 <script>
     $('#flash-overlay-modal').modal();
 </script>
+
+
+
 <script type="text/javascript">
 function confirm_deletion(node) {
     return confirm("Are you sure you want to delete this?");
@@ -255,6 +267,7 @@ function confirm_deactivation(node) {
                 }
             );
 </script>
+
 
 
 </body>

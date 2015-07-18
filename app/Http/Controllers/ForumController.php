@@ -3,8 +3,13 @@
 use App\Administrator;
 use App\Client;
 use App\course;
+use App\Group;
+use App\Http\Forum\ForumRepository;
 use App\Http\Forum\ForumService;
 use App\Http\Forum\Subject;
+use App\Http\Mail\GroupMailer;
+use App\Http\Requests\CreateForumPostRequest;
+use App\Http\Requests\CreateForumRequest;
 use App\School;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
@@ -13,107 +18,55 @@ use App\Http\Client\ClientRepository;
 
 
 class ForumController extends Controller {
-
-    /*
-    |--------------------------------------------------------------------------
-    | Home Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller renders your application's "dashboard" for users that
-    | are authenticated. Of course, you are free to change or remove the
-    | controller as you wish. It is just here to get your app started!
-    |
-    */
     /**
-     * @var ForumService
+     * @var ForumRepository
      */
-    private $service;
-
-
-    private $client;
+    private $repository;
+    /**
+     * @var GroupMailer
+     */
+    private $mailer;
 
     /**
-     * Create a new controller instance.
-     * @param ForumService $service
+     * @param ForumRepository $repository
+     * @param GroupMailer $mailer
      */
-    public function __construct(ForumService $service, ClientRepository $client)
+    public function __construct(ForumRepository $repository, GroupMailer $mailer)
     {
-        $this->middleware('auth');
-        $this->service = $service;
-        $this->client = $client;
+
+        $this->repository = $repository;
+        $this->mailer = $mailer;
     }
 
-    /**
-     * Show the application dashboard to the user.
-     *
-     * @return Response
-     */
-    public function clientIndex()
+     public function index($group)
+     {
+         $title = $group->name . ' Forums';
+         $forums = $group->forums()->latest()->paginate(10);
+
+         return view('inspina.forum.index', compact('title','forums','group'));
+     }
+
+    public function create($group, CreateForumRequest $request)
     {
-        $title = "Forums";
-        $groups = $this->client->groupsForUser($this->user());
-        return view('inspina.forum.index', compact('groups', 'title'));
+        $forum = $this->repository->createForum($request, $group);
+        $url = $group->username.'/forums/'.$forum->id;
+        $this->mailer->sendNewForumNotification($group, $forum, $url);
+        return redirect($url);
     }
 
-    public function clientShow($school, $subject)
+    public function show($group, $forum)
     {
-        $title = "Forums";
-        $messages = $this->service->clientMessages($school, $subject);
-        $client = $this->client->retrieveClient($school, $this->user());
-        return view('inspina.forum.view', compact('messages', 'title', 'client', 'subject', 'school'));
-    }
-    public function clientChat($client, $subject)
-    {
-        $messages = $this->service->clientMessages($client, $subject);
+        $title = $group->name." : ".$forum->title;
+        $messages = $forum->posts()->get();
 
-        return $this->forumView('inspina.forum.view', 'DashBoard', $client, $subject, $messages);
+        return view('inspina.forum.view', compact('title', 'messages', 'group', 'forum'));
     }
 
-    /**
-     * @param Request $request
-     * @param $client
-     * @param $subject
-     * @return mixed
-     */
-    public function postClientChat(Request $request, $client, $subject)
+    public function store($group, $forum, CreateForumPostRequest $request)
     {
-        $message = $this->service->clientPost($request, $client, $subject);
-        return redirect()->back();
-    }
+        $this->repository->createForumPost($forum, $request);
 
-    public function postForum()
-    {
-        return redirect()->back();
-    }
-
-
-
-
-
-
-    public function adminIndex()
-    {
-        $title = "Forums";
-        $groups = $this->groupsForUser();
-        return view('inspina.forum.admin.index', compact('groups', 'title'));
-    }
-
-    public function adminChat($school, $subject)
-    {
-        $title = "Forums";
-        $messages = $this->service->messages($school, $subject);
-        return view('inspina.forum.admin.view', compact('title', 'messages', 'subject', 'school'));
-    }
-
-
-    public function postAdminChat(Request $request, $school, $subject)
-    {
-
-        $message = $this->service->adminPost($request, $school, $subject);
-
-        $this->dispatch($message);
-
-        return redirect()->back();
+        return redirect($group->username. '/forums/'.$forum->id);
     }
 
 }

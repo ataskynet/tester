@@ -18,8 +18,8 @@
                         <input name="name" id="name" type="text" class="form-control" placeholder="Group Name" required = "required">
                     </div>
                     <div class="col-md-6">
-                    <label for="school_affiliation" class="col-md-6">Group's University or College </label>
-                        <select name="school_affiliation" id="school"  class="pull-right col-md-6">
+
+                        <select name="school_affiliation" id="school"  class="pull-right col-md-12">
                             <option value="" > Select Group's University or College </option>
                             <option value="Jomo Kenyatta University of Agriculture and Technology" selected> JKUAT </option>
                             <option value="Kenyatta University">Kenyatta University</option>
@@ -56,6 +56,12 @@
             </div>
         </form>
     </div>
+@endsection
+
+@section('script')
+<script type="text/javascript">
+  $('#school').select2();
+</script>
 @endsection
 
 @section('validation')

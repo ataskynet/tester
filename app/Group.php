@@ -188,4 +188,9 @@ class Group extends Model {
 
         })->paginate(9);
     }
+
+    public function forums()
+    {
+        return $this->hasMany('App\Forum');
+    }
 }

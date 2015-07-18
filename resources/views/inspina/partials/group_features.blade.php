@@ -10,6 +10,7 @@
                                     <ul class="folder-list" style="padding: 0">
                                         <!--<li><a href="{{$group->username .'/events'}}"><i class="fa fa-calendar-o"></i> Events <i class="badge badge-default pull-right"> //$group->events()->get()->count() }}</i></a></li>-->
                                         <li><a href="{{$group->username.'/notice'}}"><i class="glyphicon glyphicon-pushpin"></i> Notices <i class="badge badge-default pull-right">{{ $group->notices()->get()->count() }}</i></a></li>
+                                        <li><a href="{{$group->username.'/forums'}}"><i class="fa fa-comments-o"></i> Forums <i class="badge badge-default pull-right">{{ $group->forums()->get()->count() }}</i></a></li>
                                         <li data-toggle="tooltip" data-placement="bottom" title="View group members and their information."><a href="{{$group->username.'/contacts'}}"><i class="fa fa-group"></i> Members <i class="badge badge-default pull-right">{{ $group->followersCount() }}</i></a></li>
                                        <!--
                                         @if($group->isOwner(\Auth::user()))

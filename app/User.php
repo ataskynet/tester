@@ -38,6 +38,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('App\File');
     }
 
+    public function statuses()
+    {
+        return $this->hasMany('App\Post');
+    }
+
     public function notices()
     {
         return $this->hasMany('App\Notice');
@@ -107,6 +112,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('App\PersonalFolder');
     }
 
+    public function publicFolders()
+    {
+        return $this->personalFolders()->where('permission', 1)->get();
+    }
     public function shared()
     {
         return $this->belongsToMany('App\Group', 'sharers', 'user_id', 'group_id')->withTimestamps();
@@ -168,4 +177,18 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $created->diff($now)->days;
     }
 
+    public function forums()
+    {
+        return $this->hasMany('App\Forum');
+    }
+
+    public function forumPosts()
+    {
+        return $this->hasMany('App\ForumPost');
+    }
+
+    public function forumPostsOf($forum)
+    {
+        return $this->forumPosts()->where('forum_id', $forum->id)->get();
+    }
 }

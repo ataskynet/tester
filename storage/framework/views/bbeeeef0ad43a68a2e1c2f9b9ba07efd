@@ -1,0 +1,40 @@
+<?php $__env->startSection('content'); ?>
+	<div class="wrapper wrapper-content" style="padding-top: 2px;">
+	<?php echo $__env->make('inspina.partials.to_home_set', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <div class="row animated fadeInRight">
+                <div class="col-md-3">
+
+                   <?php echo $__env->make('inspina.partials.contact', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title"  data-toggle="tooltip" data-placement="bottom" title="Compiled activities of <?php echo e($user->fullName()); ?>.">
+                            <h5><?php echo e($user->fullName()); ?> Activities</h5>
+
+                        </div>
+                        <div class="ibox-content">
+
+                            <div>
+                                <div class="feed-activity-list">
+                                        <?php echo $__env->make('inspina.partials.userFeed', ['statuses' => $statuses], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                </div>
+                            <div class="text-center">
+                              <?php echo $statuses->render() ?>
+                            </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+                    <?php echo $__env->make('inspina.partials.userInfo', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                </div>
+
+            </div>
+        </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('inspina.layouts.user', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

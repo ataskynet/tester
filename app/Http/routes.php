@@ -1,4 +1,7 @@
 <?php
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input as Input;
+use Illuminate\Support\Facades\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +32,11 @@ Route::controllers([
 Route::bind('user' , function($id)
 {
     return App\User::find($id);
+});
+
+Route::bind('forum' , function($id)
+{
+    return App\Forum::find($id);
 });
 
 Route::bind('username' , function($name)
@@ -134,7 +142,7 @@ Route::bind('personalFile' , function($id)
 /* Back Pack routes */
     Route::get('/pack/{personalFolder}/',
         [ 'middleware' => 'school', 'uses' => 'PackController@show' ]);
-    Route::get('{group}/{user}/{personalFolder}/visit/pack',
+    Route::get('{user}/visit/{personalFolder}/pack',
         [ 'middleware' => 'school', 'uses' => 'PackController@visit' ]);
     Route::post('/pack/',
         [ 'middleware' => 'school', 'uses' => 'PackController@storeFolder' ]);
@@ -183,7 +191,7 @@ Route::bind('personalFile' , function($id)
         Route::get('/manager',
             [ 'middleware' => 'school', 'uses' => 'FileController@index' ]);
 
-        Route::get('/manager/upload',
+        Route::get('/manager/{group}/multiple-upload/{folder}',
             [ 'middleware' => 'school', 'uses' => 'FileController@create' ]);
         Route::post('/manager/upload/{folder}',
             [ 'middleware' => 'school', 'uses' => 'FileController@store' ]);
@@ -291,8 +299,20 @@ Route::bind('personalFile' , function($id)
     Route::get('/{username}/delete/',  ['middleware' => 'school', 'uses' => 'GroupController@destroy']);
 /*End of Group CRUD Routes */
 
-Route::get('/tester/main/one',  ['middleware' => 'school', 'uses' => 'HomeController@tester']);
+Route::get('/tester/dropzone',  ['middleware' => 'school', 'uses' => 'HomeController@tester']);
+Route::post('/dropzone/upload/{folder}',  ['middleware' => 'school', 'uses' => 'FileController@storeMultiple']);
+Route::get('/compress/{folder}',  ['middleware' => 'school', 'uses' => 'FileController@zipFolderFiles']);
 
+
+/* Forum's Routes */
+
+    get('/{username}/forums', ['middleware' => 'school', 'uses' => 'ForumController@index']);
+    post('/{username}/forums/create', ['middleware' => 'school', 'uses' => 'ForumController@create']);
+    post('/{username}/forums/{forum}', ['middleware' => 'school', 'uses' => 'ForumController@store']);
+    get('/{username}/forums/{forum}', ['middleware' => 'school', 'uses' => 'ForumController@show']);
+
+/* End Forum Routes */
+    get('/profile/{user}', ['middleware' => 'school', 'uses' => 'ClientController@profile']);
 
 
 

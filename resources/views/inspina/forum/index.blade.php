@@ -1,43 +1,38 @@
-@extends('inspina')
+@extends('inspina.layouts.main')
 
 @section('content')
+    @include('inspina.partials.to_group_feed_nav')
     <div class="ibox-content m-b-sm border-bottom">
         <div class="p-xs">
             <div class="pull-left m-r-md">
-                <i class="fa fa-globe text-navy mid-icon"></i>
+                <i class="glyphicon glyphicon-comment text-navy mid-icon"></i>
             </div>
-            <h2>Welcome in skoolspace Forum</h2>
-            <span>Feel free to share anything you're interested in.</span>
+            <h2>Welcome to {{ $title }}</h2>
+            <span>Feel free to share or enquire on anything and everything.</span>
         </div>
     </div>
 
     <div class="ibox-content forum-container">
         <div class="forum-title">
+        @include('inspina.forum.partials.createForum')
             <div class="pull-right forum-desc">
-                <samll>Total posts: 320,800</samll>
+                <samll><a href="" data-toggle="modal" data-target="#createForum" class="btn btn-white">+ New Forum</a></samll>
             </div>
-            <h3>Skoolspace Groups</h3>
+            <h3>All {{ $title }}</h3>
         </div>
-
-        @foreach($groups as $group)
+    @if($forums->count() != 0)
+        @foreach($forums as $forum)
             <div class="forum-item active">
                 <div class="row">
                     <div class="col-md-9">
                         <div class="forum-icon">
-                            <i class="fa fa-shield"></i>
+                            <i class="fa fa-comments-o"></i>
                         </div>
-                        <a href="{{ url('/'. $group->username.'/general/community') }}" class="forum-item-title">{{$group->name}}</a>
-                        <div class="forum-sub-title">{{$group->description }}.</div>
+                        <a href="{{ url('/'. $group->username.'/forums/'.$forum->id) }}" class="forum-item-title">{{ $forum->title }}</a>
+                        <div class="forum-sub-title"><b>Created By: </b>{{$forum->user()->first()->fullName() }}.</div>
                     </div>
-                    <div class="col-md-1 forum-info">
-                        <span class="views-number"> 1216 </span>
-                        <div>
-                            <small>Views</small>
-                        </div>
-                    </div>
-
-                    <div class="col-md-1 forum-info">
-                        <span class="views-number"> 140 </span>
+                    <div class="col-md-2 pull-right forum-info">
+                        <span class="views-number"> {{ $forum->posts()->get()->count() }} </span>
                         <div>
                             <small>Posts</small>
                         </div>
@@ -45,12 +40,15 @@
                 </div>
             </div>
         @endforeach
+    @else
 
-        <div class="forum-title">
-            <div class="pull-right forum-desc">
-                <samll>Total posts: 17,800,600</samll>
-            </div>
-            <h3>Other subjects</h3>
+        <div class="forum-item">
+            <h2 align="center"> No Forums have been created yet, but feel free to create one</h2>
+        </div>
+    @endif
+
+        <div align="center">
+            <?php echo $forums->render() ?>
         </div>
     </div>
 @endsection

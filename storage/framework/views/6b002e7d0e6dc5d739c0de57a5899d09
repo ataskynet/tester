@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title> | <?php echo e($title); ?></title>
-            <link  rel="icon" href="<?php echo e(asset('inspina/img/main9.png')); ?>" type="image/icon"/>
-            <link  rel="shortcut icon" href="<?php echo e(asset('inspina/img/main9.png')); ?>" type="image/icon"/>
+            <link  rel="icon" href="<?php echo e(asset('inspina/icons/main.png')); ?>" type="image/icon"/>
+            <link  rel="shortcut icon" href="<?php echo e(asset('inspina/icons/main.png')); ?>" type="image/icon"/>
              <link href="<?php echo e(asset('inspina/css/bootstrap.min.css')); ?>" rel="stylesheet">
             <link href="<?php echo e(asset('/inspina/font-awesome/css/font-awesome.css')); ?>" rel="stylesheet">
 

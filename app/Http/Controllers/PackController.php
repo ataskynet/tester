@@ -31,36 +31,27 @@ class PackController extends Controller {
         $this->packRepository = $packRepository;
     }
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
 
     /**
      * Show the form for creating a new resource.
      *
-     * @param $group
      * @param $user
      * @param null $folder
+     * @internal param $group
      * @return Response
      */
-	public function visit($group ,$user , $folder = null)
+	public function visit($user , $folder = null)
 	{
         if($folder == null)
         {
             $title = $user->fullName() . "'s Back-Pack";
-            $folders = $user->rootFolders();
+            $folders = $user->publicFolders();
             return view('inspina.pack.public', compact('user','group','folders','title'));
         }
         $title = $user->fullName() . "'s Back-Pack: " .$folder->name;
-        $folders = $folder->subFolders()->get();
+        $folders = $folder->publicSubFolders();
         $documents =  $folder->files()->get();
-        return view('inspina.pack.public', compact('user','folders', 'documents', 'folder', 'group','title'));
+        return view('inspina.pack.public', compact('user','folders', 'documents', 'folder', 'title'));
 	}
 
     /**
@@ -98,8 +89,8 @@ class PackController extends Controller {
 	public function show($folder)
 	{
         $title = 'Back-Pack: '.$folder->name;
-		$subFolders = $folder->subFolders()->get();
-        $documents =  $folder->files()->get();
+		$subFolders = $folder->subFolders()->latest()->get();
+        $documents =  $folder->files()->latest()->get();
         return view('inspina.pack.view', compact('subFolders', 'documents', 'folder','title'));
 	}
 
@@ -114,8 +105,8 @@ class PackController extends Controller {
      */
 	public function update($folder, CreateFolderRequest $request)
 	{
-		$this->packRepository->renameFolder($folder, $request->name);
-        $this->flash('You have successfully renamed the folder');
+		$this->packRepository->updateFolder($folder, $request);
+        $this->flash('You have successfully updated the folder');
         return redirect()->back();
 	}
 
@@ -135,7 +126,7 @@ class PackController extends Controller {
 
     public function storeFolder(CreateFolderRequest $request)
     {
-        $folder = $this->packRepository->createFolder($request->name, \Auth::user());
+        $folder = $this->packRepository->createFolder($request, \Auth::user());
         $this->flash('You have successfully created a new folder');
         return redirect('/pack/'.$folder->id);
     }
@@ -158,7 +149,7 @@ class PackController extends Controller {
     public function storeSubFolder(CreateFolderRequest $request, $folder)
     {
 
-        $this->packRepository->createSubFoldersOf($folder, $request->name);
+        $this->packRepository->createSubFoldersOf($folder, $request);
         $this->flash('You have successfully created a new sub folder');
         return redirect()->back();
     }

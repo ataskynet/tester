@@ -93,7 +93,7 @@ class ShareController extends Controller {
 	public function show($group)
 	{
         $title = 'Shared Files';
-        $documents = $group->sharedFiles()->paginate(9);
+        $documents = $group->sharedFiles()->latest()->paginate(9);
         $sharers = $group->sharers()->get();
         return view('inspina.pack.shared', compact('sharers','group', 'title', 'documents'));
 	}

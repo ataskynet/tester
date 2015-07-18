@@ -9,6 +9,7 @@ trait Postable {
             'title' => $group->name,
             'message' => $message,
             'url' => $url,
+            'user_id' => \Auth::user()->id,
         ]);
     }
 

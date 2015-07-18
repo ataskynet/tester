@@ -74,3 +74,9 @@
                 </div>
             </div>
 @endsection
+
+@section('script')
+    <script type="text/javascript">
+      $('#school').select2();
+    </script>
+@endsection

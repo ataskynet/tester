@@ -43,7 +43,7 @@
                                                     <i class="fa fa-plus"></i>
                                                 </div>
                                                 <div  class="text-center file-name">
-                                                    <h3>Upload File</h3>
+                                                    <h3>Upload a File</h3>
                                                 </div>
                                             </a>
                                         </div>
@@ -68,6 +68,7 @@
 
                                         </div>
                                     @endif
+                                      
                                 @foreach($subFolders as $subFolder)
                                     <div class="file-box">
                                         <div class="file">
@@ -80,7 +81,7 @@
                                                 <div class="file-name">
                                                     Folder: {{ $subFolder->name }}
                                                     <br/>
-                                                    <small>Added: {{ $subFolder->created_at }}</small>
+                                                    <small>Updated: {{ $subFolder->updated_at->diffForHumans() }}</small>
 
                                                 </div>
                                             </a>
@@ -90,7 +91,7 @@
 
                         @if($documents->count() != 0)
                             @foreach($documents as $document)
-                                <div class="file-box">
+                                <div class="file-box" >
                                     <div class="file">
                                         <a href="{{ url($document->source) }}">
                                             <span class="corner"></span>
@@ -124,7 +125,7 @@
                                                 <img src="{{ asset('inspina/icons/text3.png') }}" alt="{{ $document->name }}"/>
                                             </div>
                                         @endif
-                                            <div class="file-name">
+                                            <div class="file-name" style="overflow: hidden">
                                                 {{ $document->name }}
 
                                                 <br/>

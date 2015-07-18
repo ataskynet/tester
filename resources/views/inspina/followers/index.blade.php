@@ -21,13 +21,14 @@
          </div>
         @foreach($members as $member)
             <div class="col-lg-4">
-                <div class="contact-box" style="overflow: auto">
+
+                <div class="contact-box" style="overflow: hidden">
 
                     <div class="col-sm-4">
                         <div class="text-center">
+                            <a href="{{ url('profile/'.$member->id) }}">
                             <img alt="image" class="img-circle m-t-xs img-responsive" src="{{ asset($member->profileSource()) }}">
-                            <br/>
-                            <a href="{{ url($group->username . '/' .$member->id .'/main'. '/visit/pack/ ') }}" class="btn btn-sm btn-rounded btn-primary" style="color: #ffffff" data-toggle="tooltip" data-placement="bottom" title="This user's back-pack."><i class="fa fa-briefcase"></i> Back-Pack</a>
+                            </a>
                         </div>
                     </div>
                     <div class="col-sm-8" >
@@ -41,8 +42,10 @@
                     </div>
                     <div class="clearfix"></div>
 
-                </div>
+                    </div>
+
             </div>
+
         @endforeach
 
         @if($members->count() == 0)

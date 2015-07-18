@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PersonalFolder extends Model {
 
-	protected $fillable = ['name', 'sub_directory', 'folder_id', 'user_id'];
+	protected $fillable = ['name', 'sub_directory', 'folder_id', 'user_id', 'permission'];
 
     public function isSubFolder()
     {
@@ -23,6 +23,11 @@ class PersonalFolder extends Model {
     public function subFolders()
     {
         return $this->hasMany('App\PersonalFolder');
+    }
+
+    public function publicSubFolders()
+    {
+        return $this->subFolders()->where('permission', 1)->get();
     }
 
     public function users()

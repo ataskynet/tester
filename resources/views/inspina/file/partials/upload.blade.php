@@ -13,6 +13,7 @@
                                                 <div class="modal-body">
                                                    <div class="row form-group"><input type="file" name="file" id="file" placeholder="Select a file to upload" class="form-control col-sm-12"></div>
                                                    <div class="row form-group"><input type="text" name="name" placeholder="Rename File if you wish.." class="form-control col-sm-12"></div>
+                                                   <div class="row form-group"><a href="{{ url('/manager/'.$group->username.'/multiple-upload/'.$folder->id ) }}" class="btn btn-rounded btn-block btn-white col-md-12">Multiple File Upload</a></div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>

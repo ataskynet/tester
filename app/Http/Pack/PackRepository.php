@@ -72,28 +72,31 @@ class PackRepository {
     }
 
 
-    public function createFolder($name)
+    public function createFolder($request)
     {
         $folder = \Auth::user()->personalFolders()->create([
-            'name' => $name
+            'name' => $request->name,
+            'permission' => $request->permission
         ]);
 
         return $folder;
     }
 
-    public function createSubFoldersOf($folder, $name)
+    public function createSubFoldersOf($folder, $request)
     {
         $subFolder = $folder->subFolders()->create([
-            'name' => $name,
+            'name' => $request->name,
+            'permission' => $request->permission,
             'sub_directory' => 1,
         ]);
 
         return $subFolder;
     }
 
-    public function renameFolder($folder, $name)
+    public function updateFolder($folder, $request)
     {
-        $folder->name = $name;
+        $folder->name = $request->name;
+        $folder->permission =  $request->permission;
         $folder->save();
         return $folder;
     }

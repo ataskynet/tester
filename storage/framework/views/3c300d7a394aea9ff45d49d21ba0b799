@@ -2,14 +2,36 @@
                                         <?php foreach($statuses as $status): ?>
 
                                                 <div class="feed-element">
-                                                    <a href="<?php echo e($status->group()->first()->username); ?>" class="pull-left" data-toggle="tooltip" data-placement="left" title="<?php echo e($status->group()->first()->name); ?>">
+
+                                                    <a href="<?php echo e($status->url); ?>" class="pull-left" data-toggle="tooltip" data-placement="left" title="Linked to the related activity">
+                                                    <?php if($status->user_id == 0): ?>
                                                         <img alt="image" class="img-circle" src="<?php echo e(asset($status->group()->first()->profileSource())); ?>">
+                                                    <?php else: ?>
+                                                        <img alt="image" class="img-circle" src="<?php echo e(asset($status->user()->first()->profileSource())); ?>">
+                                                    <?php endif; ?>
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right"><?php echo e($status->updated_at->diffForHumans()); ?></small>
-                                                        <a href="<?php echo e(url($status->url)); ?>">
-                                                        <strong><?php echo e($status->group()->first()->name); ?></strong><br>
-                                                        </a>
+
+                                                        <?php if($status->user_id == 0): ?>
+                                                            <a href="<?php echo e(url($status->group()->first()->username)); ?>">
+                                                                <strong><?php echo e($status->group()->first()->name); ?></strong><br>
+                                                            </a>
+                                                        <?php else: ?>
+                                                            <strong>
+                                                            <a href="<?php echo e(url('profile/'.$status->user()->first()->id)); ?>">
+                                                                <?php echo e($status->user()->first()->fullName()); ?>
+
+                                                            </a>
+                                                            @
+                                                            <a href="<?php echo e(url($status->group()->first()->username)); ?>">
+                                                                  <?php echo e($status->group()->first()->name); ?>
+
+                                                            </a>
+                                                            </strong><br/>
+                                                        <?php endif; ?>
+
+
                                                         <a href="<?php echo e(url($status->url)); ?>">
                                                             <span class="text-muted"><?php echo e($status->message); ?></span>
                                                         </a>

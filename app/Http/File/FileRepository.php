@@ -3,6 +3,7 @@
 use App\File;
 use App\Http\Mail\GroupMailer;
 use App\Http\Traits\Postable;
+use ZipArchive;
 
 class FileRepository
 {
@@ -31,41 +32,42 @@ class FileRepository
         $this->groupMailer = $groupMailer;
     }
 
-    public function uploadGroupDocument($file, $location, $folder, $type, $requestName)
+    public function uploadGroupDocument($file, $location, $folder, $requestName = null)
     {
-
-
         $group = $folder->group()->first();
+
+
         if($requestName == null)
-            $name = $file['file']['name'];
+            $name = $file->getClientOriginalName();
+
         else
         {
             $fileName = preg_replace("([^\w\s\d\-_~,;:\[\]\(\].]|[\.]{2,})", '', $requestName);
             $fileName = filter_var($fileName, FILTER_SANITIZE_URL);
-            $name = $fileName.'.'.$type;
+            $name = $fileName.'.'.$file->getClientOriginalExtension();
         }
+
         $rand = $this->randomFileName();
-        $actualName = $name . $rand . '.' . $type;
+        $actualName =  $rand .$name;
 
-        $tmpName = $file['file']['tmp_name'];
-        $destination = 'uploads/' . $location . '/' . $actualName;
+        $destination = '\uploads\\' . $location ;
 
-        if (!move_uploaded_file($tmpName, $destination)) {
-            return false;
-        }
+        $success = $file->move(public_path().$destination, $actualName);
 
-        $file = $folder->files()->create([
+        $source = '/uploads/'.$location . '/' . $actualName;
+
+        $file_record = $folder->files()->create([
             'name' => $name,
-            'type' => $type,
+            'type' => $file->getClientOriginalExtension(),
             'rand' => $rand,
-            'source' => $destination,
+            'source' => $source,
             'user_id' => \Auth::user()->id,
         ]);
 
         $message = 'New document: ' . $name . ' uploaded to Folder: ' . $folder->name .' by '.\Auth::user()->firstName.' '.\Auth::user()->lastName;
         $url = '/manager/'.$group->username.'/'.$folder->id;
         $this->post($message, $group, $url);
-        $this->groupMailer->sendFileUploadNotification($group,$file, $url);
+        $this->groupMailer->sendFileUploadNotification($group,$file_record, $url);
         return true;
 
     }
@@ -151,6 +153,24 @@ class FileRepository
         return false;
     }
 
+
+
+
+    public function randomFileName()
+    {
+        $randomName = rand(1000000, 9999999);
+
+        if(File::where('rand', $randomName)->first() != null)
+        {
+            return $this->randomFileName();
+
+        } else {
+            return $randomName;
+        }
+    }
+}
+
+/*
     public function downloadFile($file)
     {
         ignore_user_abort(false);
@@ -189,17 +209,4 @@ class FileRepository
         }
         fclose ($fd);
     }
-
-    public function randomFileName()
-    {
-        $randomName = rand(1000000, 9999999);
-
-        if(File::where('rand', $randomName)->first() != null)
-        {
-            return $this->randomFileName();
-
-        } else {
-            return $randomName;
-        }
-    }
-} 
+*/
