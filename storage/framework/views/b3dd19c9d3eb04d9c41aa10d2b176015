@@ -16,7 +16,7 @@
             <div class="pull-right forum-desc">
                 <samll><a href="" data-toggle="modal" data-target="#createForum" class="btn btn-white">+ New Forum</a></samll>
             </div>
-            <h3>All <?php echo e($title); ?></h3>
+            <h3>Forums</h3>
         </div>
     <?php if($forums->count() != 0): ?>
         <?php foreach($forums as $forum): ?>

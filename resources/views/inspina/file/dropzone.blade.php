@@ -40,6 +40,7 @@
                 addRemoveLinks: true,
                 acceptedFiles: 'image/*,'+ allowedTypes,
 
+
                 // Dropzone settings
                 init: function() {
 

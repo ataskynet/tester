@@ -4,31 +4,27 @@
         <div class="forum-post-info">
             <h4><span class="text-navy"><i class="fa fa-comments"></i>  <?php echo e($group->name); ?> Forums</span> - <span class="text-muted"><?php echo e($forum->title); ?></span></h4>
         </div>
+        <br/>
+
     <?php if($messages->count() != 0): ?>
+     <div class="feed-activity-list">
         <?php foreach($messages as $message): ?>
-        <div class="media">
-            <a class="forum-avatar" href="<?php echo e(url('profile/'.$message->user()->first()->id)); ?>">
-                <img src="<?php echo e(asset($message->user()->first()->profileSource())); ?>" class="img-circle" alt="image">
-                <div class="author-info">
-                    <strong>Posts: </strong><?php echo e($message->user()->first()->forumPostsof($forum)->count()); ?><br/>
-                    <?php echo e($message->created_at->diffForHumans()); ?>
+            <div class="feed-element">
+                <a href="<?php echo e(url('profile/'.$message->user()->first()->id)); ?>" class="pull-left">
+                   <img alt="image" class="img-circle" src="<?php echo e(asset($message->user()->first()->profileSource())); ?>">
+                </a>
+                 <div class="media-body ">
+                      <small class="pull-right"><i><?php echo e($message->created_at->diffForHumans()); ?></i></small>
+                      <strong><?php echo e($message->user()->first()->fullName()); ?></strong><br>
+                      <small class="text-muted">Posts: <?php echo e($message->user()->first()->forumPostsof($forum)->count()); ?></small>
+                      <div class="well">
+                           <?php echo nl2br($message->message); ?>
 
-                </div>
-            </a>
-            <div class="media-body">
-
-                <?php echo nl2br($message->message); ?>
-
-                <br>
-                <br>
-
-                - <?php echo e($message->user()->first()->fullName()); ?>
-
-                <br/>
-                <br/>
+                      </div>
+                 </div>
             </div>
-        </div>
         <?php endforeach; ?>
+       </div>
     <?php else: ?>
         <div class="media">
             <h2 align="center"> No contributions made to this forum yet, feel free to contribute. </h2>
@@ -41,7 +37,7 @@
                     <div class="chat-message-form">
 
                         <div class="form-group">
-                            <textarea class="form-control message-input" name="message" placeholder="Enter message text"></textarea>
+                            <textarea class="form-control message-input" name="message" placeholder="Contribute to the conversation"></textarea>
                         </div>
 
                     </div>
@@ -53,6 +49,7 @@
                         <div class="chat-message-form">
                             <div class="form-group">
                                 <input type="submit" class="form-control btn btn-md btn-primary" value="Post to Forum" />
+                                <br/>
                             </div>
                         </div>
                     </div>

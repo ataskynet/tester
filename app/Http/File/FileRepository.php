@@ -50,9 +50,9 @@ class FileRepository
         $rand = $this->randomFileName();
         $actualName =  $rand .$name;
 
-        $destination = '\uploads\\' . $location ;
+        $destination = 'uploads/' . $location ;
 
-        $success = $file->move(public_path().$destination, $actualName);
+        $success = $file->move($destination, $actualName);
 
         $source = '/uploads/'.$location . '/' . $actualName;
 

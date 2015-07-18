@@ -83,7 +83,7 @@ class FileController extends Controller
 
         if(!$this->repo->authenticateType($type, $this->repo->allowedTypes))
         {
-            return redirect()->back()->withErrors('This file extension is not supported. Allowed types are');
+            return redirect()->back()->withErrors('This file extension is not supported.');
         }
 
 
@@ -109,17 +109,17 @@ class FileController extends Controller
             $validator = Validator::make(array('file'=> $file), $rules);
             if($validator->passes()){
 
-                $this->repo->uploadGroupDocument($file, 'test', $folder  , null);
+                $this->repo->uploadGroupDocument($file, 'documents', $folder  , null);
                 $uploadcount ++;
             }
         }
         if($uploadcount == $file_count){
 
             $this->flash('Files Uploaded successfully');
-            return redirect()->back();
+            return response()->json('success', 200);
         }
         else {
-            return redirect()->back();
+            return response()->json('error', 400);
         }
     }
 

@@ -18,7 +18,7 @@
             <div class="pull-right forum-desc">
                 <samll><a href="" data-toggle="modal" data-target="#createForum" class="btn btn-white">+ New Forum</a></samll>
             </div>
-            <h3>All {{ $title }}</h3>
+            <h3>Forums</h3>
         </div>
     @if($forums->count() != 0)
         @foreach($forums as $forum)

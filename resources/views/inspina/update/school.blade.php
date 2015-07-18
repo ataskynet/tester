@@ -1,7 +1,7 @@
 @extends('inspina.layouts.main')
 
 @section('content')
- <div class="wrapper wrapper-content">
+ <div class="wrapper wrapper-content" style="padding-right: 0px; padding-left: 0px; margin-right: 0px;">
     <div class="row animated fadeInRight">
         @include('inspina.partials.groupProfile')
                     <div class="col-md-8">

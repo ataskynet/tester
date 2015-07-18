@@ -167,7 +167,7 @@
          <div class="wrapper wrapper-content">
                     <div class="">
                         <div class="">
-                        <?php echo $__env->make('inspina.partials.messenger', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                        <?php echo $__env->make('flash::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                             <?php echo $__env->yieldContent('content'); ?>
                         </div>
                     </div>
@@ -225,7 +225,7 @@
         <script src="<?php echo e(asset('/inspina/js/plugins/jasny/jasny-bootstrap.min.js')); ?>"></script>
 
 <script>
-    $('#messenger').delay(3000).slideUp(300);
+    $('.alert').delay(3000).slideUp(300);
 </script>
 <script>
     $('#flash-overlay-modal').modal();

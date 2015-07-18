@@ -6,8 +6,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "5.0.*",
-        "chumper/zipper": "^0.6.1"
-
+        "chumper/zipper": "^0.6.1",
+        "laracasts/flash": "~1.0"
 
     },
 	"require-dev": {

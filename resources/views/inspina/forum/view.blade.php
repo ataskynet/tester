@@ -6,28 +6,26 @@
         <div class="forum-post-info">
             <h4><span class="text-navy"><i class="fa fa-comments"></i>  {{ $group->name }} Forums</span> - <span class="text-muted">{{ $forum->title }}</span></h4>
         </div>
+        <br/>
+
     @if($messages->count() != 0)
+     <div class="feed-activity-list">
         @foreach($messages as $message)
-        <div class="media">
-            <a class="forum-avatar" href="{{ url('profile/'.$message->user()->first()->id) }}">
-                <img src="{{ asset($message->user()->first()->profileSource()) }}" class="img-circle" alt="image">
-                <div class="author-info">
-                    <strong>Posts: </strong>{{ $message->user()->first()->forumPostsof($forum)->count() }}<br/>
-                    {{ $message->created_at->diffForHumans() }}
-                </div>
-            </a>
-            <div class="media-body">
-
-                {!! nl2br($message->message) !!}
-                <br>
-                <br>
-
-                - {{ $message->user()->first()->fullName() }}
-                <br/>
-                <br/>
+            <div class="feed-element">
+                <a href="{{ url('profile/'.$message->user()->first()->id) }}" class="pull-left">
+                   <img alt="image" class="img-circle" src="{{ asset($message->user()->first()->profileSource()) }}">
+                </a>
+                 <div class="media-body ">
+                      <small class="pull-right"><i>{{ $message->created_at->diffForHumans() }}</i></small>
+                      <strong>{{ $message->user()->first()->fullName() }}</strong><br>
+                      <small class="text-muted">Posts: {{ $message->user()->first()->forumPostsof($forum)->count() }}</small>
+                      <div class="well">
+                           {!! nl2br($message->message) !!}
+                      </div>
+                 </div>
             </div>
-        </div>
         @endforeach
+       </div>
     @else
         <div class="media">
             <h2 align="center"> No contributions made to this forum yet, feel free to contribute. </h2>
@@ -40,7 +38,7 @@
                     <div class="chat-message-form">
 
                         <div class="form-group">
-                            <textarea class="form-control message-input" name="message" placeholder="Enter message text"></textarea>
+                            <textarea class="form-control message-input" name="message" placeholder="Contribute to the conversation"></textarea>
                         </div>
 
                     </div>
@@ -52,6 +50,7 @@
                         <div class="chat-message-form">
                             <div class="form-group">
                                 <input type="submit" class="form-control btn btn-md btn-primary" value="Post to Forum" />
+                                <br/>
                             </div>
                         </div>
                     </div>

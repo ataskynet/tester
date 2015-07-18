@@ -167,7 +167,7 @@
                     <div class="">
                         <div class="">
 
-                        @include('inspina.partials.messenger')
+                        @include('flash::message')
                             @yield('content')
                         </div>
                     </div>
@@ -219,7 +219,7 @@
        <!-- Input Mask-->
         <script src="{{ asset('/inspina/js/plugins/jasny/jasny-bootstrap.min.js') }}"></script>
 <script>
-    $('#messenger').delay(3000).slideUp(300);
+    $('.alert').delay(3000).slideUp(300);
 </script>
 <script>
     $('#flash-overlay-modal').modal();

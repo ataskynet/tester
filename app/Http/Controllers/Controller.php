@@ -4,6 +4,7 @@ use App\Group;
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Laracasts\Flash\Flash;
 
 abstract class Controller extends BaseController {
 
@@ -61,6 +62,6 @@ abstract class Controller extends BaseController {
 
     public function flash($message)
     {
-        session()->flash('message', $message);
+        Flash::info($message);
     }
 }

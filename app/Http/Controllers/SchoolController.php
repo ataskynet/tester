@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Contracts\Auth\Guard;
 use \Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Http\Request;
+use Laracasts\Flash\Flash;
 use Validator;
 
 class SchoolController extends Controller {
@@ -96,7 +97,7 @@ class SchoolController extends Controller {
             }
             if($currentUser->isTrial())
             {
-                $this->flash('Your account is not verified, Please verify within '. (7 - $currentUser->trialDays()) .' days');
+                Flash::overlay('Your account is not verified, Please verify within '. (7 - $currentUser->trialDays()) .' days', 'Account Verification');
                 $this->mailer->sendConfirmationMailTo($currentUser, $currentUser->code);
             }
             return redirect()->intended('/');
@@ -177,7 +178,7 @@ class SchoolController extends Controller {
             }
             if($currentUser->isTrial())
             {
-                $this->flash('Your account is not verified, Please verify within '. (7 - $currentUser->trialDays()) .' days');
+                Flash::overlay('Your account is not verified, Please verify within '. (7 - $currentUser->trialDays()) .' days', 'Account Verification');
                 $this->mailer->sendConfirmationMailTo($currentUser, $currentUser->code);
             }
             return redirect()->intended($this->redirectPath());
@@ -321,6 +322,7 @@ class SchoolController extends Controller {
         $user->code = '';
         $user->save();
         $this->auth->login($user);
+        Flash::overlay('Congratulations, you are account is now verified. Enjoy skoolspace', 'Account Verification');
         return redirect('/');
     }
     /*_________________________________________________________________________________________________________*/

@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-md-4">
      <div class="ibox float-e-margins">
                             <div class="ibox-title ultra-skin" style="color: #ffffff;">
                                 <h5>{{$group->name}}</h5>

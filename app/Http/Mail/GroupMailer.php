@@ -42,7 +42,7 @@ class GroupMailer {
                 $data = [
                     'name' => $user->fullName(),
                     'forumOwner' => $forum->user()->first()->fullName(),
-                    'forumName' => $forum->name,
+                    'forumName' => $forum->title,
                     'groupName' => $group->name,
                     'link' => $url,
                 ];

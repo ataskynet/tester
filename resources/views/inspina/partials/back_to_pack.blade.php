@@ -4,6 +4,6 @@
      </div>
 @if($folder->isSubFolder())
      <div class="col-md-3 pull-left">
-          <a class="btn btn-sm btn-white" href="{{ url('pack/'. $folder->folder_id) }}"><i class="glyphicon glyphicon-arrow-up"></i> &nbsp; Up One Directory</a>
+          <a class="btn btn-sm btn-white" href="{{ url('pack/'. $folder->folder_id) }}"><i class="fa fa-level-up"></i> &nbsp; Up One Directory</a>
      </div>
  @endif
